@@ -1,0 +1,47 @@
+{
+  "_from": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
+  "_id": "cordova-plugin-agora-openduo@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-agora-openduo",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
+    "rawSpec": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
+    "saveSpec": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
+    "fetchSpec": "https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git#a2c013f3f41b9e9dad8d7b0f4d74e4006e875d82",
+  "_spec": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
+  "_where": "F:\\fiver\\Bernard\\Doctor World\\DoctoWorld_AppCode (Video Call)-20210809T101407Z-001\\DoctoWorld_AppCode (Video Call)\\doctoworld_customer\\doctoworld_customer",
+  "author": "",
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-agora-openduo",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "A cordova plugin, a JS version of Wechat SDK",
+  "homepage": "",
+  "keywords": [
+    "cordova",
+    "agora",
+    "openduo",
+    "ionic",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-agora-openduo",
+  "version": "1.0.0"
+}

@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            <div class="title_inner d-flex">
+                <span>{{'appointment_detail' | translate}}</span>
+                <!-- <ion-icon class="zmdi zmdi-more-vert end ion-text-end"></ion-icon> -->
+            </div>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="doctor_info d-flex">
+        <div *ngIf="ap.doctor.user && ap.doctor.user.image_url" class="img_box center_img">
+            <img [src]="ap.doctor.user.image_url" class="crop_img">
+        </div>
+        <div *ngIf="!ap.doctor.user || !ap.doctor.user.image_url" class="img_box center_img">
+            <img src="assets/images/empty_dp.png" class="crop_img">
+        </div>
+        <div class="text_box">
+            <h2>{{ap.doctor.name}}</h2>
+            <h3>{{ap.doctor.specializations_text}}</h3>
+        </div>
+    </div>
+
+    <div class="form">
+        <ion-list lines="none">
+            <ion-item>
+                <div class="item_inner">
+                    <h2 class="d-flex">
+                        {{'appointment_on' | translate}}
+                        <span class="end" (click)="rateDoc()">{{'rate_doc' | translate}}</span>
+                    </h2>
+                    <h3>{{ap_date_formatted}}</h3>
+                </div>
+            </ion-item>
+
+            <ion-item *ngIf="ap.address && ap.address.length">
+                <div class="item_inner">
+                    <h2 class="d-flex">{{'location' | translate}}</h2>
+                    <h3>{{ap.doctor.hospitalClosest.name}}</h3>
+                    <h4 class="d-flex">
+                        {{ap.address}}
+                        <ion-icon class="zmdi zmdi-navigation end ion-text-end" (click)="navAppointment()"></ion-icon>
+                    </h4>
+                </div>
+            </ion-item>
+
+
+            <ion-item *ngIf="ap.meta && ap.meta.reason">
+                <div class="item_inner">
+                    <h2 class="d-flex"> {{'appointment_booked_for' | translate}}</h2>
+                    <h3>{{ap.meta.reason}}</h3>
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <div class="item_inner">
+                    <h2 class="d-flex"> {{'appointment_number' | translate}}</h2>
+                    <h3>{{ap.id}}</h3>
+                </div>
+            </ion-item>
+
+        </ion-list>
+    </div>
+</ion-content>
+<ion-footer *ngIf="!(ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete')"
+    class="ion-no-border">
+    <ion-row>
+        <ion-col size="6">
+            <ion-button size="large" shape="full" fill="clear" class="btn" (click)="dialAppointment()">
+                <ion-icon class="zmdi zmdi-phone ion-text-start"></ion-icon>
+                {{'call' | translate}}
+            </ion-button>
+        </ion-col>
+        <ion-col size="6">
+            <ion-button size="large" shape="full" class="btn" (click)="chatAppointment()">
+                <ion-icon class="zmdi zmdi-comment-alt-text ion-text-start"></ion-icon>
+                {{'chat' | translate}}
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-footer>

@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{'my_orders' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="{{'pull_refresh' | translate}}"
+            refreshingSpinner="circles" refreshingText="{{'refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="empty-view" *ngIf="!isLoading && (!orders || !orders.length)">
+        <div style="text-align:center">
+            <img src="assets/images/empty_orders.png" alt="no offers" />
+            <span *ngIf="userMe" style="color:#9E9E9E; font-weight:bold;">
+                {{'empty_orders' | translate}}
+            </span>
+            <p *ngIf="!userMe" style="color:#9E9E9E; font-weight:bold;" [innerHTML]="'alert_login_msg' | translate"></p>
+        </div>
+    </div>
+
+    <ion-list lines="none">
+        <h2 *ngIf="inProcessList && inProcessList.length">{{'in_process' | translate}}</h2>
+        <ion-item *ngFor="let order of inProcessList"
+            [ngClass]="{'in_transist': (order.status=='dispatched' || order.status=='intransit'), 'delivered':order.status=='complete', 'confirmed':order.status=='accepted' }"
+            (click)="navOrderDetail(order)">
+            <div class="item_inner d-flex">
+                <div class="img_box center_img">
+                    <img [src]="order.vendor.image" class="crop_img">
+                </div>
+                <div class="text_box">
+                    <h3 class="d-flex">{{order.vendor.name}} <span
+                            class="end order_status">{{('order_status_'+order.status) | translate}}</span></h3>
+                    <h4 class="d-flex">
+                        {{order.created_at}}
+                        <span class="end">{{'order_id' | translate}}{{order.id}} | {{order.total_toshow}}</span>
+                    </h4>
+                    <div class="item_details d-flex">
+                        <div class="item_list">
+                            <h5 *ngFor="let product of order.products" class="d-flex">
+                                {{product?.vendor_product.product.title}}
+                            </h5>
+                        </div>
+                        <!-- <h5 class="end" *ngIf="order.status == 'complete'" (click)="navReviewProduct(order)">{{'review_now' | translate}}</h5> -->
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+
+        <h2 *ngIf="pastOrderList && pastOrderList.length">{{'past' | translate}}</h2>
+        <ion-item *ngFor="let order of pastOrderList"
+            [ngClass]="{'in_transist': (order.status=='dispatched' || order.status=='intransit'), 'delivered':order.status=='complete', 'confirmed':order.status=='accepted' }">
+            <div class="item_inner d-flex">
+                <div class="img_box center_img" (click)="navOrderDetail(order)">
+                    <img [src]="order.vendor.image" class="crop_img">
+                </div>
+                <div class="text_box">
+                    <h3 class="d-flex">{{order.vendor.name}} <span class="end order_status"
+                            (click)="navOrderDetail(order)">{{('order_status_'+order.status) | translate}}</span></h3>
+                    <h4 class="d-flex">
+                        {{order.created_at}}
+                        <span class="end" (click)="navOrderDetail(order)">{{'order_id' | translate}}{{order.id}} |
+                            {{order.total_toshow}}</span>
+                    </h4>
+                    <div class="item_details d-flex">
+                        <div class="item_list" (click)="navOrderDetail(order)">
+                            <h3 *ngFor="let product of order.products" class="d-flex">
+                                {{product?.vendor_product.product.title}}
+                                <span *ngIf="order.status == 'complete' && product.vendor_product.product.reviewed"
+                                    class="icon_box end">
+                                    <ion-icon class="zmdi zmdi-star active"></ion-icon>
+                                    <ion-icon class="zmdi zmdi-star active"></ion-icon>
+                                    <ion-icon class="zmdi zmdi-star active"></ion-icon>
+                                    <ion-icon class="zmdi zmdi-star active"></ion-icon>
+                                    <ion-icon class="zmdi zmdi-star"></ion-icon>
+                                </span>
+                            </h3>
+                        </div>
+                        <h5 class="end" *ngIf="order.status == 'complete'" (click)="navReviewProduct(order)">
+                            {{'review_now' | translate}}</h5>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'loading' | translate}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

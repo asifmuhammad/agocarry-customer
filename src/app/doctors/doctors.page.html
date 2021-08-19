@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            <div class="title_inner d-flex">
+                <div class="location" (click)="pickLocation()">
+                    <h2 *ngIf="selectedLocation != null" class="d-flex">
+                        <ion-icon class="zmdi zmdi-pin ion-text-start"></ion-icon>
+                        <p class="marquee"> <span> {{selectedLocation.formatted_address}} </span> </p>
+                    </h2>
+                    <h2 *ngIf="selectedLocation == null" class="d-flex">
+                        <ion-icon class="zmdi zmdi-pin ion-text-start"></ion-icon>
+                        <span>{{'select_location' | translate}}</span>
+                    </h2>
+                </div>
+            </div>
+        </ion-title>
+    </ion-toolbar>
+    <div class="banner">
+        <div class="banner_text">
+            <h3 *ngIf="apiService.getUserMe() != null">{{'hello' | translate}}, {{apiService.getUserMe().name}}.</h3>
+            <h3 *ngIf="apiService.getUserMe() == null">{{'hello' | translate}}.</h3>
+            <h2>{{'find_doctors' | translate}}</h2>
+        </div>
+        <div class="search_box d-flex" (click)="navSearch()">
+            <ion-icon name="search-outline" class="ion-text-start"></ion-icon>
+            <h2>{{'doctor_specialities_clinic_hospital' | translate}}</h2>
+        </div>
+    </div>
+</ion-header>
+
+<ion-content fullscreen>
+    <div *ngIf="doctorTypes && doctorTypes.length" class="shop_by_category">
+        <h2 class="d-flex" (click)="navListDoctors()">{{'find_by_specialities' | translate}}<span
+                class="end">{{'view_all' | translate}}</span>
+        </h2>
+        <div class="scroll-x">
+            <div class="category" *ngFor="let category of doctorTypes" (click)="navListDoctorsType(category)">
+                <div class="category_img center_img">
+                    <img [src]="category.image" class="crop_img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offres" *ngIf="banners && banners.length">
+        <h2 class="d-flex">{{'sponsors_ad' | translate}}</h2>
+        <div class="scroll-x">
+            <div class="offer center_img" *ngFor="let banner of banners">
+                <img [src]="banner.image" class="crop_img">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="empty-view" *ngIf="!isLoading && (!specializations || !specializations.length)">
+        <div style="text-align:center">
+            <img src="assets/images/empty_categories.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold;">
+                {{'empty_specializations' | translate}}
+            </span>
+        </div>
+    </div>
+    <ion-list lines="none">
+        <h2 *ngIf="specializations && specializations.length">{{'list_of_specialities' | translate}}</h2>
+        <ion-item *ngFor="let category of specializations" (click)="navListDoctorsSpeciality(category)">
+            <h3>{{category.title}}</h3>
+            <h4 slot="end">
+                {{category.count}}
+                <ion-icon class="zmdi zmdi-chevron-right ion-text-end"></ion-icon>
+            </h4>
+        </ion-item>
+    </ion-list>
+</ion-content>

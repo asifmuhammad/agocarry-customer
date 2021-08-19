@@ -1,0 +1,127 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{'my_appointments' | translate}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color" fullscreen>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="{{'pull_refresh' | translate}}"
+            refreshingSpinner="circles" refreshingText="{{'refreshing' | translate}}">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="empty-view" *ngIf="!isLoading && (!appointmentsAll || !appointmentsAll.length)">
+        <div style="text-align:center">
+            <img src="assets/images/empty_appointments.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold; display: block;">{{"empty_appointments" | translate}}</span>
+        </div>
+    </div>
+    <ion-list lines="none">
+        <h2 *ngIf="appointmentsUpcoming && appointmentsUpcoming.length">{{'upcoming_appointments' | translate}}</h2>
+        <ion-item *ngFor="let ap of appointmentsUpcoming" [ngClass]="optionsAppointment == ap.id ? 'show_options' : ''">
+            <div class="item_inner d-flex">
+                <div *ngIf="ap.doctor.user && ap.doctor.user.image_url" class="img_box center_img"
+                    (click)="navAppointmentDetail(ap)">
+                    <img [src]="ap.doctor.user.image_url" class="crop_img">
+                </div>
+
+                <div *ngIf="!ap.doctor.user || !ap.doctor.user.image_url" class="img_box center_img"
+                    (click)="navAppointmentDetail(ap)">
+                    <img src="assets/images/empty_dp.png" class="crop_img">
+                </div>
+
+                <div class="text_box">
+                    <h2 class="d-flex">{{ap.doctor.name}}
+                        <ion-icon *ngIf="ap.status == 'pending' && optionsAppointment != ap.id"
+                            class="zmdi zmdi-more-vert ion-text-end end" (click)="showOptions(ap)"></ion-icon>
+                        <ion-icon *ngIf="ap.status == 'pending' && optionsAppointment == ap.id"
+                            class="zmdi zmdi-close ion-text-end end" (click)="showOptions(ap)"></ion-icon>
+                        <span *ngIf="ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete'"
+                            class="status end">
+                            {{ ('appointment_status_'+ap.status) | translate}}
+                        </span>
+                    </h2>
+                    <h3 (click)="navAppointmentDetail(ap)">{{ap.doctor.specializations_text}}</h3>
+
+                    <h4 class="d-flex">
+                        <!-- {{ap.date_toshow}} {{ap.day_toshow | translate}} | {{ap.time_from_toshow}} -->
+                        {{ap.date_toshow}} | {{ap.time_from_toshow}}
+
+                        <span class="end"
+                            *ngIf="!(ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete')">
+                            <ion-icon
+                                [ngClass]="config.agoraVideoConfig.enableAgoraVideo ? 'zmdi zmdi-videocam ion-text-start' : 'zmdi zmdi-phone ion-text-start' "
+                                (click)="dialAppointment(ap)"></ion-icon>
+                            <ion-icon class="zmdi zmdi-comment-alt-text ion-text-end" (click)="chatAppointment(ap)">
+                            </ion-icon>
+                        </span>
+                    </h4>
+                </div>
+
+
+            </div>
+
+            <div class="option_container">
+                <div class="option" (click)="confirmCancel(ap)">
+                    <h2 class="ion-text-end">{{'cancel' | translate}}</h2>
+                </div>
+            </div>
+        </ion-item>
+
+        <h2 *ngIf="appointmentsPast && appointmentsPast.length">{{'past_appointments' | translate}}</h2>
+
+        <ion-item *ngFor="let ap of appointmentsPast" [ngClass]="optionsAppointment == ap.id ? 'show_options' : ''">
+            <div class="item_inner d-flex">
+                <div *ngIf="ap.doctor.user && ap.doctor.user.image_url" class="img_box center_img"
+                    (click)="navAppointmentDetail(ap)">
+                    <img [src]="ap.doctor.user.image_url" class="crop_img">
+                </div>
+
+                <div *ngIf="!ap.doctor.user || !ap.doctor.user.image_url" class="img_box center_img"
+                    (click)="navAppointmentDetail(ap)">
+                    <img src="assets/images/empty_dp.png" class="crop_img">
+                </div>
+
+                <div class="text_box">
+                    <h2 class="d-flex">
+                        {{ap.doctor.name}}
+                        <ion-icon
+                            *ngIf="!(ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete') && optionsAppointment != ap.id"
+                            class="zmdi zmdi-more-vert ion-text-end end" (click)="showOptions(ap)"></ion-icon>
+                        <ion-icon
+                            *ngIf="!(ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete') && optionsAppointment == ap.id"
+                            class="zmdi zmdi-close ion-text-end end" (click)="showOptions(ap)"></ion-icon>
+                        <span *ngIf="ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete'"
+                            class="status end">
+                            {{ ('appointment_status_'+ap.status) | translate}}
+                        </span>
+                    </h2>
+                    <h3 (click)="navAppointmentDetail(ap)">{{ap.doctor.specializations_text}}</h3>
+
+                    <h4 class="d-flex">
+                        {{ap.date_toshow}} | {{ap.time_from_toshow}}
+
+                        <span class="end"
+                            *ngIf="!(ap.status == 'cancelled' || ap.status == 'rejected' || ap.status == 'complete')">
+                            <ion-icon
+                                [ngClass]="config.agoraVideoConfig.enableAgoraVideo ? 'zmdi zmdi-videocam ion-text-start' : 'zmdi zmdi-phone ion-text-start' "
+                                (click)="dialAppointment(ap)"></ion-icon>
+                            <ion-icon class="zmdi zmdi-comment-alt-text ion-text-end" (click)="chatAppointment(ap)">
+                            </ion-icon>
+                        </span>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="option_container">
+                <div class="option" (click)="confirmCancel(ap)">
+                    <h2 class="ion-text-end">{{'cancel' | translate}}</h2>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfiniteAppointments($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'loading' | translate}}">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

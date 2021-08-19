@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "971942122749",
+    "firebase_url": "https://customer-cookfu-default-rtdb.firebaseio.com",
+    "project_id": "customer-cookfu",
+    "storage_bucket": "customer-cookfu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971942122749:android:15787d0e506cd9e2a7da94",
+        "android_client_info": {
+          "package_name": "com.itech.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971942122749-e71jqpo413k3g641tqg365tvguokje1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itech.delivery",
+            "certificate_hash": "36eab21375c5e5674ab3c40537c45f5ae9df07c6"
+          }
+        },
+        {
+          "client_id": "971942122749-p7g5m3l6e9719f8kflv31lip9kop7c0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3ACyv5bfuERtbkek_M4rTK3NH-Jt9RBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971942122749-p7g5m3l6e9719f8kflv31lip9kop7c0f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -27,7 +27,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:4.2.1'
     }
 }
 
@@ -98,12 +98,12 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-firebasex/yourpackagename_customer-build.gradle"
-apply from: "../cordova-plugin-badge/yourpackagename_customer-badge.gradle"
-apply from: "../cordova-plugin-local-notification/yourpackagename_customer-localnotification.gradle"
-apply from: "../com-sarriaroman-photoviewer/yourpackagename_customer-photoviewer.gradle"
-apply from: "../onesignal-cordova-plugin/yourpackagename_customer-build-extras-onesignal.gradle"
-apply from: "../cordova-plugin-agora-openduo/yourpackagename_customer-agora.gradle"
+apply from: "../com-sarriaroman-photoviewer/delivery-photoviewer.gradle"
+apply from: "../cordova-plugin-agora-openduo/delivery-agora.gradle"
+apply from: "../cordova-plugin-badge/delivery-badge.gradle"
+apply from: "../cordova-plugin-firebasex/delivery-build.gradle"
+apply from: "../cordova-plugin-local-notification/delivery-localnotification.gradle"
+apply from: "../onesignal-cordova-plugin/delivery-build-extras-onesignal.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -203,6 +203,7 @@ android {
         if(cdvTargetSdkVersion != null) {
             targetSdkVersion cdvTargetSdkVersion
         }
+        multiDexEnabled true
     }
 
     lintOptions {
@@ -299,7 +300,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    implementation "androidx.annotation:annotation:1.1.0"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation "com.soundcloud.android:android-crop:1.0.0@aar"
     implementation "com.google.android.gms:play-services-tagmanager:17.0.0"
     implementation "com.google.android.gms:play-services-auth:18.0.0"
     implementation "com.google.firebase:firebase-analytics:17.4.3"
@@ -313,8 +315,7 @@ dependencies {
     implementation "com.google.firebase:firebase-crashlytics:17.0.1"
     implementation "com.google.firebase:firebase-crashlytics-ndk:17.0.1"
     implementation "com.google.code.gson:gson:2.8.6"
-    implementation "com.soundcloud.android:android-crop:1.0.0@aar"
-    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation "androidx.annotation:annotation:1.1.0"
     implementation "com.google.android.gms:play-services-location:16.+"
     implementation "androidx.legacy:legacy-support-v4:1.+"
     implementation "androidx.appcompat:appcompat:1.+"

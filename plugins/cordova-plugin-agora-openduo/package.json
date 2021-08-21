@@ -19,7 +19,7 @@
   ],
   "_resolved": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git#a2c013f3f41b9e9dad8d7b0f4d74e4006e875d82",
   "_spec": "git+https://gitlab.com/aman.sharma.230693/cordova-plugin-agora-openduo.git",
-  "_where": "F:\\fiver\\Bernard\\Doctor World\\DoctoWorld_AppCode (Video Call)-20210809T101407Z-001\\DoctoWorld_AppCode (Video Call)\\doctoworld_customer\\doctoworld_customer",
+  "_where": "F:\\fiver\\Bernard\\Agocarry\\agocarry-customer",
   "author": "",
   "bundleDependencies": false,
   "cordova": {

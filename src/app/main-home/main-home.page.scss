@@ -1,0 +1,101 @@
+.item-cls{
+    margin-top: 40px;
+  }
+  
+  .ion-button{
+    height: 60px;
+    width: 60px;
+    --border-radius: 10px;
+    --background: white;
+    --ion-color-base: #009de04d !important;
+  }
+  .ion-search{
+    font-size: 40px;
+  }
+  .text{
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .availaible{
+    font-size: 23px;
+    font-weight: initial;
+  }
+  .amount{
+    float: right;
+      padding-top: 11px;
+      color: #fd6309;
+      font-size: 30px;
+      font-weight: bold;
+  }
+  .discount{
+    font-size: 25px;
+  }
+  .seemore{
+    font-size: 17px;
+      padding-left: 9px;
+      color: rgb(75, 189, 75);
+      float: right;
+  
+  }
+  .img2 {
+    border-radius: 15px
+  }
+  ion-slide{
+    padding:10px
+  }
+  .ion-button-delivery{
+    height: 60px;
+    width: 60px;
+    --border-radius: 10px;
+    --background: white;
+    --ion-color-base: #5140e04d !important;
+  
+  }
+  .ion-ride{
+    font-size: 40px;
+    color: purple;
+  }
+  .ion-button-food{
+    height: 60px;
+    width: 60px;
+    --ion-color-base: #f1d7d1a8 !important;
+  }
+  .ion-food{
+    font-size: 40px;
+    color: rgb(228, 222, 67);}
+  
+    .ion-button-pharmacy{
+      height: 60px;
+      width: 60px;
+      --ion-color-base: #f79a85a8 !important;
+    }
+    .ion-pharmacy{
+      font-size: 40px;
+      color: rgb(230, 42, 42);}
+  
+      .ion-button-shopping{
+        height: 60px;
+      width: 60px;
+        --ion-color-base: #94a3b8a8 !important;
+      }
+      .ion-shopping{
+        font-size: 40px;
+        color: rgb(64, 55, 95);}
+  
+        .ion-button-more{
+          height: 60px;
+          width: 60px;
+          --ion-color-base: #a2d1aaa8 !important;
+        }
+        .ion-more{
+          font-size: 40px;
+          color: rgb(36, 92, 43);}
+          .text-lable{
+            position: relative;
+            left: 13px;
+          }
+          .t-lable{
+            position: relative;
+            left: 3px;
+          }
+       

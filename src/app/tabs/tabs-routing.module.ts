@@ -7,12 +7,15 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [{
-      path: 'home',
+      path: '',
       children: [
         {
-          path: '',
+          path: 'home',
           loadChildren: () =>
             import('../home/home.module').then(m => m.HomePageModule)
+        },{
+          path: 'main-home',
+          loadChildren: () => import('../main-home/main-home.module').then( m => m.MainHomePageModule)
         }
       ]
     }, {
@@ -53,13 +56,13 @@ const routes: Routes = [
       ]
     }, {
       path: '',
-      redirectTo: '/tabs/home',
+      redirectTo: '/tabs/main-home',
       pathMatch: 'full'
     }
     ]
   }, {
     path: '',
-    redirectTo: '/tabs/home',
+    redirectTo: '/tabs/main-home',
     pathMatch: 'full'
   }];
 

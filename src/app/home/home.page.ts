@@ -74,6 +74,7 @@ export class HomePage implements OnInit, OnDestroy {
   loadCategories() {
     this.subscriptions.push(this.apiService.getCategoriesParents(Constants.SCOPE_ECOMMERCE).subscribe(res => {
       this.categories = res;
+      console.log("category",this.categories);
       // this.loadedCount = 0;
       // if (res && res.length && this.selectedLocation) {
       //   for (let cat of res) this.loadProductsByCatId(cat);

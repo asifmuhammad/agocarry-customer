@@ -26,7 +26,7 @@ export interface AppConfig {
 
 export const BaseAppConfig: AppConfig = {
     appName: "CookFu",
-    apiBase: "http://192.168.0.115:8001/",
+    apiBase: "https://api.agocarry.com/public/",
     googleApiKey:"AIzaSyDLMJOClhhQjkfepu0R8iOCIt7bUpUF0nU", //"AIzaSyA3ACyv5bfuERtbkek_M4rTK3NH-Jt9RBk",
     oneSignalAppId: "14a71c55-8888-4373-afa7-f69c79bfdda7",
     oneSignalGPSenderId: "971942122749",

@@ -226,7 +226,9 @@ const routes: Routes = [
   {
     path: 'add-money',
     loadChildren: () => import('./add-money/add-money.module').then( m => m.AddMoneyPageModule)
-  }
+  },
+  
+
 
 ];
 @NgModule({

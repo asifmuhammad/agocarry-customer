@@ -1,0 +1,75 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			{{'your_cart' | translate}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+	<div class="empty-view" *ngIf="!eComService.getCartItems() || !eComService.getCartItems().length">
+		<div style="text-align:center">
+			<img src="assets/images/plc_no_emptycart.png" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_cart' | translate}}
+			</span>
+		</div>
+	</div>
+	<ion-list lines="none">
+		<ion-item *ngFor="let ci of eComService.getCartItems()">
+			<div class="item_inner d-flex">
+				<div class="img_box center_img">
+					<img [src]="ci.image" class="crop_img">
+				</div>
+				<div class="text_box">
+					<h2 class="d-flex">
+						{{ci.title}}
+						<!-- <span *ngIf="ci.product.prescription_required" class="prescription_required end">
+							<img src="assets/images/px.png">
+						</span> -->
+					</h2>
+					<h3>{{ci.subtitle}}</h3>
+					<h4 class="d-flex">
+						<span class="add_remove_btn">
+							<small class="remove" (click)="eComService.removeOrDecrementCartItem(ci)">-</small>
+							<strong class="ion-text-center">{{ci.quantity}}</strong>
+							<small class="add" (click)="eComService.addOrIncrementCartItem(ci)">+</small>
+						</span>
+						<span class="end">{{currency_icon}}{{ci.getTotal(true)}}</span>
+					</h4>
+				</div>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>
+
+<ion-footer *ngIf="eComService.getCartItems() && eComService.getCartItems().length" class="ion-no-border">
+	<div class="form" [ngClass]="fabAction ? 'active' : ''">
+		<ion-item lines="none">
+			<ion-input mode="md" [(ngModel)]="couponCode" type="text" placeholder="{{'add_promocode' | translate}}"
+				(keyup.enter)="verifyCoupon()"></ion-input>
+			<h3 slot="end" (click)="verifyCoupon()">{{'apply' | translate}}</h3>
+		</ion-item>
+		<div class="payment_details">
+			<h3 class="d-flex">
+				{{'cart_total' | translate}}
+				<span class="end">{{currency_icon}}{{eComService.getCartItemsTotal(true)}}</span>
+			</h3>
+			<h3 *ngFor="let ec of eComService.getExtraCharges()" class="d-flex">
+				{{ec.id | translate}}
+				<span class="end">{{ec.priceToShow}}</span>
+			</h3>
+		</div>
+		<h2 class="d-flex" (click)="navAddressSelection()">
+			{{'checkout_now' | translate}}
+			<span class="end">
+				<small class="ion-text-start">{{'total' | translate}}</small>
+				{{currency_icon}}{{eComService.getCartTotal(true)}}
+				<ion-icon class="zmdi zmdi-chevron-right ion-text-end"></ion-icon>
+			</span>
+		</h2>
+	</div>
+</ion-footer>

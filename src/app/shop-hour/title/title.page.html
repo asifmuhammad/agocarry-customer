@@ -1,0 +1,31 @@
+<!--
+<ion-header>
+  <ion-toolbar>
+    <ion-title>title</ion-title>
+  </ion-toolbar>
+</ion-header>
+-->
+<ion-content (click)="dismiss()">
+
+</ion-content>
+<ion-footer no-border>
+	<div class="form">
+		<ion-list lines="none">
+			<ion-item lines="none">
+				<ion-icon class="zmdi zmdi-badge-check" slot="start"></ion-icon>
+				<ion-label mode="md" position="stacked">{{"address_title" | translate}}</ion-label>
+				<ion-input mode="md" type="text" placeholder="{{'enter_address_title' | translate}}"
+					[(ngModel)]="address.title"></ion-input>
+			</ion-item>
+			<ion-item lines="none">
+				<ion-icon class="zmdi zmdi-pin" slot="start"></ion-icon>
+				<ion-label mode="md" position="stacked">{{"address_address" | translate}}</ion-label>
+				<ion-input mode="md" type="text" placeholder="{{'enter_address_detail' | translate}}"
+					[(ngModel)]="address.formatted_address"></ion-input>
+			</ion-item>
+		</ion-list>
+	</div>
+	<ion-button size="large" shape="full" class="btn" (click)="save()">
+		{{'save_address' | translate}}
+	</ion-button>
+</ion-footer>

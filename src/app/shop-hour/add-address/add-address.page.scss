@@ -1,0 +1,119 @@
+ion-header {
+    ion-toolbar {
+        ion-buttons ion-back-button {
+            --padding-start: 0 !important;
+            --padding-end: 0 !important;
+        }
+
+        ion-title {
+            position: relative !important;
+            top: 0 !important;
+
+            .title_inner {
+                font-size: 1.2rem;
+
+                .button.btn {
+                    --background: none;
+                    --color: var(--primary);
+                    font-weight: 600;
+                    font-size: 1.15rem !important;
+                    width: fit-content;
+                    --padding-start: 0 !important;
+                    --padding-end: 0 !important;
+                }
+            }
+        }
+    }
+
+    .search_box {
+        background: var(--white);
+        width: calc(100% - 0px);
+        border-radius: 3px;
+        margin: 0 auto;
+        padding: 0 15px;
+        position: relative;
+        overflow: hidden;
+        min-height: 50px;
+        z-index: 99;
+
+        ion-icon {
+            color: var(--text-dark2);
+            font-size: 1.4rem;
+            min-width: 35px;
+            height: 35px;
+            line-height: 35px;
+            z-index: 99;
+
+            &.zmdi-gps-dot {
+                font-size: 1.5rem;
+                color: var(--text-light2);
+            }
+        }
+
+        ion-searchbar {
+            --background: var(--transparent) !important;
+            --color: var(--text-light2);
+            --placeholder-opacity: 1;
+            --placeholder-font-weight: 400 !important;
+            --box-shadow: none !important;
+        }
+    }
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    ion-icon {
+        position: absolute;
+        z-index: 99;
+        color: var(--secondary);
+        font-size: 2.5rem;
+        width: 24px;
+        overflow: hidden;
+    }
+}
+
+.saved_address {
+    background: var(--white);
+    position: relative;
+    z-index: 999;
+    padding-top: 10px;
+
+    h2 {
+        margin: 0;
+        color: var(--text-black);
+        font-weight: 400;
+        letter-spacing: 0;
+        font-size: 0.8rem;
+        padding-bottom: 11px;
+        opacity: 0.8;
+    }
+
+    .address_box {
+        align-items: flex-start !important;
+        padding: 15px 20px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--bg-color);
+
+        p {
+            color: var(--text-black);
+            margin: 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

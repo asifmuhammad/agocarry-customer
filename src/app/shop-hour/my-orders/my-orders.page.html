@@ -1,0 +1,157 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>
+			{{'my_orders' | translate}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color">
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="{{'pull_refresh' | translate}}"
+			refreshingSpinner="circles" refreshingText="{{'refreshing' | translate}}">
+		</ion-refresher-content>
+	</ion-refresher>
+	<div class="empty-view" *ngIf="!isLoading && (!orders || !orders.length)">
+		<div style="text-align:center">
+			<img src="assets/images/plc_no_transaction.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_orders' | translate}}
+			</span>
+		</div>
+	</div>
+	<ion-list lines="none">
+		<ion-item *ngFor="let order of orders" [ngClass]="expandedOrderId == order.id ? 'active' : '' ">
+			<div class="item_inner">
+				<div class="item_info">
+					<div class="item_header d-flex" (click)="toggleOrderExpansion(order)">
+						<div class="img_box center_img">
+							<img [src]="order.vendor.image" class="crop_img">
+						</div>
+						<div class="text_box">
+							<h2>{{order.vendor.name}}</h2>
+							<h3>{{order.vendor.tagline}}</h3>
+							<h4 class="d-flex">
+								{{'ordered_on' | translate}} {{order.created_at}}
+								<span class="end">
+									{{'order_id' | translate}}{{order.id}}
+								</span>
+							</h4>
+						</div>
+					</div>
+					<div class="detail d-flex">
+						<div class="text_box payment" (click)="toggleOrderExpansion(order)">
+							<h2>{{'payment' | translate}}</h2>
+							<h3>{{order.total_toshow}}</h3>
+						</div>
+						<div class="text_box payment_mode" (click)="toggleOrderExpansion(order)">
+							<h2>{{'payment_mode' | translate}}</h2>
+							<h3 *ngIf="order.payment && order.payment.payment_method">
+								{{order.payment.payment_method.title}}
+							</h3>
+							<h3 *ngIf="!(order.payment && order.payment.payment_method)">
+								COD
+							</h3>
+						</div>
+						<div class="text_box order_status end">
+							<h2>{{'order_status' | translate}}</h2>
+							<h3>{{('order_status_'+order.status) | translate}}</h3>
+						</div>
+					</div>
+				</div>
+
+				<ion-card>
+					<div class="card_header">
+						<ion-row>
+							<ion-col [ngClass]="order.orderProgress >= 1 ? 'active' : ''">
+								<div class="icon_box">
+									<ion-icon class="zmdi zmdi-check-all ion-text-center"></ion-icon>
+								</div>
+								<p class="ion-text-center">{{'placed' | translate}}</p>
+							</ion-col>
+							<ion-col [ngClass]="order.orderProgress >= 2 ? 'active' : ''">
+								<div class="icon_box">
+									<ion-icon class="zmdi zmdi-assignment-returned ion-text-center"></ion-icon>
+								</div>
+								<p class="ion-text-center">{{'packing' | translate}}</p>
+							</ion-col>
+							<ion-col [ngClass]="order.orderProgress >= 3 ? 'active' : ''">
+								<div class="icon_box">
+									<ion-icon class="zmdi zmdi-bike ion-text-center"></ion-icon>
+								</div>
+								<p class="ion-text-center">
+									{{ (order.status=='prepared'?'dispatching':'dispatched') | translate}}</p>
+							</ion-col>
+							<ion-col [ngClass]="order.orderProgress >= 4 ? 'active' : ''"
+								(click)="navTrackOrder(order)">
+								<div class="icon_box">
+									<ion-icon class="zmdi zmdi-navigation ion-text-center"></ion-icon>
+								</div>
+								<p class="ion-text-center">{{'track' | translate}}</p>
+							</ion-col>
+							<ion-col [ngClass]="order.orderProgress >= 5 ? 'active' : ''">
+								<div class="icon_box">
+									<ion-icon class="zmdi zmdi-home ion-text-center"></ion-icon>
+								</div>
+								<p class="ion-text-center">{{'delivered' | translate}}</p>
+							</ion-col>
+						</ion-row>
+					</div>
+
+					<div class="ordered_items">
+						<h2>{{'ordered_items' | translate}}</h2>
+						<div *ngFor="let product of order.products">
+							<h3 class="d-flex">
+								{{product.vendor_product.product.title}}
+								<span class="d-flex end">
+									<!-- <small class="review"
+										(click)="navReviewProduct(order, product.vendor_product.product)">
+										{{'review_this' | translate}}
+									</small> -->
+									<small
+										*ngIf="order.status == 'complete' &&  !product.vendor_product.product.reviewed"
+										class="review"
+										(click)="navReviewProduct(order, product.vendor_product.product)">
+										{{'review_this' | translate}}
+									</small>
+									<small class="end"> {{product.vendor_product.product.priceToShow}}</small>
+								</span>
+							</h3>
+							<h2>{{'qnt' | translate}}. {{product.quantity}}</h2>
+						</div>
+					</div>
+
+					<div class="payment_details">
+						<h3 class="d-flex">
+							{{'sub_total' | translate}}
+							<span class="end">{{order.subtotal_toshow}}</span>
+						</h3>
+						<h3 *ngIf="order.taxes_toshow" class="d-flex">
+							{{'tax_in_percent' | translate}}
+							<span class="end">{{order.taxes_toshow}}</span>
+						</h3>
+						<h3 *ngIf="order.delivery_fee_toshow" class="d-flex">
+							{{'delivery_fee' | translate}}
+							<span class="end">{{order.delivery_fee_toshow}}</span>
+						</h3>
+						<h3 *ngIf="order.discount_toshow" class="d-flex">
+							{{'discount' | translate}}
+							<span class="end">- {{order.discount_toshow}}</span>
+						</h3>
+						<h2 class="d-flex">
+							{{'total' | translate}}
+							<span class="end">{{order.total_toshow}}</span>
+						</h2>
+					</div>
+				</ion-card>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'loading' | translate}}">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

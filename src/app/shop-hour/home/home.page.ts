@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { MyAddress } from 'src/models/address.models';
+import { MyAddress } from 'src/models/models-shop-hour/address.models';
 import { NavController } from '@ionic/angular';
-import { Category } from 'src/models/category.models';
+import { Category } from 'src/models/models-shop-hour/category.models';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { NavigationExtras } from '@angular/router';
@@ -52,7 +52,7 @@ export class HomePage implements OnInit, OnDestroy {
 
   navCatDetail(cat: Category) {
     let navigationExtras: NavigationExtras = { state: { category: cat } };
-    this.navCtrl.navigateForward(['./item'], navigationExtras);
+    this.navCtrl.navigateForward(['tabs/main-home/shop-hour/item'], navigationExtras);
   }
 
   loadCategories() {
@@ -118,15 +118,15 @@ export class HomePage implements OnInit, OnDestroy {
 
   navProDetail(pro) {
     let navigationExtras: NavigationExtras = { queryParams: { product_id: pro.id } };
-    this.navCtrl.navigateForward(['./item-detail'], navigationExtras);
+    this.navCtrl.navigateForward(['tabs/main-home/shop-hour/item-detail'], navigationExtras);
   }
   item() {
-    this.navCtrl.navigateForward(['./item']);
+    this.navCtrl.navigateForward(['tabs/main-home/shop-hour/item']);
   }
   navSearch() {
-    this.navCtrl.navigateForward(['./search']);
+    this.navCtrl.navigateForward(['tabs/main-home/shop-hour/search']);
   }
   cart() {
-    this.navCtrl.navigateForward(['./cart']);
+    this.navCtrl.navigateForward(['tabs/main-home/shop-hour/cart']);
   }
 }

@@ -1,0 +1,149 @@
+<ion-header class="bg_transparent">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{'select_address' | translate}}
+        </ion-title>
+    </ion-toolbar>
+    <div class="order_steps">
+        <ion-row>
+            <ion-col class="active">
+                <ion-icon class="zmdi zmdi-pin"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <h3>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                </h3>
+            </ion-col>
+            <ion-col>
+                <ion-icon class="zmdi zmdi-card"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <h3>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                    <ion-icon class="zmdi zmdi-circle"></ion-icon>
+                </h3>
+            </ion-col>
+            <ion-col>
+                <ion-icon class="zmdi zmdi-assignment-check"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-header>
+
+<ion-content class="bg_color">
+    <!--
+    <ion-card>
+        <div class="form">
+            <h2>{{'select_delivery_type' | translate}}</h2>
+            <ion-list lines="none">
+                <ion-radio-group>
+                    <ion-item>
+                        <div class="item_inner d-flex">
+                            <ion-radio value="home"></ion-radio>
+                            <div class="text_box">
+                                <h3 class="d-flex">Normal Delivery <span class="end">$8.00</span></h3>
+                                <p>
+                                    Delivery in 8-9 Days
+                                </p>
+                            </div>
+                        </div>
+                    </ion-item>
+                    <ion-item>
+                        <div class="item_inner d-flex">
+                            <ion-radio value="Office"></ion-radio>
+                            <div class="text_box">
+                                <h3 class="d-flex">Fast Delivery <span class="end">$12.00</span></h3>
+                                <p>
+                                    Delivery in 2-3 Days
+                                </p>
+                            </div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item_inner d-flex">
+                            <ion-radio value="Other"></ion-radio>
+                            <div class="text_box">
+                                <h3 class="d-flex">Superfast Delivery<span class="end">$16.00</span></h3>
+                                <p>
+                                    Delivery in Next Day
+                                </p>
+                            </div>
+                        </div>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-list>
+        </div>
+    </ion-card>
+-->
+    <ion-card class="my_addresses">
+        <div class="form">
+            <h2 class="d-flex">
+                {{'my_addresses' | translate}}
+                <span class="end" (click)="navAddressNew()">{{'add_new' | translate}}</span>
+            </h2>
+            <ion-list lines="none">
+                <ion-radio-group (ionChange)="onAddressSelected($event)">
+                    <ion-item *ngFor="let address of addresses">
+                        <div class="item_inner d-flex">
+                            <ion-radio value="{{address.id}}"></ion-radio>
+                            <div class="text_box">
+                                <h3 class="d-flex">{{address.title}}</h3>
+                                <p>{{address.formatted_address}}</p>
+                            </div>
+                        </div>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-list>
+        </div>
+    </ion-card>
+
+    <!-- <ion-card class="my_addresses">
+        <div class="form">
+            <h2 class="d-flex">
+                {{'my_addresses' | translate}}
+                <span class="end" (click)="navAddressNew()">{{'add_new' | translate}}</span>
+            </h2>
+            <ion-list lines="none">
+                <ion-item *ngFor="let address of addresses" (click)="onAddressSelected(address)">
+                    <div class="item_inner">
+                        <div class="text_box">
+                            <h3 class="d-flex">{{address.title}}</h3>
+                            <p>{{address.formatted_address}}</p>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-card> -->
+
+    <div class="empty-view" *ngIf="!isLoading && (!addresses || !addresses.length)">
+        <div style="text-align:center">
+            <img src="assets/images/plc_no_address.png" alt="no offers" />
+            <span style="color:#9E9E9E; font-weight:bold; display: block;">{{"empty_addresses" | translate}}</span>
+        </div>
+    </div>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+    <h2 class="d-flex" (click)="navPaymentSelection()">
+        {{'checkout_now' | translate}}
+        <span class="end">
+            <small class="ion-text-start">{{'total' | translate}}</small>
+            {{currency_icon}}{{eComService.getCartTotal(true)}}
+            <ion-icon class="zmdi zmdi-chevron-right ion-text-end"></ion-icon>
+        </span>
+    </h2>
+</ion-footer>

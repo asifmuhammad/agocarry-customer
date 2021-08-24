@@ -1,0 +1,86 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<div class="title_inner d-flex">
+				<span class="center_title">{{category.title}}</span>
+				<!-- <h3 class="end">
+					<span class="end cart_icon" (click)="toggleFilterForm()">
+						<ion-icon class="zmdi zmdi-mall ion-text-start"></ion-icon>
+						<ion-badge>{{cartCount}}</ion-badge>
+
+						<ion-icon *ngIf="!filterForm" class="zmdi zmdi-filter-list ion-text-end">
+						</ion-icon>
+						<ion-icon *ngIf="filterForm" class="zmdi zmdi-check ion-text-end">
+						</ion-icon>
+					</span>
+				</h3> -->
+			</div>
+		</ion-title>
+	</ion-toolbar>
+
+	<!-- <div *ngIf="filterForm" class="form">
+		<ion-list lines="none">
+			<ion-row>
+				<ion-col size="6">
+					<ion-item>
+						<div class="item_inner d-flex">
+							<ion-checkbox [(ngModel)]="filterTypeFarmers">
+							</ion-checkbox>
+							<h3>{{'seller_type_farmer' | translate}}</h3>
+						</div>
+					</ion-item>
+				</ion-col>
+
+				<ion-col size="6">
+					<ion-item>
+						<div class="item_inner d-flex">
+							<ion-checkbox [(ngModel)]="filterTypeTradors">
+							</ion-checkbox>
+							<h3>{{'seller_type_trador' | translate}}</h3>
+						</div>
+					</ion-item>
+				</ion-col>
+			</ion-row>
+		</ion-list>
+	</div> -->
+
+</ion-header>
+
+<ion-content>
+	<div class="empty-view" *ngIf="!isLoading && (!products || !products.length)">
+		<div style="text-align:center">
+			<img src="assets/images/plc_no_item.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_results' | translate}}
+			</span>
+		</div>
+	</div>
+	<div class="item_container">
+		<ion-row>
+			<ion-col size="6" *ngFor="let product of products" (click)="navProDetail(product)">
+				<div class="item">
+					<div class="item_img center_img">
+						<img [src]="product.images[0]">
+					</div>
+					<div class="item_details">
+						<h3>{{product.title}}</h3>
+						<h4>{{product.vendorText}}</h4>
+						<h5 class="d-flex">
+							<span class="price">{{product.priceToShow}}</span>
+							<ion-badge class="end">
+								{{product.ratings}} <ion-icon class="zmdi zmdi-star"></ion-icon>
+							</ion-badge>
+						</h5>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-infinite-scroll (ionInfinite)="doInfiniteProducts($event)">
+			<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'loading' | translate}}">
+			</ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</div>
+</ion-content>

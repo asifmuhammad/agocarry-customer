@@ -1,0 +1,113 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<span>{{product.title}}</span>
+		</ion-title>
+	</ion-toolbar>
+
+	<div class="banner">
+		<ion-row>
+			<ion-col size="4" class="ion-text-center">
+				<h2>{{'avg_ratings' | translate}}</h2>
+				<ion-badge class="end">
+					{{product.ratings}} <ion-icon class="zmdi zmdi-star"></ion-icon>
+				</ion-badge>
+				<h2>{{product.ratings_count}} {{'ratings' | translate}}</h2>
+			</ion-col>
+
+			<ion-col size="8">
+				<div class="rating_box">
+					<div class="rating d-flex">
+						<p class="rating-num d-flex ">5 <ion-icon class="zmdi zmdi-star ion-text-center"></ion-icon>
+						</p>
+						<div class="rating_scale">
+							<div class="rating_scale_active" [style.width]="rating.summary[4].percent+'%'">
+							</div>
+						</div>
+						<p class="ion-text-end">{{rating.summary[4].total}}</p>
+					</div>
+					<div class="rating d-flex">
+						<p class="rating-num d-flex">4 <ion-icon class="zmdi zmdi-star ion-text-center"></ion-icon>
+						</p>
+						<div class="rating_scale">
+							<div class="rating_scale_active" [style.width]="rating.summary[3].percent+'%'">
+							</div>
+						</div>
+						<p class="ion-text-end">{{rating.summary[3].total}}</p>
+					</div>
+					<div class="rating d-flex">
+						<p class="rating-num d-flex">3 <ion-icon class="zmdi zmdi-star ion-text-center"></ion-icon>
+						</p>
+						<div class="rating_scale">
+							<div class="rating_scale_active" [style.width]="rating.summary[2].percent+'%'">
+							</div>
+						</div>
+						<p class="ion-text-end">{{rating.summary[2].total}}</p>
+					</div>
+					<div class="rating d-flex">
+						<p class="rating-num d-flex">2 <ion-icon class="zmdi zmdi-star ion-text-center"></ion-icon>
+						</p>
+						<div class="rating_scale">
+							<div class="rating_scale_active" [style.width]="rating.summary[1].percent+'%'">
+							</div>
+						</div>
+						<p class="ion-text-end">{{rating.summary[1].total}}</p>
+					</div>
+					<div class="rating d-flex">
+						<p class="rating-num d-flex">1 <ion-icon class="zmdi zmdi-star ion-text-center"></ion-icon>
+						</p>
+						<div class="rating_scale">
+							<div class="rating_scale_active" [style.width]="rating.summary[0].percent+'%'">
+							</div>
+						</div>
+						<p class="ion-text-end">{{rating.summary[0].total}}</p>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</div>
+</ion-header>
+
+
+<ion-content fullscreen class="bg_color">
+	<div class="empty-view" *ngIf="!isLoading && (!reviews || !reviews.length)">
+		<div style="text-align:center;margin-top: 80%;">
+			<img src="assets/images/plc_no_review.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_reviews' | translate}}
+			</span>
+		</div>
+	</div>
+	<ion-list lines="none">
+		<h2 *ngIf="reviews && reviews.length">{{'recent_reviews' | translate}}</h2>
+		<ion-item *ngFor="let review of reviews">
+			<div class="item_inner">
+				<div class="reviewer_info">
+					<h3>{{review.user.name}}</h3>
+					<h4 class="d-flex">{{review.created_at}}
+						<span class="rating_icons end">
+							<ion-icon [ngClass]="review.rating>=1 ? 'zmdi zmdi-star active' : 'zmdi zmdi-star'">
+							</ion-icon>
+							<ion-icon [ngClass]="review.rating>=2 ? 'zmdi zmdi-star active' : 'zmdi zmdi-star'">
+							</ion-icon>
+							<ion-icon [ngClass]="review.rating>=3 ? 'zmdi zmdi-star active' : 'zmdi zmdi-star'">
+							</ion-icon>
+							<ion-icon [ngClass]="review.rating>=4 ? 'zmdi zmdi-star active' : 'zmdi zmdi-star'">
+							</ion-icon>
+							<ion-icon [ngClass]="review.rating>=5 ? 'zmdi zmdi-star active' : 'zmdi zmdi-star'">
+							</ion-icon>
+						</span>
+					</h4>
+				</div>
+				<p>{{review.review}}</p>
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-infinite-scroll (ionInfinite)="doInfiniteReviews($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'loading' | translate}}">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

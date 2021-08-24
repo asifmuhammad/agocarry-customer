@@ -1,0 +1,27 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>
+			{{'offers' | translate}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="empty-view" *ngIf="!isLoading && (!offers || !offers.length)">
+		<div style="text-align:center">
+			<img src="assets/images/plc_no_offers.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold; display: block;">{{"empty_offers" | translate}}</span>
+		</div>
+	</div>
+	<ion-list lines="none">
+		<ion-item *ngFor="let offer of offers" (click)="copyOffer(offer)">
+			<div class="item_inner d-flex">
+				<h3>{{offer.detail}}</h3>
+				<h4 class="end">{{offer.code}}</h4>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>

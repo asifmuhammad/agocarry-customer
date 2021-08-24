@@ -1,0 +1,87 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<div class="title_inner d-flex">
+				<h3 class="end">
+					<span class="end cart_icon" (click)="cart()">
+						<ion-icon class="zmdi zmdi-mall ion-text-start"></ion-icon>
+						<ion-badge>{{cartCount}}</ion-badge>
+					</span>
+				</h3>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-color">
+	<div *ngIf="product" class="banner">
+		<h3 [ngClass]="product.is_favourite ? 'end active' : 'end'" (click)="toggleFavorite()">
+			<ion-icon class="zmdi zmdi-favorite-outline"></ion-icon>
+			<ion-icon class="zmdi zmdi-favorite"></ion-icon>
+		</h3>
+
+		<ion-slides pager="true" loop="true">
+			<ion-slide *ngFor="let proImage of product.images">
+				<div class="img_box center_img">
+					<img [src]="proImage" class="crop_img">
+				</div>
+			</ion-slide>
+		</ion-slides>
+	</div>
+
+	<div class="item_details">
+		<h2>{{product.title}}</h2>
+		<h3 *ngIf="product && product.categories && product.categories[0]" class="d-flex">
+			{{product.categories[0].title}}
+			<ion-badge class="end">
+				{{product.ratings}} <ion-icon class="zmdi zmdi-star"></ion-icon>
+			</ion-badge>
+		</h3>
+		<h4 class="d-flex">
+			{{product.priceToShow}}
+			<span class="end" (click)="navReviews()">
+				{{'read_all_reviews' | translate}}
+				<ion-icon class="zmdi zmdi-chevron-right ion-text-end"></ion-icon>
+			</span>
+		</h4>
+		<p>{{product.detail}}</p>
+	</div>
+	<ion-button size="large" shape="full" class="btn" (click)="addProCart(null)">
+		<ion-icon class="zmdi zmdi-mall ion-text-start"></ion-icon>
+		{{'add_to_cart' | translate}}
+	</ion-button>
+
+	<div class="more_by_seller">
+		<h2 *ngIf="product.vendor_products && product.vendor_products.length == 1" class="d-flex"
+			(click)="navSimilarsAll()">
+			{{(similarProducts && similarProducts.length?'more_by':'sold_by') | translate}}&nbsp;<strong>{{product.vendor_products[0].vendor.name}}</strong>
+			<span *ngIf="similarProducts && similarProducts.length" class="end">{{'view_all' | translate}}</span>
+		</h2>
+		<h2 *ngIf="similarProducts && similarProducts.length && !(product.vendor_products && product.vendor_products.length == 1)"
+			class="d-flex" (click)="navSimilarsAll()">
+			{{'similar_products' | translate}}
+			<span class="end">{{'view_all' | translate}}</span>
+		</h2>
+
+		<div *ngIf="similarProducts && similarProducts.length" class="items_row">
+			<div class="item" *ngFor="let product of similarProducts" (click)="navProDetail(product)">
+				<div class="item_img center_img">
+					<img [src]="product.images[0]" class="crop_img">
+				</div>
+				<div class="item_details">
+					<h3>{{product.title}}</h3>
+					<h4>{{product.categories[0].title}}</h4>
+					<h5 class="d-flex">
+						<span class="price">{{product.priceToShow}}</span>
+						<ion-badge class="end">
+							{{product.ratings}} <ion-icon class="zmdi zmdi-star"></ion-icon>
+						</ion-badge>
+					</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

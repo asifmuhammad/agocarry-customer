@@ -1,0 +1,71 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<div class="title_inner d-flex">
+				<ion-searchbar mode="md" class="ion-no-padding" searchIcon="hide" debounce="1000"
+					placeholder="{{'search_here' | translate}}" (ionChange)="onSearchbarChange($event)"></ion-searchbar>
+				<ion-icon class="zmdi zmdi-search ion-text-start end"></ion-icon>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+	<div *ngIf="searchHistory && searchHistory.length" class="resent_searches">
+		<h2>{{'resent_searches' | translate}}</h2>
+		<h3 *ngFor="let sh of searchHistory" class="d-flex" (click)="doSearch(sh)">
+			<ion-icon class="zmdi zmdi-time-restore"></ion-icon> {{sh}}
+		</h3>
+	</div>
+
+	<div *ngIf="categories && categories.length" class="choose_category">
+		<h2>{{'choose_category' | translate}}</h2>
+		<div class="category_row">
+			<div *ngFor="let cat of categories" class="category" (click)="navCatDetail(cat)">
+				<div class="img_box center_img">
+					<img [src]="cat.image" class="crop_img">
+					<h2>{{cat.title}}</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="lastSearchString && lastSearchString.length" class="item_container">
+		<h2>{{'results' | translate}}</h2>
+		<div class="empty-view" *ngIf="!isLoading && (!products || !products.length)">
+			<div style="text-align:center">
+				<img src="assets/images/plc_no_item.png" alt="no offers" />
+				<span style="color:#9E9E9E; font-weight:bold;">
+					{{'empty_results' | translate}}
+				</span>
+			</div>
+		</div>
+		<ion-row>
+			<ion-col size="6" *ngFor="let product of products" (click)="navProDetail(product)">
+				<div class="item">
+					<div class="item_img center_img">
+						<img [src]="product.images[0]" class="crop_img">
+					</div>
+					<div class="item_details">
+						<h3>{{product.title}}</h3>
+						<h4>{{product.vendorText}}</h4>
+						<h5 class="d-flex">
+							<span class="price">{{product.priceToShow}}</span>
+							<ion-badge class="end">
+								{{product.ratings}} <ion-icon class="zmdi zmdi-star"></ion-icon>
+							</ion-badge>
+						</h5>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-infinite-scroll (ionInfinite)="doInfiniteProducts($event)">
+			<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{'loading' | translate}}">
+			</ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</div>
+
+</ion-content>

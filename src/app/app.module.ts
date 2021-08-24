@@ -18,6 +18,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_CONFIG, BaseAppConfig } from './app.config';
+import { APP_CONFIG_ShopHour, BaseShopHourConfig } from './shophour.config';
 
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { File } from '@ionic-native/file/ngx';
@@ -61,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     Network,
     Device,
     InAppBrowser,
+    { provide: APP_CONFIG_ShopHour, useValue: BaseShopHourConfig },
     { provide: APP_CONFIG, useValue: BaseAppConfig },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

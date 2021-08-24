@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-home',
@@ -12,9 +13,11 @@ export class MainHomePage implements OnInit {
     slidesPerView: 1.2,
   };
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
   }
-
+  navigateToShophour() {
+this.router.navigate(['tabs/main-home/shop-hour/home'])
+  }
 }

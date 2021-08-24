@@ -1,0 +1,69 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>
+			<div class="title_inner d-flex">
+				<h2 (click)="navSearch()">
+					{{'search_on' | translate}} {{config.appName}}
+				</h2>
+
+				<span class="end cart_icon" (click)="cart()">
+					<ion-icon class="zmdi zmdi-mall ion-text-start"></ion-icon>
+					<ion-badge>{{cartCount}}</ion-badge>
+				</span>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+	<div class="category_row">
+		<div class="category" *ngFor="let cat of categories" (click)="navCatDetail(cat)">
+			<div class="img_box center_img">
+				<img [src]="cat.image" class="crop_img">
+				<h2>{{cat.title}}</h2>
+			</div>
+		</div>
+	</div>
+</ion-header>
+
+<ion-content fullscreen>
+	<div class="banner">
+		<ion-slides pager="true" loop="true">
+			<ion-slide *ngFor="let banner of banners">
+				<div class="img_box center_img">
+					<img [src]="banner.image" class="crop_img">
+				</div>
+			</ion-slide>
+		</ion-slides>
+	</div>
+
+	<div class="empty-view" *ngIf="haveNothingToShow()">
+		<div style="text-align:center">
+			<img src="assets/images/plc_no_item.png" alt="no offers" />
+			<span style="color:#9E9E9E; font-weight:bold;">
+				{{'empty_nothing' | translate}}
+			</span>
+		</div>
+	</div>
+
+	<div *ngFor="let catPros of productsArray;" class="items_container">
+		<h2>{{catPros.category.title}}</h2>
+		<div class="items_row">
+			<div *ngFor="let product of catPros.products" class="item" (click)="navProDetail(product)">
+				<div class="item_img center_img">
+					<img [src]="product.images[0]" class="crop_img">
+				</div>
+				<div class="item_details">
+					<h3>{{product.title}}</h3>
+					<h4>{{product.vendorText}}</h4>
+					<h5 class="d-flex">
+						<span class="price">{{product.priceToShow}}</span>
+						<ion-badge class="end">
+							{{product.ratings}} <ion-icon class="zmdi zmdi-star"></ion-icon>
+						</ion-badge>
+					</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

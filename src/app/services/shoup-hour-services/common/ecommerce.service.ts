@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Product } from 'src/models/models-shop-hour/product.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
-import { MyAddress } from 'src/models/models-shop-hour/address.models';
-import { OrderRequest } from 'src/models/models-shop-hour/order-request.models';
-import { PaymentMethod } from 'src/models/models-shop-hour/payment-method.models';
-import { Coupon } from 'src/models/models-shop-hour/coupon.models';
+import { Product } from 'src/models/product.models';
+import { Helper } from 'src/models/helper.models';
+import { MyAddress } from 'src/models/address.models';
+import { OrderRequest } from 'src/models/order-request.models';
+import { PaymentMethod } from 'src/models/payment-method.models';
+import { Coupon } from 'src/models/coupon.models';
 
 export class CartItem {
   id: string;

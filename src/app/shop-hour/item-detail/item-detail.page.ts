@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, NavigationExtras } from '@angular/router';
-import { Category } from 'src/models/models-shop-hour/category.models';
+import { Category } from 'src/models/category.models';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/models/models-shop-hour/product.models';
-import { Constants } from 'src/models/models-shop-hour/constants.models';
-import { BaseListResponse } from 'src/models/models-shop-hour/base-list.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { Product } from 'src/models/product.models';
+import { Constants } from 'src/models/constants.models';
+import { BaseListResponse } from 'src/models/base-list.models';
+import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
 import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';

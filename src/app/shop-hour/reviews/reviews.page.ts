@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Product } from 'src/models/models-shop-hour/product.models';
+import { Product } from 'src/models/product.models';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { Rating } from 'src/models/models-shop-hour/rating.models';
-import { Review } from 'src/models/models-shop-hour/review.models';
-import { BaseListResponse } from 'src/models/models-shop-hour/base-list.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { Rating } from 'src/models/rating.models';
+import { Review } from 'src/models/review.models';
+import { BaseListResponse } from 'src/models/base-list.models';
+import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
 import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
 

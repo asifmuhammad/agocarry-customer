@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/models/models-shop-hour/product.models';
+import { Product } from 'src/models/product.models';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';

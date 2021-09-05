@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { Helper } from 'src/models/helper.models';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { Coupon } from 'src/models/models-shop-hour/coupon.models';
+import { Coupon } from 'src/models/coupon.models';
 import * as moment from 'moment';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';

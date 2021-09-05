@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { Helper } from 'src/models/helper.models';
 
 @Component({
   selector: 'app-about-us',

@@ -108,7 +108,7 @@ export class AppComponent implements OnInit {
           if (currPathName && currPathName.includes("tabs")) {
             navigator['app'].exitApp();
           } else {
-            this.navCtrl.navigateRoot(['./tabs']);
+            this.navCtrl.navigateRoot(['./tabs/main-home']);
           }
         }
       });

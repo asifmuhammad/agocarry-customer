@@ -13,6 +13,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shop-hour/home/home.page.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shop-hour/home/home.page.html ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-menu-button></ion-menu-button>\n\t\t</ion-buttons>\n\t\t<ion-title>\n\t\t\t<div class=\"title_inner d-flex\">\n\t\t\t\t<h2 (click)=\"navSearch()\">\n\t\t\t\t\t{{'search_on' | translate}} {{config.appName}}\n\t\t\t\t</h2>\n\n\t\t\t\t<span class=\"end cart_icon\" (click)=\"cart()\">\n\t\t\t\t\t<ion-icon class=\"zmdi zmdi-mall ion-text-start\"></ion-icon>\n\t\t\t\t\t<ion-badge>{{cartCount}}</ion-badge>\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</ion-title>\n\t</ion-toolbar>\n\t<div class=\"category_row\">\n\t\t<div class=\"category\" *ngFor=\"let cat of categories\" (click)=\"navCatDetail(cat)\">\n\t\t\t<div class=\"img_box center_img\">\n\t\t\t\t<img [src]=\"cat.image\" class=\"crop_img\">\n\t\t\t\t<h2>{{cat.title}}</h2>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</ion-header>\n\n<ion-content fullscreen>\n\t<div class=\"banner\">\n\t\t<ion-slides pager=\"true\" loop=\"true\">\n\t\t\t<ion-slide *ngFor=\"let banner of banners\">\n\t\t\t\t<div class=\"img_box center_img\">\n\t\t\t\t\t<img [src]=\"banner.image\" class=\"crop_img\">\n\t\t\t\t</div>\n\t\t\t</ion-slide>\n\t\t</ion-slides>\n\t</div>\n\n\t<div class=\"empty-view\" *ngIf=\"haveNothingToShow()\">\n\t\t<div style=\"text-align:center\">\n\t\t\t<img src=\"assets/images/plc_no_item.png\" alt=\"no offers\" />\n\t\t\t<span style=\"color:#9E9E9E; font-weight:bold;\">\n\t\t\t\t{{'empty_nothing' | translate}}\n\t\t\t</span>\n\t\t</div>\n\t</div>\n\n\t<div *ngFor=\"let catPros of productsArray;\" class=\"items_container\">\n\t\t<h2>{{catPros.category.title}}</h2>\n\t\t<div class=\"items_row\">\n\t\t\t<div *ngFor=\"let product of catPros.products\" class=\"item\" (click)=\"navProDetail(product)\">\n\t\t\t\t<div class=\"item_img center_img\">\n\t\t\t\t\t<img [src]=\"product.images[0]\" class=\"crop_img\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"item_details\">\n\t\t\t\t\t<h3>{{product.title}}</h3>\n\t\t\t\t\t<h4>{{product.vendorText}}</h4>\n\t\t\t\t\t<h5 class=\"d-flex\">\n\t\t\t\t\t\t<span class=\"price\">{{product.priceToShow}}</span>\n\t\t\t\t\t\t<ion-badge class=\"end\">\n\t\t\t\t\t\t\t{{product.ratings}} <ion-icon class=\"zmdi zmdi-star\"></ion-icon>\n\t\t\t\t\t\t</ion-badge>\n\t\t\t\t\t</h5>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</ion-content>");
+
+/***/ }),
+
 /***/ "./src/app/home/home-routing.module.ts":
 /*!*********************************************!*\
   !*** ./src/app/home/home-routing.module.ts ***!
@@ -189,6 +202,7 @@ let HomePage = class HomePage {
     loadCategories() {
         this.subscriptions.push(this.apiService.getCategoriesParents(src_models_constants_models__WEBPACK_IMPORTED_MODULE_9__["Constants"].SCOPE_ECOMMERCE).subscribe(res => {
             this.categories = res;
+            console.log("category", this.categories);
             // this.loadedCount = 0;
             // if (res && res.length && this.selectedLocation) {
             //   for (let cat of res) this.loadProductsByCatId(cat);
@@ -305,6 +319,347 @@ HomePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_4__["MyEventsService"],
         _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__["ECommerceService"]])
+], HomePage);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/services/shoup-hour-services/common/ui-elements.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: UiElementsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UiElementsService", function() { return UiElementsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
+
+
+
+let UiElementsService = class UiElementsService {
+    constructor(toastController, loadingController, alertCtrl, translateService) {
+        this.toastController = toastController;
+        this.loadingController = loadingController;
+        this.alertCtrl = alertCtrl;
+        this.translateService = translateService;
+    }
+    presentToast(body, position, duration) {
+        this.toastController.create({
+            message: body,
+            duration: (duration && duration > 0) ? duration : 1000,
+            position: (position && (position == "top" || position == "middle")) ? position : "bottom"
+        }).then(toast => toast.present());
+    }
+    presentErrorAlert(msg, headingText, actionText) {
+        this.translateService.get(["error", "dismiss"]).subscribe(values => {
+            this.alertCtrl.create({
+                header: (headingText ? headingText : values["error"]),
+                message: msg,
+                buttons: [(actionText ? actionText : values["dismiss"])]
+            }).then(alert => alert.present());
+        });
+    }
+    presentLoading(body) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = true;
+            return yield this.loadingController.create({ message: body }).then(overlay => {
+                overlay.present().then(() => {
+                    if (!this.isLoading) {
+                        try {
+                            overlay.dismiss().then(() => console.log('loading aborted'));
+                        }
+                        catch (error) {
+                            console.log(error);
+                        }
+                    }
+                });
+            });
+        });
+    }
+    dismissLoading() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = false;
+            try {
+                return yield this.loadingController.dismiss();
+            }
+            catch (error) {
+                console.log(error);
+                return null;
+            }
+        });
+    }
+};
+UiElementsService.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] }
+];
+UiElementsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
+], UiElementsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/home/home-routing.module.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/shop-hour/home/home-routing.module.ts ***!
+  \*******************************************************/
+/*! exports provided: HomePageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageRoutingModule", function() { return HomePageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _home_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home.page */ "./src/app/shop-hour/home/home.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _home_page__WEBPACK_IMPORTED_MODULE_3__["HomePage"]
+    }
+];
+let HomePageRoutingModule = class HomePageRoutingModule {
+};
+HomePageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], HomePageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/home/home.module.ts":
+/*!***********************************************!*\
+  !*** ./src/app/shop-hour/home/home.module.ts ***!
+  \***********************************************/
+/*! exports provided: HomePageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _home_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home-routing.module */ "./src/app/shop-hour/home/home-routing.module.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var _home_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home.page */ "./src/app/shop-hour/home/home.page.ts");
+
+
+
+
+
+
+
+
+let HomePageModule = class HomePageModule {
+};
+HomePageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateModule"],
+            _home_routing_module__WEBPACK_IMPORTED_MODULE_5__["HomePageRoutingModule"]
+        ],
+        declarations: [_home_page__WEBPACK_IMPORTED_MODULE_7__["HomePage"]]
+    })
+], HomePageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/home/home.page.scss":
+/*!***********************************************!*\
+  !*** ./src/app/shop-hour/home/home.page.scss ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-header {\n  padding-top: 20px;\n}\nion-header::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: calc(100% - 50px);\n  background: var(--primary);\n  display: block;\n}\nion-header ion-toolbar {\n  max-width: calc(100% - 28px);\n  margin: 0 auto;\n  border-radius: 8px;\n  min-height: 50px !important;\n  max-height: 50px !important;\n}\nion-header ion-toolbar ion-title {\n  height: 50px;\n  line-height: 50px;\n  max-height: 50px;\n  padding-right: 11px !important;\n  position: relative !important;\n  top: 0;\n}\nion-header ion-toolbar ion-title .title_inner h2 {\n  margin: 0;\n  font-size: 0.95rem;\n  color: var(--text-dark-primary);\n  font-weight: 400;\n  letter-spacing: 1px;\n  width: 100%;\n  height: 50px;\n  line-height: 50px;\n  position: relative;\n  text-transform: none;\n  text-align: justify;\n}\nion-header ion-toolbar ion-title .title_inner span.cart_icon {\n  position: relative;\n  min-width: 27px;\n}\nion-header ion-toolbar ion-title .title_inner span.cart_icon ion-badge {\n  background: var(--red_color);\n  --background: var(--transparent);\n  --color: var(--white);\n  --padding-bottom: 0;\n  --padding-end: 0;\n  --padding-start: 0;\n  --padding-top: 0;\n  border-radius: 50%;\n  width: 17px;\n  height: 17px;\n  line-height: 17px;\n  display: block;\n  font-size: 0.8rem !important;\n  position: absolute;\n  top: 9px;\n  right: 0;\n  font-weight: 500;\n}\nion-header ion-toolbar ion-title .title_inner span.cart_icon ion-icon {\n  position: relative;\n  top: 10px;\n  font-size: 1.5rem;\n}\nion-header .category_row {\n  width: 100%;\n  white-space: nowrap;\n  overflow-x: auto;\n  padding: 15px 0 10px 0;\n}\nion-header .category_row .category {\n  display: inline-block;\n  margin: 0 6px;\n  border-radius: 15px;\n  overflow: hidden;\n}\nion-header .category_row .category .img_box {\n  width: 90px;\n  height: 90px;\n}\nion-header .category_row .category .img_box h2 {\n  margin: 0;\n  color: var(--white);\n  text-transform: uppercase;\n  position: relative;\n  z-index: 1;\n  font-size: 0.65rem;\n  padding: 10px 7px;\n  letter-spacing: 0.5px;\n  font-weight: 500;\n}\nion-header .category_row .category:first-child {\n  margin-left: 14px;\n}\nion-header .category_row .category:last-child {\n  margin-right: 14px;\n}\n.banner {\n  margin-bottom: 18px;\n}\n.banner ion-slides ion-slide .img_box {\n  width: 100%;\n  height: 210px;\n}\n.items_container {\n  margin-bottom: 15px;\n}\n.items_container h2 {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 600;\n  padding: 0px 15px 15px 15px;\n}\n.items_container .items_row {\n  width: 100%;\n  white-space: nowrap;\n  overflow-x: auto;\n  padding: 0px 0 10px 0;\n}\n.items_container .items_row .item {\n  display: inline-block;\n  margin: 0 6px;\n  overflow: hidden;\n  width: 147px;\n}\n.items_container .items_row .item .item_img {\n  width: 147px;\n  height: 147px;\n  border-radius: 8px;\n}\n.items_container .items_row .item .item_details {\n  padding-top: 12px;\n  width: 100%;\n  overflow: hidden;\n}\n.items_container .items_row .item .item_details h3 {\n  margin: 0;\n  color: var(--text-dark-primary);\n  font-size: 0.9rem;\n  font-weight: 500;\n  padding-bottom: 3px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n.items_container .items_row .item .item_details h4 {\n  margin: 0;\n  color: var(--text-light);\n  font-weight: 400;\n  font-size: 0.7rem;\n  padding-bottom: 8px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\n.items_container .items_row .item .item_details h5 {\n  margin: 0;\n  font-size: 1.1rem;\n  color: var(--text-black);\n}\n.items_container .items_row .item .item_details h5 ion-badge {\n  background: var(--secondary);\n  --background: var(--transparent);\n  --color: var(--white);\n  --padding-bottom: 0;\n  --padding-end: 0;\n  --padding-start: 0;\n  --padding-top: 0;\n  border-radius: 50px;\n  font-weight: 400;\n  font-size: 0.7rem;\n  min-width: 41px;\n  height: 18px;\n  line-height: 18px;\n}\n.items_container .items_row .item .item_details h5 ion-badge ion-icon {\n  font-size: 0.6rem;\n  position: relative;\n  top: 1px;\n}\n.items_container .items_row .item:first-child {\n  margin-left: 14px;\n}\n.items_container .items_row .item:last-child {\n  margin-right: 14px;\n}\n.empty-view {\n  width: 200px;\n  margin: auto;\n  height: 200px;\n}\n.empty-view img {\n  width: 100px;\n  margin: auto;\n}\n.empty-view span {\n  display: block;\n  text-align: center;\n}\n.empty-view button {\n  margin-top: 50px;\n}\n.empty-view button span {\n  display: unset !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hvcC1ob3VyL2hvbWUvRjpcXGZpdmVyXFxCZXJuYXJkXFxBZ29jYXJyeVxcYWdvY2FycnktY3VzdG9tZXIvc3JjXFxhcHBcXHNob3AtaG91clxcaG9tZVxcaG9tZS5wYWdlLnNjc3MiLCJzcmMvYXBwL3Nob3AtaG91ci9ob21lL2hvbWUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0MsaUJBQUE7QUNDRDtBRENDO0VBQ0MsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7RUFDQSxXQUFBO0VBQ0EseUJBQUE7RUFDQSwwQkFBQTtFQUNBLGNBQUE7QUNDRjtBREVDO0VBQ0MsNEJBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSwyQkFBQTtFQUNBLDJCQUFBO0FDQUY7QURFRTtFQUNDLFlBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsOEJBQUE7RUFDQSw2QkFBQTtFQUNBLE1BQUE7QUNBSDtBREdJO0VBQ0MsU0FBQTtFQUNBLGtCQUFBO0VBQ0EsK0JBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Esb0JBQUE7RUFDQSxtQkFBQTtBQ0RMO0FES0s7RUFDQyxrQkFBQTtFQUNBLGVBQUE7QUNITjtBREtNO0VBQ0MsNEJBQUE7RUFDQSxnQ0FBQTtFQUNBLHFCQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxjQUFBO0VBQ0EsNEJBQUE7RUFDQSxrQkFBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsZ0JBQUE7QUNIUDtBRE1NO0VBQ0Msa0JBQUE7RUFDQSxTQUFBO0VBQ0EsaUJBQUE7QUNKUDtBRFlDO0VBQ0MsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxzQkFBQTtBQ1ZGO0FEWUU7RUFDQyxxQkFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0FDVkg7QURZRztFQUNDLFdBQUE7RUFDQSxZQUFBO0FDVko7QURZSTtFQUNDLFNBQUE7RUFDQSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLHFCQUFBO0VBQ0EsZ0JBQUE7QUNWTDtBRGNHO0VBQ0MsaUJBQUE7QUNaSjtBRGVHO0VBQ0Msa0JBQUE7QUNiSjtBRG1CQTtFQUNDLG1CQUFBO0FDaEJEO0FEb0JHO0VBQ0MsV0FBQTtFQUNBLGFBQUE7QUNsQko7QUR3QkE7RUFDQyxtQkFBQTtBQ3JCRDtBRHVCQztFQUNDLFNBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsMkJBQUE7QUNyQkY7QUR3QkM7RUFDQyxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxnQkFBQTtFQUNBLHFCQUFBO0FDdEJGO0FEd0JFO0VBQ0MscUJBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxZQUFBO0FDdEJIO0FEd0JHO0VBQ0MsWUFBQTtFQUNBLGFBQUE7RUFDQSxrQkFBQTtBQ3RCSjtBRHlCRztFQUNDLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0FDdkJKO0FEeUJJO0VBQ0MsU0FBQTtFQUNBLCtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLGdCQUFBO0FDdkJMO0FEMEJJO0VBQ0MsU0FBQTtFQUNBLHdCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSx1QkFBQTtFQUNBLGdCQUFBO0FDeEJMO0FEMkJJO0VBQ0MsU0FBQTtFQUNBLGlCQUFBO0VBQ0Esd0JBQUE7QUN6Qkw7QUQyQks7RUFDQyw0QkFBQTtFQUNBLGdDQUFBO0VBQ0EscUJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7QUN6Qk47QUQyQk07RUFDQyxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsUUFBQTtBQ3pCUDtBRCtCRztFQUNDLGlCQUFBO0FDN0JKO0FEZ0NHO0VBQ0Msa0JBQUE7QUM5Qko7QURvQ0E7RUFDQyxZQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7QUNqQ0Q7QUR3Q0M7RUFDQyxZQUFBO0VBQ0EsWUFBQTtBQ3RDRjtBRHlDQztFQUNDLGNBQUE7RUFDQSxrQkFBQTtBQ3ZDRjtBRDBDQztFQUNDLGdCQUFBO0FDeENGO0FEMENFO0VBQ0MseUJBQUE7QUN4Q0giLCJmaWxlIjoic3JjL2FwcC9zaG9wLWhvdXIvaG9tZS9ob21lLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1oZWFkZXIge1xyXG5cdHBhZGRpbmctdG9wOiAyMHB4O1xyXG5cclxuXHQmOjpiZWZvcmUge1xyXG5cdFx0Y29udGVudDogXCJcIjtcclxuXHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuXHRcdHRvcDogMDtcclxuXHRcdGxlZnQ6IDA7XHJcblx0XHR3aWR0aDogMTAwJTtcclxuXHRcdGhlaWdodDogY2FsYygxMDAlIC0gNTBweCk7XHJcblx0XHRiYWNrZ3JvdW5kOiB2YXIoLS1wcmltYXJ5KTtcclxuXHRcdGRpc3BsYXk6IGJsb2NrO1xyXG5cdH1cclxuXHJcblx0aW9uLXRvb2xiYXIge1xyXG5cdFx0bWF4LXdpZHRoOiBjYWxjKDEwMCUgLSAyOHB4KTtcclxuXHRcdG1hcmdpbjogMCBhdXRvO1xyXG5cdFx0Ym9yZGVyLXJhZGl1czogOHB4O1xyXG5cdFx0bWluLWhlaWdodDogNTBweCAhaW1wb3J0YW50O1xyXG5cdFx0bWF4LWhlaWdodDogNTBweCAhaW1wb3J0YW50O1xyXG5cclxuXHRcdGlvbi10aXRsZSB7XHJcblx0XHRcdGhlaWdodDogNTBweDtcclxuXHRcdFx0bGluZS1oZWlnaHQ6IDUwcHg7XHJcblx0XHRcdG1heC1oZWlnaHQ6IDUwcHg7XHJcblx0XHRcdHBhZGRpbmctcmlnaHQ6IDExcHggIWltcG9ydGFudDtcclxuXHRcdFx0cG9zaXRpb246IHJlbGF0aXZlICFpbXBvcnRhbnQ7XHJcblx0XHRcdHRvcDogMDtcclxuXHJcblx0XHRcdC50aXRsZV9pbm5lciB7XHJcblx0XHRcdFx0aDIge1xyXG5cdFx0XHRcdFx0bWFyZ2luOiAwO1xyXG5cdFx0XHRcdFx0Zm9udC1zaXplOiAwLjk1cmVtO1xyXG5cdFx0XHRcdFx0Y29sb3I6IHZhcigtLXRleHQtZGFyay1wcmltYXJ5KTtcclxuXHRcdFx0XHRcdGZvbnQtd2VpZ2h0OiA0MDA7XHJcblx0XHRcdFx0XHRsZXR0ZXItc3BhY2luZzogMXB4O1xyXG5cdFx0XHRcdFx0d2lkdGg6IDEwMCU7XHJcblx0XHRcdFx0XHRoZWlnaHQ6IDUwcHg7XHJcblx0XHRcdFx0XHRsaW5lLWhlaWdodDogNTBweDtcclxuXHRcdFx0XHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuXHRcdFx0XHRcdHRleHQtdHJhbnNmb3JtOiBub25lO1xyXG5cdFx0XHRcdFx0dGV4dC1hbGlnbjoganVzdGlmeTtcclxuXHRcdFx0XHR9XHJcblxyXG5cdFx0XHRcdHNwYW4ge1xyXG5cdFx0XHRcdFx0Ji5jYXJ0X2ljb24ge1xyXG5cdFx0XHRcdFx0XHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblx0XHRcdFx0XHRcdG1pbi13aWR0aDogMjdweDtcclxuXHJcblx0XHRcdFx0XHRcdGlvbi1iYWRnZSB7XHJcblx0XHRcdFx0XHRcdFx0YmFja2dyb3VuZDogdmFyKC0tcmVkX2NvbG9yKTtcclxuXHRcdFx0XHRcdFx0XHQtLWJhY2tncm91bmQ6IHZhcigtLXRyYW5zcGFyZW50KTtcclxuXHRcdFx0XHRcdFx0XHQtLWNvbG9yOiB2YXIoLS13aGl0ZSk7XHJcblx0XHRcdFx0XHRcdFx0LS1wYWRkaW5nLWJvdHRvbTogMDtcclxuXHRcdFx0XHRcdFx0XHQtLXBhZGRpbmctZW5kOiAwO1xyXG5cdFx0XHRcdFx0XHRcdC0tcGFkZGluZy1zdGFydDogMDtcclxuXHRcdFx0XHRcdFx0XHQtLXBhZGRpbmctdG9wOiAwO1xyXG5cdFx0XHRcdFx0XHRcdGJvcmRlci1yYWRpdXM6IDUwJTtcclxuXHRcdFx0XHRcdFx0XHR3aWR0aDogMTdweDtcclxuXHRcdFx0XHRcdFx0XHRoZWlnaHQ6IDE3cHg7XHJcblx0XHRcdFx0XHRcdFx0bGluZS1oZWlnaHQ6IDE3cHg7XHJcblx0XHRcdFx0XHRcdFx0ZGlzcGxheTogYmxvY2s7XHJcblx0XHRcdFx0XHRcdFx0Zm9udC1zaXplOiAwLjhyZW0gIWltcG9ydGFudDtcclxuXHRcdFx0XHRcdFx0XHRwb3NpdGlvbjogYWJzb2x1dGU7XHJcblx0XHRcdFx0XHRcdFx0dG9wOiA5cHg7XHJcblx0XHRcdFx0XHRcdFx0cmlnaHQ6IDA7XHJcblx0XHRcdFx0XHRcdFx0Zm9udC13ZWlnaHQ6IDUwMDtcclxuXHRcdFx0XHRcdFx0fVxyXG5cclxuXHRcdFx0XHRcdFx0aW9uLWljb24ge1xyXG5cdFx0XHRcdFx0XHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuXHRcdFx0XHRcdFx0XHR0b3A6IDEwcHg7XHJcblx0XHRcdFx0XHRcdFx0Zm9udC1zaXplOiAxLjVyZW07XHJcblx0XHRcdFx0XHRcdH1cclxuXHRcdFx0XHRcdH1cclxuXHRcdFx0XHR9XHJcblx0XHRcdH1cclxuXHRcdH1cclxuXHR9XHJcblxyXG5cdC5jYXRlZ29yeV9yb3cge1xyXG5cdFx0d2lkdGg6IDEwMCU7XHJcblx0XHR3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG5cdFx0b3ZlcmZsb3cteDogYXV0bztcclxuXHRcdHBhZGRpbmc6IDE1cHggMCAxMHB4IDA7XHJcblxyXG5cdFx0LmNhdGVnb3J5IHtcclxuXHRcdFx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG5cdFx0XHRtYXJnaW46IDAgNnB4O1xyXG5cdFx0XHRib3JkZXItcmFkaXVzOiAxNXB4O1xyXG5cdFx0XHRvdmVyZmxvdzogaGlkZGVuO1xyXG5cclxuXHRcdFx0LmltZ19ib3gge1xyXG5cdFx0XHRcdHdpZHRoOiA5MHB4O1xyXG5cdFx0XHRcdGhlaWdodDogOTBweDtcclxuXHJcblx0XHRcdFx0aDIge1xyXG5cdFx0XHRcdFx0bWFyZ2luOiAwO1xyXG5cdFx0XHRcdFx0Y29sb3I6IHZhcigtLXdoaXRlKTtcclxuXHRcdFx0XHRcdHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcblx0XHRcdFx0XHRwb3NpdGlvbjogcmVsYXRpdmU7XHJcblx0XHRcdFx0XHR6LWluZGV4OiAxO1xyXG5cdFx0XHRcdFx0Zm9udC1zaXplOiAwLjY1cmVtO1xyXG5cdFx0XHRcdFx0cGFkZGluZzogMTBweCA3cHg7XHJcblx0XHRcdFx0XHRsZXR0ZXItc3BhY2luZzogMC41cHg7XHJcblx0XHRcdFx0XHRmb250LXdlaWdodDogNTAwO1xyXG5cdFx0XHRcdH1cclxuXHRcdFx0fVxyXG5cclxuXHRcdFx0JjpmaXJzdC1jaGlsZCB7XHJcblx0XHRcdFx0bWFyZ2luLWxlZnQ6IDE0cHg7XHJcblx0XHRcdH1cclxuXHJcblx0XHRcdCY6bGFzdC1jaGlsZCB7XHJcblx0XHRcdFx0bWFyZ2luLXJpZ2h0OiAxNHB4O1xyXG5cdFx0XHR9XHJcblx0XHR9XHJcblx0fVxyXG59XHJcblxyXG4uYmFubmVyIHtcclxuXHRtYXJnaW4tYm90dG9tOiAxOHB4O1xyXG5cclxuXHRpb24tc2xpZGVzIHtcclxuXHRcdGlvbi1zbGlkZSB7XHJcblx0XHRcdC5pbWdfYm94IHtcclxuXHRcdFx0XHR3aWR0aDogMTAwJTtcclxuXHRcdFx0XHRoZWlnaHQ6IDIxMHB4O1xyXG5cdFx0XHR9XHJcblx0XHR9XHJcblx0fVxyXG59XHJcblxyXG4uaXRlbXNfY29udGFpbmVyIHtcclxuXHRtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG5cclxuXHRoMiB7XHJcblx0XHRtYXJnaW46IDA7XHJcblx0XHRmb250LXNpemU6IDEuMjVyZW07XHJcblx0XHRmb250LXdlaWdodDogNjAwO1xyXG5cdFx0cGFkZGluZzogMHB4IDE1cHggMTVweCAxNXB4O1xyXG5cdH1cclxuXHJcblx0Lml0ZW1zX3JvdyB7XHJcblx0XHR3aWR0aDogMTAwJTtcclxuXHRcdHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcblx0XHRvdmVyZmxvdy14OiBhdXRvO1xyXG5cdFx0cGFkZGluZzogMHB4IDAgMTBweCAwO1xyXG5cclxuXHRcdC5pdGVtIHtcclxuXHRcdFx0ZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG5cdFx0XHRtYXJnaW46IDAgNnB4O1xyXG5cdFx0XHRvdmVyZmxvdzogaGlkZGVuO1xyXG5cdFx0XHR3aWR0aDogMTQ3cHg7XHJcblxyXG5cdFx0XHQuaXRlbV9pbWcge1xyXG5cdFx0XHRcdHdpZHRoOiAxNDdweDtcclxuXHRcdFx0XHRoZWlnaHQ6IDE0N3B4O1xyXG5cdFx0XHRcdGJvcmRlci1yYWRpdXM6IDhweDtcclxuXHRcdFx0fVxyXG5cclxuXHRcdFx0Lml0ZW1fZGV0YWlscyB7XHJcblx0XHRcdFx0cGFkZGluZy10b3A6IDEycHg7XHJcblx0XHRcdFx0d2lkdGg6IDEwMCU7XHJcblx0XHRcdFx0b3ZlcmZsb3c6IGhpZGRlbjtcclxuXHJcblx0XHRcdFx0aDMge1xyXG5cdFx0XHRcdFx0bWFyZ2luOiAwO1xyXG5cdFx0XHRcdFx0Y29sb3I6IHZhcigtLXRleHQtZGFyay1wcmltYXJ5KTtcclxuXHRcdFx0XHRcdGZvbnQtc2l6ZTogMC45cmVtO1xyXG5cdFx0XHRcdFx0Zm9udC13ZWlnaHQ6IDUwMDtcclxuXHRcdFx0XHRcdHBhZGRpbmctYm90dG9tOiAzcHg7XHJcblx0XHRcdFx0XHR3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG5cdFx0XHRcdFx0dGV4dC1vdmVyZmxvdzogZWxsaXBzaXM7XHJcblx0XHRcdFx0XHRvdmVyZmxvdzogaGlkZGVuO1xyXG5cdFx0XHRcdH1cclxuXHJcblx0XHRcdFx0aDQge1xyXG5cdFx0XHRcdFx0bWFyZ2luOiAwO1xyXG5cdFx0XHRcdFx0Y29sb3I6IHZhcigtLXRleHQtbGlnaHQpO1xyXG5cdFx0XHRcdFx0Zm9udC13ZWlnaHQ6IDQwMDtcclxuXHRcdFx0XHRcdGZvbnQtc2l6ZTogMC43cmVtO1xyXG5cdFx0XHRcdFx0cGFkZGluZy1ib3R0b206IDhweDtcclxuXHRcdFx0XHRcdHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcblx0XHRcdFx0XHR0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxuXHRcdFx0XHRcdG92ZXJmbG93OiBoaWRkZW47XHJcblx0XHRcdFx0fVxyXG5cclxuXHRcdFx0XHRoNSB7XHJcblx0XHRcdFx0XHRtYXJnaW46IDA7XHJcblx0XHRcdFx0XHRmb250LXNpemU6IDEuMXJlbTtcclxuXHRcdFx0XHRcdGNvbG9yOiB2YXIoLS10ZXh0LWJsYWNrKTtcclxuXHJcblx0XHRcdFx0XHRpb24tYmFkZ2Uge1xyXG5cdFx0XHRcdFx0XHRiYWNrZ3JvdW5kOiB2YXIoLS1zZWNvbmRhcnkpO1xyXG5cdFx0XHRcdFx0XHQtLWJhY2tncm91bmQ6IHZhcigtLXRyYW5zcGFyZW50KTtcclxuXHRcdFx0XHRcdFx0LS1jb2xvcjogdmFyKC0td2hpdGUpO1xyXG5cdFx0XHRcdFx0XHQtLXBhZGRpbmctYm90dG9tOiAwO1xyXG5cdFx0XHRcdFx0XHQtLXBhZGRpbmctZW5kOiAwO1xyXG5cdFx0XHRcdFx0XHQtLXBhZGRpbmctc3RhcnQ6IDA7XHJcblx0XHRcdFx0XHRcdC0tcGFkZGluZy10b3A6IDA7XHJcblx0XHRcdFx0XHRcdGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcblx0XHRcdFx0XHRcdGZvbnQtd2VpZ2h0OiA0MDA7XHJcblx0XHRcdFx0XHRcdGZvbnQtc2l6ZTogMC43cmVtO1xyXG5cdFx0XHRcdFx0XHRtaW4td2lkdGg6IDQxcHg7XHJcblx0XHRcdFx0XHRcdGhlaWdodDogMThweDtcclxuXHRcdFx0XHRcdFx0bGluZS1oZWlnaHQ6IDE4cHg7XHJcblxyXG5cdFx0XHRcdFx0XHRpb24taWNvbiB7XHJcblx0XHRcdFx0XHRcdFx0Zm9udC1zaXplOiAwLjZyZW07XHJcblx0XHRcdFx0XHRcdFx0cG9zaXRpb246IHJlbGF0aXZlO1xyXG5cdFx0XHRcdFx0XHRcdHRvcDogMXB4O1xyXG5cdFx0XHRcdFx0XHR9XHJcblx0XHRcdFx0XHR9XHJcblx0XHRcdFx0fVxyXG5cdFx0XHR9XHJcblxyXG5cdFx0XHQmOmZpcnN0LWNoaWxkIHtcclxuXHRcdFx0XHRtYXJnaW4tbGVmdDogMTRweDtcclxuXHRcdFx0fVxyXG5cclxuXHRcdFx0JjpsYXN0LWNoaWxkIHtcclxuXHRcdFx0XHRtYXJnaW4tcmlnaHQ6IDE0cHg7XHJcblx0XHRcdH1cclxuXHRcdH1cclxuXHR9XHJcbn1cclxuXHJcbi5lbXB0eS12aWV3IHtcclxuXHR3aWR0aDogMjAwcHg7XHJcblx0bWFyZ2luOiBhdXRvO1xyXG5cdGhlaWdodDogMjAwcHg7XHJcblx0Ly8gdG9wOiAxMCU7XHJcblx0Ly8gcG9zaXRpb246IGFic29sdXRlO1xyXG5cdC8vIGxlZnQ6IDA7XHJcblx0Ly8gcmlnaHQ6IDA7XHJcblx0Ly8gYm90dG9tOiAxMCU7XHJcblxyXG5cdGltZyB7XHJcblx0XHR3aWR0aDogMTAwcHg7XHJcblx0XHRtYXJnaW46IGF1dG87XHJcblx0fVxyXG5cclxuXHRzcGFuIHtcclxuXHRcdGRpc3BsYXk6IGJsb2NrO1xyXG5cdFx0dGV4dC1hbGlnbjogY2VudGVyO1xyXG5cdH1cclxuXHJcblx0YnV0dG9uIHtcclxuXHRcdG1hcmdpbi10b3A6IDUwcHg7XHJcblxyXG5cdFx0c3BhbiB7XHJcblx0XHRcdGRpc3BsYXk6IHVuc2V0ICFpbXBvcnRhbnQ7XHJcblx0XHR9XHJcblx0fVxyXG59XHJcbiIsImlvbi1oZWFkZXIge1xuICBwYWRkaW5nLXRvcDogMjBweDtcbn1cbmlvbi1oZWFkZXI6OmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiBjYWxjKDEwMCUgLSA1MHB4KTtcbiAgYmFja2dyb3VuZDogdmFyKC0tcHJpbWFyeSk7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuaW9uLWhlYWRlciBpb24tdG9vbGJhciB7XG4gIG1heC13aWR0aDogY2FsYygxMDAlIC0gMjhweCk7XG4gIG1hcmdpbjogMCBhdXRvO1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIG1pbi1oZWlnaHQ6IDUwcHggIWltcG9ydGFudDtcbiAgbWF4LWhlaWdodDogNTBweCAhaW1wb3J0YW50O1xufVxuaW9uLWhlYWRlciBpb24tdG9vbGJhciBpb24tdGl0bGUge1xuICBoZWlnaHQ6IDUwcHg7XG4gIGxpbmUtaGVpZ2h0OiA1MHB4O1xuICBtYXgtaGVpZ2h0OiA1MHB4O1xuICBwYWRkaW5nLXJpZ2h0OiAxMXB4ICFpbXBvcnRhbnQ7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZSAhaW1wb3J0YW50O1xuICB0b3A6IDA7XG59XG5pb24taGVhZGVyIGlvbi10b29sYmFyIGlvbi10aXRsZSAudGl0bGVfaW5uZXIgaDIge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMC45NXJlbTtcbiAgY29sb3I6IHZhcigtLXRleHQtZGFyay1wcmltYXJ5KTtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgbGV0dGVyLXNwYWNpbmc6IDFweDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogNTBweDtcbiAgbGluZS1oZWlnaHQ6IDUwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdGV4dC10cmFuc2Zvcm06IG5vbmU7XG4gIHRleHQtYWxpZ246IGp1c3RpZnk7XG59XG5pb24taGVhZGVyIGlvbi10b29sYmFyIGlvbi10aXRsZSAudGl0bGVfaW5uZXIgc3Bhbi5jYXJ0X2ljb24ge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIG1pbi13aWR0aDogMjdweDtcbn1cbmlvbi1oZWFkZXIgaW9uLXRvb2xiYXIgaW9uLXRpdGxlIC50aXRsZV9pbm5lciBzcGFuLmNhcnRfaWNvbiBpb24tYmFkZ2Uge1xuICBiYWNrZ3JvdW5kOiB2YXIoLS1yZWRfY29sb3IpO1xuICAtLWJhY2tncm91bmQ6IHZhcigtLXRyYW5zcGFyZW50KTtcbiAgLS1jb2xvcjogdmFyKC0td2hpdGUpO1xuICAtLXBhZGRpbmctYm90dG9tOiAwO1xuICAtLXBhZGRpbmctZW5kOiAwO1xuICAtLXBhZGRpbmctc3RhcnQ6IDA7XG4gIC0tcGFkZGluZy10b3A6IDA7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgd2lkdGg6IDE3cHg7XG4gIGhlaWdodDogMTdweDtcbiAgbGluZS1oZWlnaHQ6IDE3cHg7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBmb250LXNpemU6IDAuOHJlbSAhaW1wb3J0YW50O1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogOXB4O1xuICByaWdodDogMDtcbiAgZm9udC13ZWlnaHQ6IDUwMDtcbn1cbmlvbi1oZWFkZXIgaW9uLXRvb2xiYXIgaW9uLXRpdGxlIC50aXRsZV9pbm5lciBzcGFuLmNhcnRfaWNvbiBpb24taWNvbiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAxMHB4O1xuICBmb250LXNpemU6IDEuNXJlbTtcbn1cbmlvbi1oZWFkZXIgLmNhdGVnb3J5X3JvdyB7XG4gIHdpZHRoOiAxMDAlO1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICBvdmVyZmxvdy14OiBhdXRvO1xuICBwYWRkaW5nOiAxNXB4IDAgMTBweCAwO1xufVxuaW9uLWhlYWRlciAuY2F0ZWdvcnlfcm93IC5jYXRlZ29yeSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luOiAwIDZweDtcbiAgYm9yZGVyLXJhZGl1czogMTVweDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbmlvbi1oZWFkZXIgLmNhdGVnb3J5X3JvdyAuY2F0ZWdvcnkgLmltZ19ib3gge1xuICB3aWR0aDogOTBweDtcbiAgaGVpZ2h0OiA5MHB4O1xufVxuaW9uLWhlYWRlciAuY2F0ZWdvcnlfcm93IC5jYXRlZ29yeSAuaW1nX2JveCBoMiB7XG4gIG1hcmdpbjogMDtcbiAgY29sb3I6IHZhcigtLXdoaXRlKTtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiAxO1xuICBmb250LXNpemU6IDAuNjVyZW07XG4gIHBhZGRpbmc6IDEwcHggN3B4O1xuICBsZXR0ZXItc3BhY2luZzogMC41cHg7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG5pb24taGVhZGVyIC5jYXRlZ29yeV9yb3cgLmNhdGVnb3J5OmZpcnN0LWNoaWxkIHtcbiAgbWFyZ2luLWxlZnQ6IDE0cHg7XG59XG5pb24taGVhZGVyIC5jYXRlZ29yeV9yb3cgLmNhdGVnb3J5Omxhc3QtY2hpbGQge1xuICBtYXJnaW4tcmlnaHQ6IDE0cHg7XG59XG5cbi5iYW5uZXIge1xuICBtYXJnaW4tYm90dG9tOiAxOHB4O1xufVxuLmJhbm5lciBpb24tc2xpZGVzIGlvbi1zbGlkZSAuaW1nX2JveCB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDIxMHB4O1xufVxuXG4uaXRlbXNfY29udGFpbmVyIHtcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cbi5pdGVtc19jb250YWluZXIgaDIge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMS4yNXJlbTtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgcGFkZGluZzogMHB4IDE1cHggMTVweCAxNXB4O1xufVxuLml0ZW1zX2NvbnRhaW5lciAuaXRlbXNfcm93IHtcbiAgd2lkdGg6IDEwMCU7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIG92ZXJmbG93LXg6IGF1dG87XG4gIHBhZGRpbmc6IDBweCAwIDEwcHggMDtcbn1cbi5pdGVtc19jb250YWluZXIgLml0ZW1zX3JvdyAuaXRlbSB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgbWFyZ2luOiAwIDZweDtcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgd2lkdGg6IDE0N3B4O1xufVxuLml0ZW1zX2NvbnRhaW5lciAuaXRlbXNfcm93IC5pdGVtIC5pdGVtX2ltZyB7XG4gIHdpZHRoOiAxNDdweDtcbiAgaGVpZ2h0OiAxNDdweDtcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xufVxuLml0ZW1zX2NvbnRhaW5lciAuaXRlbXNfcm93IC5pdGVtIC5pdGVtX2RldGFpbHMge1xuICBwYWRkaW5nLXRvcDogMTJweDtcbiAgd2lkdGg6IDEwMCU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4uaXRlbXNfY29udGFpbmVyIC5pdGVtc19yb3cgLml0ZW0gLml0ZW1fZGV0YWlscyBoMyB7XG4gIG1hcmdpbjogMDtcbiAgY29sb3I6IHZhcigtLXRleHQtZGFyay1wcmltYXJ5KTtcbiAgZm9udC1zaXplOiAwLjlyZW07XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIHBhZGRpbmctYm90dG9tOiAzcHg7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuLml0ZW1zX2NvbnRhaW5lciAuaXRlbXNfcm93IC5pdGVtIC5pdGVtX2RldGFpbHMgaDQge1xuICBtYXJnaW46IDA7XG4gIGNvbG9yOiB2YXIoLS10ZXh0LWxpZ2h0KTtcbiAgZm9udC13ZWlnaHQ6IDQwMDtcbiAgZm9udC1zaXplOiAwLjdyZW07XG4gIHBhZGRpbmctYm90dG9tOiA4cHg7XG4gIHdoaXRlLXNwYWNlOiBub3dyYXA7XG4gIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuLml0ZW1zX2NvbnRhaW5lciAuaXRlbXNfcm93IC5pdGVtIC5pdGVtX2RldGFpbHMgaDUge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMS4xcmVtO1xuICBjb2xvcjogdmFyKC0tdGV4dC1ibGFjayk7XG59XG4uaXRlbXNfY29udGFpbmVyIC5pdGVtc19yb3cgLml0ZW0gLml0ZW1fZGV0YWlscyBoNSBpb24tYmFkZ2Uge1xuICBiYWNrZ3JvdW5kOiB2YXIoLS1zZWNvbmRhcnkpO1xuICAtLWJhY2tncm91bmQ6IHZhcigtLXRyYW5zcGFyZW50KTtcbiAgLS1jb2xvcjogdmFyKC0td2hpdGUpO1xuICAtLXBhZGRpbmctYm90dG9tOiAwO1xuICAtLXBhZGRpbmctZW5kOiAwO1xuICAtLXBhZGRpbmctc3RhcnQ6IDA7XG4gIC0tcGFkZGluZy10b3A6IDA7XG4gIGJvcmRlci1yYWRpdXM6IDUwcHg7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGZvbnQtc2l6ZTogMC43cmVtO1xuICBtaW4td2lkdGg6IDQxcHg7XG4gIGhlaWdodDogMThweDtcbiAgbGluZS1oZWlnaHQ6IDE4cHg7XG59XG4uaXRlbXNfY29udGFpbmVyIC5pdGVtc19yb3cgLml0ZW0gLml0ZW1fZGV0YWlscyBoNSBpb24tYmFkZ2UgaW9uLWljb24ge1xuICBmb250LXNpemU6IDAuNnJlbTtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IDFweDtcbn1cbi5pdGVtc19jb250YWluZXIgLml0ZW1zX3JvdyAuaXRlbTpmaXJzdC1jaGlsZCB7XG4gIG1hcmdpbi1sZWZ0OiAxNHB4O1xufVxuLml0ZW1zX2NvbnRhaW5lciAuaXRlbXNfcm93IC5pdGVtOmxhc3QtY2hpbGQge1xuICBtYXJnaW4tcmlnaHQ6IDE0cHg7XG59XG5cbi5lbXB0eS12aWV3IHtcbiAgd2lkdGg6IDIwMHB4O1xuICBtYXJnaW46IGF1dG87XG4gIGhlaWdodDogMjAwcHg7XG59XG4uZW1wdHktdmlldyBpbWcge1xuICB3aWR0aDogMTAwcHg7XG4gIG1hcmdpbjogYXV0bztcbn1cbi5lbXB0eS12aWV3IHNwYW4ge1xuICBkaXNwbGF5OiBibG9jaztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLmVtcHR5LXZpZXcgYnV0dG9uIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbn1cbi5lbXB0eS12aWV3IGJ1dHRvbiBzcGFuIHtcbiAgZGlzcGxheTogdW5zZXQgIWltcG9ydGFudDtcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/home/home.page.ts":
+/*!*********************************************!*\
+  !*** ./src/app/shop-hour/home/home.page.ts ***!
+  \*********************************************/
+/*! exports provided: HomePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/models-shop-hour/constants.models */ "./src/models/models-shop-hour/constants.models.ts");
+/* harmony import */ var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ui-elements.service */ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
+/* harmony import */ var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/shoup-hour-services/network/api.service */ "./src/app/services/shoup-hour-services/network/api.service.ts");
+/* harmony import */ var src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ecommerce.service */ "./src/app/services/shoup-hour-services/common/ecommerce.service.ts");
+/* harmony import */ var src_app_shophour_config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shophour.config */ "./src/app/shophour.config.ts");
+
+
+
+
+
+
+
+
+
+let HomePage = class HomePage {
+    constructor(config, navCtrl, translate, uiElementService, apiService, eComService) {
+        this.config = config;
+        this.navCtrl = navCtrl;
+        this.translate = translate;
+        this.uiElementService = uiElementService;
+        this.apiService = apiService;
+        this.eComService = eComService;
+        this.subscriptions = new Array();
+        this.productsArray = new Array();
+        this.isLoading = true;
+    }
+    ngOnInit() {
+        this.translate.get("loading").subscribe(value => { this.uiElementService.presentToast(value); this.loadBanners(); this.loadCategories(); });
+    }
+    ngOnDestroy() {
+        for (let sub of this.subscriptions)
+            sub.unsubscribe();
+        this.uiElementService.dismissLoading();
+    }
+    ionViewDidEnter() {
+        // let selectedLocationNew = Helper.getAddressSelected();
+        // let changed: boolean = !this.selectedLocation || !selectedLocationNew || (this.selectedLocation.latitude != selectedLocationNew.latitude || this.selectedLocation.longitude != selectedLocationNew.longitude);
+        // this.selectedLocation = selectedLocationNew;
+        // if (changed) {
+        //   //this.refreshProviders();
+        // }
+        this.cartCount = this.eComService.getCartItemsCount();
+    }
+    navCatDetail(cat) {
+        let navigationExtras = { state: { category: cat } };
+        this.navCtrl.navigateForward(['tabs/main-home/shop-hour/item'], navigationExtras);
+    }
+    loadCategories() {
+        this.subscriptions.push(this.apiService.getCategoriesParents(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].SCOPE_ECOMMERCE).subscribe(res => {
+            this.categories = res;
+            console.log('getCategoriesParents', res);
+            //Helper.setCategoriesParent(this.categories);
+            if (res && res.length) {
+                this.productsArray = [];
+                for (let cat of res) {
+                    this.isLoading = true;
+                    this.loadProductsByCatId(cat);
+                }
+            }
+            else {
+                this.uiElementService.dismissLoading();
+                this.isLoading = false;
+            }
+        }, err => {
+            console.log("getCategoriesParents", err);
+            this.uiElementService.dismissLoading();
+            this.isLoading = false;
+        }));
+    }
+    loadBanners() {
+        this.subscriptions.push(this.apiService.getBanners(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].SCOPE_ECOMMERCE).subscribe(res => {
+            this.banners = res;
+            console.log('getBanners', res);
+            // Helper.setCategoriesParent(this.categories);
+            // this.uiElementService.dismissLoading();
+            // this.isLoading = false;
+        }, err => {
+            console.log("getBanners", err);
+            // this.uiElementService.dismissLoading();
+            // this.isLoading = false;
+        }));
+    }
+    loadProductsByCatId(cat) {
+        this.subscriptions.push(this.apiService.getProductsWithCategoryId(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].SCOPE_ECOMMERCE, cat.id, null, 1).subscribe(res => {
+            if (res.data && res.data.length)
+                this.productsArray.push({ category: cat, products: res.data });
+            this.uiElementService.dismissLoading();
+            this.isLoading = false;
+        }, err => {
+            console.log("getProductsWithCategoryId", err);
+            this.uiElementService.dismissLoading();
+            this.isLoading = false;
+        }));
+    }
+    haveNothingToShow() {
+        let toReturn = true;
+        if (this.productsArray) {
+            for (let catPros of this.productsArray) {
+                if (catPros && catPros.products.length) {
+                    toReturn = false;
+                    break;
+                }
+            }
+        }
+        return this.isLoading ? false : toReturn;
+    }
+    navProDetail(pro) {
+        let navigationExtras = { queryParams: { product_id: pro.id } };
+        this.navCtrl.navigateForward(['tabs/main-home/shop-hour/item-detail'], navigationExtras);
+    }
+    item() {
+        this.navCtrl.navigateForward(['tabs/main-home/shop-hour/item']);
+    }
+    navSearch() {
+        this.navCtrl.navigateForward(['tabs/main-home/shop-hour/search']);
+    }
+    cart() {
+        this.navCtrl.navigateForward(['tabs/main-home/shop-hour/cart']);
+    }
+};
+HomePage.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [src_app_shophour_config__WEBPACK_IMPORTED_MODULE_8__["APP_CONFIG_ShopHour"],] }] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] },
+    { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"] },
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"] },
+    { type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__["ECommerceService"] }
+];
+HomePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-home',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./home.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shop-hour/home/home.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./home.page.scss */ "./src/app/shop-hour/home/home.page.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(src_app_shophour_config__WEBPACK_IMPORTED_MODULE_8__["APP_CONFIG_ShopHour"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__["ECommerceService"]])
 ], HomePage);
 
 

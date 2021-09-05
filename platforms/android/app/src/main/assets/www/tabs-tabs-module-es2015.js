@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\r\n\r\n\t<ion-tab-bar slot=\"bottom\">\r\n\t\t<ion-tab-button tab=\"home\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicine.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicineact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'medicine' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"doctors\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsf.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'doctors' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"hospitals\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitals.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitalsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'hospitals' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"my_appointments\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointments.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointmentsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'appts' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"more\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_more.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_moreact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'more' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\t</ion-tab-bar>\r\n\r\n</ion-tabs>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\r\n\r\n\t<ion-tab-bar slot=\"bottom\">\r\n\t\t<ion-tab-button tab=\"main-home\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicine.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicineact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'medicine' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"doctors\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsf.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'doctors' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"hospitals\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitals.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitalsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'hospitals' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"my_appointments\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointments.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointmentsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'appts' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"more\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_more.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_moreact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'more' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\t</ion-tab-bar>\r\n\r\n</ion-tabs>");
 
 /***/ }),
 
@@ -36,11 +36,14 @@ const routes = [
         path: 'tabs',
         component: _tabs_page__WEBPACK_IMPORTED_MODULE_3__["TabsPage"],
         children: [{
-                path: 'home',
+                path: '',
                 children: [
                     {
-                        path: '',
-                        loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ../home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
+                        path: 'home',
+                        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ../home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
+                    }, {
+                        path: 'main-home',
+                        loadChildren: () => __webpack_require__.e(/*! import() | main-home-main-home-module */ "main-home-main-home-module").then(__webpack_require__.bind(null, /*! ../main-home/main-home.module */ "./src/app/main-home/main-home.module.ts")).then(m => m.MainHomePageModule)
                     }
                 ]
             }, {
@@ -77,13 +80,13 @@ const routes = [
                 ]
             }, {
                 path: '',
-                redirectTo: '/tabs/home',
+                redirectTo: '/tabs/main-home',
                 pathMatch: 'full'
             }
         ]
     }, {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: '/tabs/main-home',
         pathMatch: 'full'
     }
 ];

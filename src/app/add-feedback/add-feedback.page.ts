@@ -54,7 +54,7 @@ export class AddFeedbackPage implements OnInit, OnDestroy {
           // Helper.addReviewedProductId(String(this.order_id + String(this.product.id)));
           this.uiElementService.dismissLoading();
           this.translate.get("review_done").subscribe(value => this.uiElementService.presentToast(value));
-          this.navCtrl.navigateRoot(['./tabs']);
+          this.navCtrl.navigateRoot(['./tabs/main-home']);
         }, err => {
           this.uiElementService.dismissLoading();
           console.log("postReviewProduct", err);

@@ -2,8 +2,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { APP_CONFIG_ShopHour, ShopHourConfig } from 'src/app/shophour.config';
 import { ConnectivityService } from './connectivity.service';
-import { MyAddress } from 'src/models/models-shop-hour/address.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { MyAddress } from 'src/models/address.models';
+import { Helper } from 'src/models/helper.models';
 
 @Injectable({
   providedIn: null

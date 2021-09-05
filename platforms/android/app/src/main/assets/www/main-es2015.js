@@ -668,7 +668,7 @@ const routes = [
     },
     {
         path: 'home',
-        loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
+        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
     },
     {
         path: 'categories',
@@ -688,7 +688,7 @@ const routes = [
     },
     {
         path: 'select-address',
-        loadChildren: () => __webpack_require__.e(/*! import() | select-address-select-address-module */ "select-address-select-address-module").then(__webpack_require__.bind(null, /*! ./select-address/select-address.module */ "./src/app/select-address/select-address.module.ts")).then(m => m.SelectAddressPageModule)
+        loadChildren: () => Promise.all(/*! import() | select-address-select-address-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("select-address-select-address-module")]).then(__webpack_require__.bind(null, /*! ./select-address/select-address.module */ "./src/app/select-address/select-address.module.ts")).then(m => m.SelectAddressPageModule)
     },
     {
         path: 'select-paymet-method',
@@ -756,7 +756,7 @@ const routes = [
     },
     {
         path: 'my-profile',
-        loadChildren: () => __webpack_require__.e(/*! import() | my-profile-my-profile-module */ "my-profile-my-profile-module").then(__webpack_require__.bind(null, /*! ./my-profile/my-profile.module */ "./src/app/my-profile/my-profile.module.ts")).then(m => m.MyProfilePageModule)
+        loadChildren: () => Promise.all(/*! import() | my-profile-my-profile-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("my-profile-my-profile-module")]).then(__webpack_require__.bind(null, /*! ./my-profile/my-profile.module */ "./src/app/my-profile/my-profile.module.ts")).then(m => m.MyProfilePageModule)
     },
     {
         path: 'addresses',
@@ -764,11 +764,11 @@ const routes = [
     },
     {
         path: 'add-address',
-        loadChildren: () => Promise.all(/*! import() | add-address-add-address-module */[__webpack_require__.e("default~add-address-add-address-module~tabs-tabs-module"), __webpack_require__.e("common"), __webpack_require__.e("add-address-add-address-module")]).then(__webpack_require__.bind(null, /*! ./add-address/add-address.module */ "./src/app/add-address/add-address.module.ts")).then(m => m.AddAddressPageModule)
+        loadChildren: () => Promise.all(/*! import() | add-address-add-address-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("default~add-address-add-address-module~tabs-tabs-module"), __webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("common"), __webpack_require__.e("add-address-add-address-module")]).then(__webpack_require__.bind(null, /*! ./add-address/add-address.module */ "./src/app/add-address/add-address.module.ts")).then(m => m.AddAddressPageModule)
     },
     {
         path: 'contact-us',
-        loadChildren: () => __webpack_require__.e(/*! import() | contact-us-contact-us-module */ "contact-us-contact-us-module").then(__webpack_require__.bind(null, /*! ./contact-us/contact-us.module */ "./src/app/contact-us/contact-us.module.ts")).then(m => m.ContactUsPageModule)
+        loadChildren: () => Promise.all(/*! import() | contact-us-contact-us-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("contact-us-contact-us-module")]).then(__webpack_require__.bind(null, /*! ./contact-us/contact-us.module */ "./src/app/contact-us/contact-us.module.ts")).then(m => m.ContactUsPageModule)
     },
     {
         path: 'faqs',
@@ -780,7 +780,7 @@ const routes = [
     },
     {
         path: 'title',
-        loadChildren: () => Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./title/title.module */ "./src/app/title/title.module.ts")).then(m => m.TitlePageModule)
+        loadChildren: () => Promise.all(/*! import() | title-title-module */[__webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("title-title-module")]).then(__webpack_require__.bind(null, /*! ./title/title.module */ "./src/app/title/title.module.ts")).then(m => m.TitlePageModule)
     },
     {
         path: 'change-language',
@@ -836,7 +836,7 @@ const routes = [
     },
     {
         path: 'offers',
-        loadChildren: () => __webpack_require__.e(/*! import() | offers-offers-module */ "offers-offers-module").then(__webpack_require__.bind(null, /*! ./offers/offers.module */ "./src/app/offers/offers.module.ts")).then(m => m.OffersPageModule)
+        loadChildren: () => Promise.all(/*! import() | offers-offers-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("offers-offers-module")]).then(__webpack_require__.bind(null, /*! ./offers/offers.module */ "./src/app/offers/offers.module.ts")).then(m => m.OffersPageModule)
     },
     {
         path: 'product-reviews',
@@ -869,7 +869,7 @@ const routes = [
     {
         path: 'add-money',
         loadChildren: () => __webpack_require__.e(/*! import() | add-money-add-money-module */ "add-money-add-money-module").then(__webpack_require__.bind(null, /*! ./add-money/add-money.module */ "./src/app/add-money/add-money.module.ts")).then(m => m.AddMoneyPageModule)
-    }
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -1177,7 +1177,8 @@ __webpack_require__.r(__webpack_exports__);
 let APP_CONFIG = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]("app.config");
 const BaseAppConfig = {
     appName: "CookFu",
-    apiBase: "http://192.168.0.115:8001/",
+    // apiBase: "http://192.168.0.115:8001/",
+    apiBase: "https://api.agocarry.com/public/",
     googleApiKey: "AIzaSyDLMJOClhhQjkfepu0R8iOCIt7bUpUF0nU",
     oneSignalAppId: "14a71c55-8888-4373-afa7-f69c79bfdda7",
     oneSignalGPSenderId: "971942122749",
@@ -1252,12 +1253,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app.config */ "./src/app/app.config.ts");
-/* harmony import */ var _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/onesignal/ngx */ "./node_modules/@ionic-native/onesignal/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/__ivy_ngcc__/ngx/index.js");
-/* harmony import */ var _vt_popup_vt_popup_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./vt-popup/vt-popup.module */ "./src/app/vt-popup/vt-popup.module.ts");
+/* harmony import */ var _shophour_config__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shophour.config */ "./src/app/shophour.config.ts");
+/* harmony import */ var _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/onesignal/ngx */ "./node_modules/@ionic-native/onesignal/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @ionic-native/file/ngx */ "./node_modules/@ionic-native/file/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @ionic-native/device/ngx */ "./node_modules/@ionic-native/device/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @ionic-native/in-app-browser/ngx */ "./node_modules/@ionic-native/in-app-browser/__ivy_ngcc__/ngx/index.js");
+/* harmony import */ var _vt_popup_vt_popup_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./vt-popup/vt-popup.module */ "./src/app/vt-popup/vt-popup.module.ts");
+
 
 
 
@@ -1299,7 +1302,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _title_title_module__WEBPACK_IMPORTED_MODULE_8__["TitlePageModule"],
             // Chat2PageModule,
             _prescription_prescription_module__WEBPACK_IMPORTED_MODULE_9__["PrescriptionPageModule"],
-            _vt_popup_vt_popup_module__WEBPACK_IMPORTED_MODULE_21__["VtPopupPageModule"],
+            _vt_popup_vt_popup_module__WEBPACK_IMPORTED_MODULE_22__["VtPopupPageModule"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateModule"].forRoot({
                 loader: {
                     provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_10__["TranslateLoader"],
@@ -1311,11 +1314,12 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
-            _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_16__["OneSignal"],
-            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_17__["File"],
-            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_18__["Network"],
-            _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_19__["Device"],
-            _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_20__["InAppBrowser"],
+            _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_17__["OneSignal"],
+            _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"],
+            _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_19__["Network"],
+            _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_20__["Device"],
+            _ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_21__["InAppBrowser"],
+            { provide: _shophour_config__WEBPACK_IMPORTED_MODULE_16__["APP_CONFIG_ShopHour"], useValue: _shophour_config__WEBPACK_IMPORTED_MODULE_16__["BaseShopHourConfig"] },
             { provide: _app_config__WEBPACK_IMPORTED_MODULE_15__["APP_CONFIG"], useValue: _app_config__WEBPACK_IMPORTED_MODULE_15__["BaseAppConfig"] },
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
@@ -3203,6 +3207,63 @@ FirebaseUploaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_2__["File"]])
 ], FirebaseUploaderService);
 
+
+
+/***/ }),
+
+/***/ "./src/app/shophour.config.ts":
+/*!************************************!*\
+  !*** ./src/app/shophour.config.ts ***!
+  \************************************/
+/*! exports provided: APP_CONFIG_ShopHour, BaseShopHourConfig */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APP_CONFIG_ShopHour", function() { return APP_CONFIG_ShopHour; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BaseShopHourConfig", function() { return BaseShopHourConfig; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+let APP_CONFIG_ShopHour = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]("shophour.config");
+const BaseShopHourConfig = {
+    appName: "Shop Hour",
+    // apiBase: "https://yourapibase.com/", 
+    apiBase: "https://api.agocarry.com/public/",
+    googleApiKey: "AIzaSyDLMJOClhhQjkfepu0R8iOCIt7bUpUF0nU",
+    oneSignalAppId: "14a71c55-8888-4373-afa7-f69c79bfdda7",
+    oneSignalGPSenderId: "971942122749",
+    availableLanguages: [{
+            code: 'en',
+            name: 'English'
+        }, {
+            code: 'ar',
+            name: 'Arabic'
+        }
+        // , {
+        //     code: 'es',
+        //     name: 'Spanish'
+        // }, {
+        //     code: 'fr',
+        //     name: 'French'
+        // }, {
+        //     code: 'id',
+        //     name: 'Indonesian'
+        // }, {
+        //     code: 'pt',
+        //     name: 'Portuguese'
+        // }
+    ],
+    showBuyPromt: false,
+    firebaseConfig: {
+        apiKey: "AIzaSyBzkgi5R1M_owyTrPzfkw8-4OJw7vEcMGU",
+        authDomain: "customer-cookfu.firebaseapp.com",
+        databaseURL: "https://customer-cookfu-default-rtdb.firebaseio.com",
+        projectId: "customer-cookfu",
+        storageBucket: "customer-cookfu.appspot.com",
+        messagingSenderId: "971942122749",
+        webApplicationId: "1:971942122749:web:83d41cd821a538d1a7da94"
+    }
+};
 
 
 /***/ }),

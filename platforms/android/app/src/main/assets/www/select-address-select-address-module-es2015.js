@@ -13,6 +13,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shop-hour/select-address/select-address.page.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shop-hour/select-address/select-address.page.html ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header class=\"bg_transparent\">\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button text=\"\" icon=\"chevron-back-outline\"></ion-back-button>\n        </ion-buttons>\n        <ion-title>\n            {{'select_address' | translate}}\n        </ion-title>\n    </ion-toolbar>\n    <div class=\"order_steps\">\n        <ion-row>\n            <ion-col class=\"active\">\n                <ion-icon class=\"zmdi zmdi-pin\"></ion-icon>\n            </ion-col>\n            <ion-col>\n                <h3>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                </h3>\n            </ion-col>\n            <ion-col>\n                <ion-icon class=\"zmdi zmdi-card\"></ion-icon>\n            </ion-col>\n            <ion-col>\n                <h3>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                    <ion-icon class=\"zmdi zmdi-circle\"></ion-icon>\n                </h3>\n            </ion-col>\n            <ion-col>\n                <ion-icon class=\"zmdi zmdi-assignment-check\"></ion-icon>\n            </ion-col>\n        </ion-row>\n    </div>\n</ion-header>\n\n<ion-content class=\"bg_color\">\n    <!--\n    <ion-card>\n        <div class=\"form\">\n            <h2>{{'select_delivery_type' | translate}}</h2>\n            <ion-list lines=\"none\">\n                <ion-radio-group>\n                    <ion-item>\n                        <div class=\"item_inner d-flex\">\n                            <ion-radio value=\"home\"></ion-radio>\n                            <div class=\"text_box\">\n                                <h3 class=\"d-flex\">Normal Delivery <span class=\"end\">$8.00</span></h3>\n                                <p>\n                                    Delivery in 8-9 Days\n                                </p>\n                            </div>\n                        </div>\n                    </ion-item>\n                    <ion-item>\n                        <div class=\"item_inner d-flex\">\n                            <ion-radio value=\"Office\"></ion-radio>\n                            <div class=\"text_box\">\n                                <h3 class=\"d-flex\">Fast Delivery <span class=\"end\">$12.00</span></h3>\n                                <p>\n                                    Delivery in 2-3 Days\n                                </p>\n                            </div>\n                        </div>\n                    </ion-item>\n\n                    <ion-item>\n                        <div class=\"item_inner d-flex\">\n                            <ion-radio value=\"Other\"></ion-radio>\n                            <div class=\"text_box\">\n                                <h3 class=\"d-flex\">Superfast Delivery<span class=\"end\">$16.00</span></h3>\n                                <p>\n                                    Delivery in Next Day\n                                </p>\n                            </div>\n                        </div>\n                    </ion-item>\n                </ion-radio-group>\n            </ion-list>\n        </div>\n    </ion-card>\n-->\n    <ion-card class=\"my_addresses\">\n        <div class=\"form\">\n            <h2 class=\"d-flex\">\n                {{'my_addresses' | translate}}\n                <span class=\"end\" (click)=\"navAddressNew()\">{{'add_new' | translate}}</span>\n            </h2>\n            <ion-list lines=\"none\">\n                <ion-radio-group (ionChange)=\"onAddressSelected($event)\">\n                    <ion-item *ngFor=\"let address of addresses\">\n                        <div class=\"item_inner d-flex\">\n                            <ion-radio value=\"{{address.id}}\"></ion-radio>\n                            <div class=\"text_box\">\n                                <h3 class=\"d-flex\">{{address.title}}</h3>\n                                <p>{{address.formatted_address}}</p>\n                            </div>\n                        </div>\n                    </ion-item>\n                </ion-radio-group>\n            </ion-list>\n        </div>\n    </ion-card>\n\n    <!-- <ion-card class=\"my_addresses\">\n        <div class=\"form\">\n            <h2 class=\"d-flex\">\n                {{'my_addresses' | translate}}\n                <span class=\"end\" (click)=\"navAddressNew()\">{{'add_new' | translate}}</span>\n            </h2>\n            <ion-list lines=\"none\">\n                <ion-item *ngFor=\"let address of addresses\" (click)=\"onAddressSelected(address)\">\n                    <div class=\"item_inner\">\n                        <div class=\"text_box\">\n                            <h3 class=\"d-flex\">{{address.title}}</h3>\n                            <p>{{address.formatted_address}}</p>\n                        </div>\n                    </div>\n                </ion-item>\n            </ion-list>\n        </div>\n    </ion-card> -->\n\n    <div class=\"empty-view\" *ngIf=\"!isLoading && (!addresses || !addresses.length)\">\n        <div style=\"text-align:center\">\n            <img src=\"assets/images/plc_no_address.png\" alt=\"no offers\" />\n            <span style=\"color:#9E9E9E; font-weight:bold; display: block;\">{{\"empty_addresses\" | translate}}</span>\n        </div>\n    </div>\n\n</ion-content>\n<ion-footer class=\"ion-no-border\">\n    <h2 class=\"d-flex\" (click)=\"navPaymentSelection()\">\n        {{'checkout_now' | translate}}\n        <span class=\"end\">\n            <small class=\"ion-text-start\">{{'total' | translate}}</small>\n            {{currency_icon}}{{eComService.getCartTotal(true)}}\n            <ion-icon class=\"zmdi zmdi-chevron-right ion-text-end\"></ion-icon>\n        </span>\n    </h2>\n</ion-footer>");
+
+/***/ }),
+
 /***/ "./src/app/select-address/select-address-routing.module.ts":
 /*!*****************************************************************!*\
   !*** ./src/app/select-address/select-address-routing.module.ts ***!
@@ -219,6 +232,303 @@ SelectAddressPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
         _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"], _services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_6__["ECommerceService"]])
+], SelectAddressPage);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/services/shoup-hour-services/common/ui-elements.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: UiElementsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UiElementsService", function() { return UiElementsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+
+
+
+
+let UiElementsService = class UiElementsService {
+    constructor(toastController, loadingController, alertCtrl, translateService) {
+        this.toastController = toastController;
+        this.loadingController = loadingController;
+        this.alertCtrl = alertCtrl;
+        this.translateService = translateService;
+    }
+    presentToast(body, position, duration) {
+        this.toastController.create({
+            message: body,
+            duration: (duration && duration > 0) ? duration : 1000,
+            position: (position && (position == "top" || position == "middle")) ? position : "bottom"
+        }).then(toast => toast.present());
+    }
+    presentErrorAlert(msg, headingText, actionText) {
+        this.translateService.get(["error", "dismiss"]).subscribe(values => {
+            this.alertCtrl.create({
+                header: (headingText ? headingText : values["error"]),
+                message: msg,
+                buttons: [(actionText ? actionText : values["dismiss"])]
+            }).then(alert => alert.present());
+        });
+    }
+    presentLoading(body) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = true;
+            return yield this.loadingController.create({ message: body }).then(overlay => {
+                overlay.present().then(() => {
+                    if (!this.isLoading) {
+                        try {
+                            overlay.dismiss().then(() => console.log('loading aborted'));
+                        }
+                        catch (error) {
+                            console.log(error);
+                        }
+                    }
+                });
+            });
+        });
+    }
+    dismissLoading() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.isLoading = false;
+            try {
+                return yield this.loadingController.dismiss();
+            }
+            catch (error) {
+                console.log(error);
+                return null;
+            }
+        });
+    }
+};
+UiElementsService.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] }
+];
+UiElementsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
+], UiElementsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/select-address/select-address-routing.module.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/shop-hour/select-address/select-address-routing.module.ts ***!
+  \***************************************************************************/
+/*! exports provided: SelectAddressPageRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectAddressPageRoutingModule", function() { return SelectAddressPageRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _select_address_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./select-address.page */ "./src/app/shop-hour/select-address/select-address.page.ts");
+
+
+
+
+const routes = [
+    {
+        path: '',
+        component: _select_address_page__WEBPACK_IMPORTED_MODULE_3__["SelectAddressPage"]
+    }
+];
+let SelectAddressPageRoutingModule = class SelectAddressPageRoutingModule {
+};
+SelectAddressPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], SelectAddressPageRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/select-address/select-address.module.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/shop-hour/select-address/select-address.module.ts ***!
+  \*******************************************************************/
+/*! exports provided: SelectAddressPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectAddressPageModule", function() { return SelectAddressPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _select_address_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./select-address-routing.module */ "./src/app/shop-hour/select-address/select-address-routing.module.ts");
+/* harmony import */ var _select_address_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./select-address.page */ "./src/app/shop-hour/select-address/select-address.page.ts");
+
+
+
+
+
+
+
+
+let SelectAddressPageModule = class SelectAddressPageModule {
+};
+SelectAddressPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"],
+            _select_address_routing_module__WEBPACK_IMPORTED_MODULE_6__["SelectAddressPageRoutingModule"]
+        ],
+        declarations: [_select_address_page__WEBPACK_IMPORTED_MODULE_7__["SelectAddressPage"]]
+    })
+], SelectAddressPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/select-address/select-address.page.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/shop-hour/select-address/select-address.page.scss ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("ion-header {\n  background: var(--primary);\n}\nion-header ion-toolbar ion-buttons ion-back-button {\n  --color: var(--white) !important;\n}\nion-header ion-toolbar ion-title {\n  color: var(--white);\n  font-weight: 500;\n  font-size: 1.3rem;\n}\nion-header .order_steps {\n  padding: 24px 20px 20px 20px;\n}\nion-header .order_steps ion-row {\n  align-items: center;\n}\nion-header .order_steps ion-row ion-col {\n  max-width: 20% !important;\n  min-width: 20% !important;\n  opacity: 0.4;\n}\nion-header .order_steps ion-row ion-col ion-icon {\n  color: var(--white);\n  display: block;\n  margin: 0 auto;\n  font-size: 1.55rem;\n  text-align: center;\n}\nion-header .order_steps ion-row ion-col h3 {\n  display: flex;\n  align-items: center;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: 0 auto;\n}\nion-header .order_steps ion-row ion-col h3 ion-icon {\n  font-size: 0.4rem;\n  margin: 0 2px;\n  height: 10px;\n  line-height: 10px;\n}\nion-header .order_steps ion-row ion-col.active {\n  opacity: 1;\n}\nion-card {\n  box-shadow: none;\n  width: 100%;\n  border-radius: 0;\n  margin: 0;\n  background: var(--white);\n  margin-bottom: 10px;\n}\nion-card .form {\n  padding: 29px 0 20px 0px;\n}\nion-card .form h2 {\n  margin: 0;\n  color: var(--text-light);\n  text-transform: uppercase;\n  font-size: 1rem;\n  letter-spacing: 1px;\n  padding-bottom: 10px;\n}\nion-card .form ion-list ion-item {\n  padding: 20px 0 !important;\n  border: none !important;\n}\nion-card .form ion-list ion-item .item_inner {\n  align-items: flex-start;\n}\nion-card .form ion-list ion-item .item_inner ion-radio {\n  --color-checked: var(--primary);\n  margin: 0;\n  margin-right: 22px;\n  min-width: 20px;\n  min-height: 20px;\n  margin-top: 4px;\n}\nion-card .form ion-list ion-item .item_inner .text_box {\n  width: 100%;\n}\nion-card .form ion-list ion-item .item_inner .text_box h3 {\n  margin: 0;\n  font-weight: 500;\n  letter-spacing: 0;\n  font-size: 1.15rem;\n  color: var(--text-black);\n  padding-bottom: 5px;\n}\nion-card .form ion-list ion-item .item_inner .text_box p {\n  margin: 0;\n  color: var(--text-dark-primary);\n  line-height: 23px;\n  letter-spacing: 0.5px;\n  font-size: 0.9rem;\n}\nion-card.my_addresses .form h2 {\n  padding-bottom: 22px !important;\n}\nion-card.my_addresses .form h2 span {\n  color: var(--primary);\n  font-weight: 600;\n  font-size: 1.1rem;\n  min-width: -webkit-fit-content;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n}\nion-card.my_addresses .form ion-list ion-item {\n  border-bottom: none !important;\n  padding-top: 0 !important;\n  margin-bottom: 0;\n}\nion-card.my_addresses .form ion-list ion-item .item_inner {\n  width: 100%;\n}\nion-card.my_addresses .form ion-list ion-item .item_inner .text_box {\n  width: 100%;\n}\nion-card.my_addresses .form ion-list ion-item .item_inner .text_box h3 {\n  margin: 0;\n  font-weight: 600;\n  letter-spacing: 0;\n  font-size: 1.2rem;\n  color: var(--text-black);\n  padding-bottom: 10px;\n}\nion-card.my_addresses .form ion-list ion-item .item_inner .text_box h3 ion-icon {\n  color: var(--text-dark-primary);\n  height: 23px;\n  line-height: normal;\n  font-size: 1.25rem;\n}\nion-card.my_addresses .form ion-list ion-item .item_inner .text_box p {\n  margin: 0;\n  color: var(--text-light);\n  line-height: 23px;\n  letter-spacing: 0.5px;\n  font-size: 0.9rem;\n  width: calc(100% - 30px);\n}\nion-card:last-child {\n  margin-bottom: 0;\n}\nion-footer h2 {\n  margin: 0;\n  background: var(--primary);\n  color: var(--white);\n  padding: 12px 13px;\n  font-size: 1.14rem;\n  letter-spacing: 0.5px;\n}\nion-footer h2 .end {\n  display: flex;\n  align-items: center;\n  min-width: -webkit-fit-content;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n}\nion-footer h2 .end small {\n  font-weight: 400;\n  opacity: 0.7;\n  font-size: 0.8rem;\n  margin-right: 16px;\n}\nion-footer h2 .end ion-icon {\n  font-size: 2.2rem;\n  width: 20px;\n  min-width: 20px;\n}\n.empty-view {\n  width: 200px;\n  margin: auto;\n  height: 200px;\n  top: 10%;\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 10%;\n}\n.empty-view img {\n  width: 100px;\n  margin: auto;\n}\n.empty-view span {\n  display: block;\n  text-align: center;\n}\n.empty-view button {\n  margin-top: 50px;\n}\n.empty-view button span {\n  display: unset !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hvcC1ob3VyL3NlbGVjdC1hZGRyZXNzL0Y6XFxmaXZlclxcQmVybmFyZFxcQWdvY2FycnlcXGFnb2NhcnJ5LWN1c3RvbWVyL3NyY1xcYXBwXFxzaG9wLWhvdXJcXHNlbGVjdC1hZGRyZXNzXFxzZWxlY3QtYWRkcmVzcy5wYWdlLnNjc3MiLCJzcmMvYXBwL3Nob3AtaG91ci9zZWxlY3QtYWRkcmVzcy9zZWxlY3QtYWRkcmVzcy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQywwQkFBQTtBQ0NEO0FERUU7RUFDQyxnQ0FBQTtBQ0FIO0FER0U7RUFDQyxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7QUNESDtBREtDO0VBQ0MsNEJBQUE7QUNIRjtBREtFO0VBQ0MsbUJBQUE7QUNISDtBREtHO0VBQ0MseUJBQUE7RUFDQSx5QkFBQTtFQUNBLFlBQUE7QUNISjtBREtJO0VBQ0MsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7QUNITDtBRE1JO0VBQ0MsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsMEJBQUE7RUFBQSx1QkFBQTtFQUFBLGtCQUFBO0VBQ0EsY0FBQTtBQ0pMO0FETUs7RUFDQyxpQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7QUNKTjtBRFFJO0VBQ0MsVUFBQTtBQ05MO0FEYUE7RUFDQyxnQkFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLFNBQUE7RUFDQSx3QkFBQTtFQUNBLG1CQUFBO0FDVkQ7QURZQztFQUNDLHdCQUFBO0FDVkY7QURZRTtFQUNDLFNBQUE7RUFDQSx3QkFBQTtFQUNBLHlCQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0VBQ0Esb0JBQUE7QUNWSDtBRGNHO0VBQ0MsMEJBQUE7RUFDQSx1QkFBQTtBQ1pKO0FEY0k7RUFDQyx1QkFBQTtBQ1pMO0FEY0s7RUFDQywrQkFBQTtFQUNBLFNBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUNaTjtBRGVLO0VBQ0MsV0FBQTtBQ2JOO0FEZU07RUFDQyxTQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0Esd0JBQUE7RUFDQSxtQkFBQTtBQ2JQO0FEZ0JNO0VBQ0MsU0FBQTtFQUNBLCtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxxQkFBQTtFQUNBLGlCQUFBO0FDZFA7QUR3Qkc7RUFDQywrQkFBQTtBQ3RCSjtBRHdCSTtFQUNDLHFCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLDhCQUFBO0VBQUEsMkJBQUE7RUFBQSxzQkFBQTtBQ3RCTDtBRDJCSTtFQUNDLDhCQUFBO0VBQ0EseUJBQUE7RUFDQSxnQkFBQTtBQ3pCTDtBRDJCSztFQUNDLFdBQUE7QUN6Qk47QUQyQk07RUFDQyxXQUFBO0FDekJQO0FEMkJPO0VBQ0MsU0FBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLHdCQUFBO0VBQ0Esb0JBQUE7QUN6QlI7QUQyQlE7RUFDQywrQkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGtCQUFBO0FDekJUO0FENkJPO0VBQ0MsU0FBQTtFQUNBLHdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxxQkFBQTtFQUNBLGlCQUFBO0VBQ0Esd0JBQUE7QUMzQlI7QURvQ0M7RUFDQyxnQkFBQTtBQ2xDRjtBRHVDQztFQUNDLFNBQUE7RUFDQSwwQkFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0FDcENGO0FEc0NFO0VBQ0MsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsOEJBQUE7RUFBQSwyQkFBQTtFQUFBLHNCQUFBO0FDcENIO0FEc0NHO0VBQ0MsZ0JBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ3BDSjtBRHVDRztFQUNDLGlCQUFBO0VBQ0EsV0FBQTtFQUNBLGVBQUE7QUNyQ0o7QUQwQ0E7RUFDQyxZQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSxRQUFBO0VBQ0Esa0JBQUE7RUFDQSxPQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7QUN2Q0Q7QUR5Q0M7RUFDQyxZQUFBO0VBQ0EsWUFBQTtBQ3ZDRjtBRDBDQztFQUNDLGNBQUE7RUFDQSxrQkFBQTtBQ3hDRjtBRDJDQztFQUNDLGdCQUFBO0FDekNGO0FEMkNFO0VBQ0MseUJBQUE7QUN6Q0giLCJmaWxlIjoic3JjL2FwcC9zaG9wLWhvdXIvc2VsZWN0LWFkZHJlc3Mvc2VsZWN0LWFkZHJlc3MucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWhlYWRlciB7XG5cdGJhY2tncm91bmQ6IHZhcigtLXByaW1hcnkpO1xuXG5cdGlvbi10b29sYmFyIHtcblx0XHRpb24tYnV0dG9ucyBpb24tYmFjay1idXR0b24ge1xuXHRcdFx0LS1jb2xvcjogdmFyKC0td2hpdGUpICFpbXBvcnRhbnQ7XG5cdFx0fVxuXG5cdFx0aW9uLXRpdGxlIHtcblx0XHRcdGNvbG9yOiB2YXIoLS13aGl0ZSk7XG5cdFx0XHRmb250LXdlaWdodDogNTAwO1xuXHRcdFx0Zm9udC1zaXplOiAxLjNyZW07XG5cdFx0fVxuXHR9XG5cblx0Lm9yZGVyX3N0ZXBzIHtcblx0XHRwYWRkaW5nOiAyNHB4IDIwcHggMjBweCAyMHB4O1xuXG5cdFx0aW9uLXJvdyB7XG5cdFx0XHRhbGlnbi1pdGVtczogY2VudGVyO1xuXG5cdFx0XHRpb24tY29sIHtcblx0XHRcdFx0bWF4LXdpZHRoOiAyMCUgIWltcG9ydGFudDtcblx0XHRcdFx0bWluLXdpZHRoOiAyMCUgIWltcG9ydGFudDtcblx0XHRcdFx0b3BhY2l0eTogMC40O1xuXG5cdFx0XHRcdGlvbi1pY29uIHtcblx0XHRcdFx0XHRjb2xvcjogdmFyKC0td2hpdGUpO1xuXHRcdFx0XHRcdGRpc3BsYXk6IGJsb2NrO1xuXHRcdFx0XHRcdG1hcmdpbjogMCBhdXRvO1xuXHRcdFx0XHRcdGZvbnQtc2l6ZTogMS41NXJlbTtcblx0XHRcdFx0XHR0ZXh0LWFsaWduOiBjZW50ZXI7XG5cdFx0XHRcdH1cblxuXHRcdFx0XHRoMyB7XG5cdFx0XHRcdFx0ZGlzcGxheTogZmxleDtcblx0XHRcdFx0XHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHRcdFx0XHRcdHdpZHRoOiBmaXQtY29udGVudDtcblx0XHRcdFx0XHRtYXJnaW46IDAgYXV0bztcblxuXHRcdFx0XHRcdGlvbi1pY29uIHtcblx0XHRcdFx0XHRcdGZvbnQtc2l6ZTogMC40cmVtO1xuXHRcdFx0XHRcdFx0bWFyZ2luOiAwIDJweDtcblx0XHRcdFx0XHRcdGhlaWdodDogMTBweDtcblx0XHRcdFx0XHRcdGxpbmUtaGVpZ2h0OiAxMHB4O1xuXHRcdFx0XHRcdH1cblx0XHRcdFx0fVxuXG5cdFx0XHRcdCYuYWN0aXZlIHtcblx0XHRcdFx0XHRvcGFjaXR5OiAxO1xuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0fVxuXHR9XG59XG5cbmlvbi1jYXJkIHtcblx0Ym94LXNoYWRvdzogbm9uZTtcblx0d2lkdGg6IDEwMCU7XG5cdGJvcmRlci1yYWRpdXM6IDA7XG5cdG1hcmdpbjogMDtcblx0YmFja2dyb3VuZDogdmFyKC0td2hpdGUpO1xuXHRtYXJnaW4tYm90dG9tOiAxMHB4O1xuXG5cdC5mb3JtIHtcblx0XHRwYWRkaW5nOiAyOXB4IDAgMjBweCAwcHg7XG5cblx0XHRoMiB7XG5cdFx0XHRtYXJnaW46IDA7XG5cdFx0XHRjb2xvcjogdmFyKC0tdGV4dC1saWdodCk7XG5cdFx0XHR0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuXHRcdFx0Zm9udC1zaXplOiAxcmVtO1xuXHRcdFx0bGV0dGVyLXNwYWNpbmc6IDFweDtcblx0XHRcdHBhZGRpbmctYm90dG9tOiAxMHB4O1xuXHRcdH1cblxuXHRcdGlvbi1saXN0IHtcblx0XHRcdGlvbi1pdGVtIHtcblx0XHRcdFx0cGFkZGluZzogMjBweCAwICFpbXBvcnRhbnQ7XG5cdFx0XHRcdGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xuXG5cdFx0XHRcdC5pdGVtX2lubmVyIHtcblx0XHRcdFx0XHRhbGlnbi1pdGVtczogZmxleC1zdGFydDtcblxuXHRcdFx0XHRcdGlvbi1yYWRpbyB7XG5cdFx0XHRcdFx0XHQtLWNvbG9yLWNoZWNrZWQ6IHZhcigtLXByaW1hcnkpO1xuXHRcdFx0XHRcdFx0bWFyZ2luOiAwO1xuXHRcdFx0XHRcdFx0bWFyZ2luLXJpZ2h0OiAyMnB4O1xuXHRcdFx0XHRcdFx0bWluLXdpZHRoOiAyMHB4O1xuXHRcdFx0XHRcdFx0bWluLWhlaWdodDogMjBweDtcblx0XHRcdFx0XHRcdG1hcmdpbi10b3A6IDRweDtcblx0XHRcdFx0XHR9XG5cblx0XHRcdFx0XHQudGV4dF9ib3gge1xuXHRcdFx0XHRcdFx0d2lkdGg6IDEwMCU7XG5cblx0XHRcdFx0XHRcdGgzIHtcblx0XHRcdFx0XHRcdFx0bWFyZ2luOiAwO1xuXHRcdFx0XHRcdFx0XHRmb250LXdlaWdodDogNTAwO1xuXHRcdFx0XHRcdFx0XHRsZXR0ZXItc3BhY2luZzogMDtcblx0XHRcdFx0XHRcdFx0Zm9udC1zaXplOiAxLjE1cmVtO1xuXHRcdFx0XHRcdFx0XHRjb2xvcjogdmFyKC0tdGV4dC1ibGFjayk7XG5cdFx0XHRcdFx0XHRcdHBhZGRpbmctYm90dG9tOiA1cHg7XG5cdFx0XHRcdFx0XHR9XG5cblx0XHRcdFx0XHRcdHAge1xuXHRcdFx0XHRcdFx0XHRtYXJnaW46IDA7XG5cdFx0XHRcdFx0XHRcdGNvbG9yOiB2YXIoLS10ZXh0LWRhcmstcHJpbWFyeSk7XG5cdFx0XHRcdFx0XHRcdGxpbmUtaGVpZ2h0OiAyM3B4O1xuXHRcdFx0XHRcdFx0XHRsZXR0ZXItc3BhY2luZzogMC41cHg7XG5cdFx0XHRcdFx0XHRcdGZvbnQtc2l6ZTogMC45cmVtO1xuXHRcdFx0XHRcdFx0fVxuXHRcdFx0XHRcdH1cblx0XHRcdFx0fVxuXHRcdFx0fVxuXHRcdH1cblx0fVxuXG5cdCYubXlfYWRkcmVzc2VzIHtcblx0XHQuZm9ybSB7XG5cdFx0XHRoMiB7XG5cdFx0XHRcdHBhZGRpbmctYm90dG9tOiAyMnB4ICFpbXBvcnRhbnQ7XG5cblx0XHRcdFx0c3BhbiB7XG5cdFx0XHRcdFx0Y29sb3I6IHZhcigtLXByaW1hcnkpO1xuXHRcdFx0XHRcdGZvbnQtd2VpZ2h0OiA2MDA7XG5cdFx0XHRcdFx0Zm9udC1zaXplOiAxLjFyZW07XG5cdFx0XHRcdFx0bWluLXdpZHRoOiBmaXQtY29udGVudDtcblx0XHRcdFx0fVxuXHRcdFx0fVxuXG5cdFx0XHRpb24tbGlzdCB7XG5cdFx0XHRcdGlvbi1pdGVtIHtcblx0XHRcdFx0XHRib3JkZXItYm90dG9tOiBub25lICFpbXBvcnRhbnQ7XG5cdFx0XHRcdFx0cGFkZGluZy10b3A6IDAgIWltcG9ydGFudDtcblx0XHRcdFx0XHRtYXJnaW4tYm90dG9tOiAwO1xuXG5cdFx0XHRcdFx0Lml0ZW1faW5uZXIge1xuXHRcdFx0XHRcdFx0d2lkdGg6IDEwMCU7XG5cblx0XHRcdFx0XHRcdC50ZXh0X2JveCB7XG5cdFx0XHRcdFx0XHRcdHdpZHRoOiAxMDAlO1xuXG5cdFx0XHRcdFx0XHRcdGgzIHtcblx0XHRcdFx0XHRcdFx0XHRtYXJnaW46IDA7XG5cdFx0XHRcdFx0XHRcdFx0Zm9udC13ZWlnaHQ6IDYwMDtcblx0XHRcdFx0XHRcdFx0XHRsZXR0ZXItc3BhY2luZzogMDtcblx0XHRcdFx0XHRcdFx0XHRmb250LXNpemU6IDEuMnJlbTtcblx0XHRcdFx0XHRcdFx0XHRjb2xvcjogdmFyKC0tdGV4dC1ibGFjayk7XG5cdFx0XHRcdFx0XHRcdFx0cGFkZGluZy1ib3R0b206IDEwcHg7XG5cblx0XHRcdFx0XHRcdFx0XHRpb24taWNvbiB7XG5cdFx0XHRcdFx0XHRcdFx0XHRjb2xvcjogdmFyKC0tdGV4dC1kYXJrLXByaW1hcnkpO1xuXHRcdFx0XHRcdFx0XHRcdFx0aGVpZ2h0OiAyM3B4O1xuXHRcdFx0XHRcdFx0XHRcdFx0bGluZS1oZWlnaHQ6IG5vcm1hbDtcblx0XHRcdFx0XHRcdFx0XHRcdGZvbnQtc2l6ZTogMS4yNXJlbTtcblx0XHRcdFx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0XHRcdH1cblxuXHRcdFx0XHRcdFx0XHRwIHtcblx0XHRcdFx0XHRcdFx0XHRtYXJnaW46IDA7XG5cdFx0XHRcdFx0XHRcdFx0Y29sb3I6IHZhcigtLXRleHQtbGlnaHQpO1xuXHRcdFx0XHRcdFx0XHRcdGxpbmUtaGVpZ2h0OiAyM3B4O1xuXHRcdFx0XHRcdFx0XHRcdGxldHRlci1zcGFjaW5nOiAwLjVweDtcblx0XHRcdFx0XHRcdFx0XHRmb250LXNpemU6IDAuOXJlbTtcblx0XHRcdFx0XHRcdFx0XHR3aWR0aDogY2FsYygxMDAlIC0gMzBweCk7XG5cdFx0XHRcdFx0XHRcdH1cblx0XHRcdFx0XHRcdH1cblx0XHRcdFx0XHR9XG5cdFx0XHRcdH1cblx0XHRcdH1cblx0XHR9XG5cdH1cblxuXHQmOmxhc3QtY2hpbGQge1xuXHRcdG1hcmdpbi1ib3R0b206IDA7XG5cdH1cbn1cblxuaW9uLWZvb3RlciB7XG5cdGgyIHtcblx0XHRtYXJnaW46IDA7XG5cdFx0YmFja2dyb3VuZDogdmFyKC0tcHJpbWFyeSk7XG5cdFx0Y29sb3I6IHZhcigtLXdoaXRlKTtcblx0XHRwYWRkaW5nOiAxMnB4IDEzcHg7XG5cdFx0Zm9udC1zaXplOiAxLjE0cmVtO1xuXHRcdGxldHRlci1zcGFjaW5nOiAwLjVweDtcblxuXHRcdC5lbmQge1xuXHRcdFx0ZGlzcGxheTogZmxleDtcblx0XHRcdGFsaWduLWl0ZW1zOiBjZW50ZXI7XG5cdFx0XHRtaW4td2lkdGg6IGZpdC1jb250ZW50O1xuXG5cdFx0XHRzbWFsbCB7XG5cdFx0XHRcdGZvbnQtd2VpZ2h0OiA0MDA7XG5cdFx0XHRcdG9wYWNpdHk6IDAuNztcblx0XHRcdFx0Zm9udC1zaXplOiAwLjhyZW07XG5cdFx0XHRcdG1hcmdpbi1yaWdodDogMTZweDtcblx0XHRcdH1cblxuXHRcdFx0aW9uLWljb24ge1xuXHRcdFx0XHRmb250LXNpemU6IDIuMnJlbTtcblx0XHRcdFx0d2lkdGg6IDIwcHg7XG5cdFx0XHRcdG1pbi13aWR0aDogMjBweDtcblx0XHRcdH1cblx0XHR9XG5cdH1cbn1cbi5lbXB0eS12aWV3IHtcblx0d2lkdGg6IDIwMHB4O1xuXHRtYXJnaW46IGF1dG87XG5cdGhlaWdodDogMjAwcHg7XG5cdHRvcDogMTAlO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdGxlZnQ6IDA7XG5cdHJpZ2h0OiAwO1xuXHRib3R0b206IDEwJTtcblxuXHRpbWcge1xuXHRcdHdpZHRoOiAxMDBweDtcblx0XHRtYXJnaW46IGF1dG87XG5cdH1cblxuXHRzcGFuIHtcblx0XHRkaXNwbGF5OiBibG9jaztcblx0XHR0ZXh0LWFsaWduOiBjZW50ZXI7XG5cdH1cblxuXHRidXR0b24ge1xuXHRcdG1hcmdpbi10b3A6IDUwcHg7XG5cblx0XHRzcGFuIHtcblx0XHRcdGRpc3BsYXk6IHVuc2V0ICFpbXBvcnRhbnQ7XG5cdFx0fVxuXHR9XG59XG4iLCJpb24taGVhZGVyIHtcbiAgYmFja2dyb3VuZDogdmFyKC0tcHJpbWFyeSk7XG59XG5pb24taGVhZGVyIGlvbi10b29sYmFyIGlvbi1idXR0b25zIGlvbi1iYWNrLWJ1dHRvbiB7XG4gIC0tY29sb3I6IHZhcigtLXdoaXRlKSAhaW1wb3J0YW50O1xufVxuaW9uLWhlYWRlciBpb24tdG9vbGJhciBpb24tdGl0bGUge1xuICBjb2xvcjogdmFyKC0td2hpdGUpO1xuICBmb250LXdlaWdodDogNTAwO1xuICBmb250LXNpemU6IDEuM3JlbTtcbn1cbmlvbi1oZWFkZXIgLm9yZGVyX3N0ZXBzIHtcbiAgcGFkZGluZzogMjRweCAyMHB4IDIwcHggMjBweDtcbn1cbmlvbi1oZWFkZXIgLm9yZGVyX3N0ZXBzIGlvbi1yb3cge1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuaW9uLWhlYWRlciAub3JkZXJfc3RlcHMgaW9uLXJvdyBpb24tY29sIHtcbiAgbWF4LXdpZHRoOiAyMCUgIWltcG9ydGFudDtcbiAgbWluLXdpZHRoOiAyMCUgIWltcG9ydGFudDtcbiAgb3BhY2l0eTogMC40O1xufVxuaW9uLWhlYWRlciAub3JkZXJfc3RlcHMgaW9uLXJvdyBpb24tY29sIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLXdoaXRlKTtcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMCBhdXRvO1xuICBmb250LXNpemU6IDEuNTVyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbmlvbi1oZWFkZXIgLm9yZGVyX3N0ZXBzIGlvbi1yb3cgaW9uLWNvbCBoMyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHdpZHRoOiBmaXQtY29udGVudDtcbiAgbWFyZ2luOiAwIGF1dG87XG59XG5pb24taGVhZGVyIC5vcmRlcl9zdGVwcyBpb24tcm93IGlvbi1jb2wgaDMgaW9uLWljb24ge1xuICBmb250LXNpemU6IDAuNHJlbTtcbiAgbWFyZ2luOiAwIDJweDtcbiAgaGVpZ2h0OiAxMHB4O1xuICBsaW5lLWhlaWdodDogMTBweDtcbn1cbmlvbi1oZWFkZXIgLm9yZGVyX3N0ZXBzIGlvbi1yb3cgaW9uLWNvbC5hY3RpdmUge1xuICBvcGFjaXR5OiAxO1xufVxuXG5pb24tY2FyZCB7XG4gIGJveC1zaGFkb3c6IG5vbmU7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItcmFkaXVzOiAwO1xuICBtYXJnaW46IDA7XG4gIGJhY2tncm91bmQ6IHZhcigtLXdoaXRlKTtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cbmlvbi1jYXJkIC5mb3JtIHtcbiAgcGFkZGluZzogMjlweCAwIDIwcHggMHB4O1xufVxuaW9uLWNhcmQgLmZvcm0gaDIge1xuICBtYXJnaW46IDA7XG4gIGNvbG9yOiB2YXIoLS10ZXh0LWxpZ2h0KTtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgZm9udC1zaXplOiAxcmVtO1xuICBsZXR0ZXItc3BhY2luZzogMXB4O1xuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcbn1cbmlvbi1jYXJkIC5mb3JtIGlvbi1saXN0IGlvbi1pdGVtIHtcbiAgcGFkZGluZzogMjBweCAwICFpbXBvcnRhbnQ7XG4gIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xufVxuaW9uLWNhcmQgLmZvcm0gaW9uLWxpc3QgaW9uLWl0ZW0gLml0ZW1faW5uZXIge1xuICBhbGlnbi1pdGVtczogZmxleC1zdGFydDtcbn1cbmlvbi1jYXJkIC5mb3JtIGlvbi1saXN0IGlvbi1pdGVtIC5pdGVtX2lubmVyIGlvbi1yYWRpbyB7XG4gIC0tY29sb3ItY2hlY2tlZDogdmFyKC0tcHJpbWFyeSk7XG4gIG1hcmdpbjogMDtcbiAgbWFyZ2luLXJpZ2h0OiAyMnB4O1xuICBtaW4td2lkdGg6IDIwcHg7XG4gIG1pbi1oZWlnaHQ6IDIwcHg7XG4gIG1hcmdpbi10b3A6IDRweDtcbn1cbmlvbi1jYXJkIC5mb3JtIGlvbi1saXN0IGlvbi1pdGVtIC5pdGVtX2lubmVyIC50ZXh0X2JveCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuaW9uLWNhcmQgLmZvcm0gaW9uLWxpc3QgaW9uLWl0ZW0gLml0ZW1faW5uZXIgLnRleHRfYm94IGgzIHtcbiAgbWFyZ2luOiAwO1xuICBmb250LXdlaWdodDogNTAwO1xuICBsZXR0ZXItc3BhY2luZzogMDtcbiAgZm9udC1zaXplOiAxLjE1cmVtO1xuICBjb2xvcjogdmFyKC0tdGV4dC1ibGFjayk7XG4gIHBhZGRpbmctYm90dG9tOiA1cHg7XG59XG5pb24tY2FyZCAuZm9ybSBpb24tbGlzdCBpb24taXRlbSAuaXRlbV9pbm5lciAudGV4dF9ib3ggcCB7XG4gIG1hcmdpbjogMDtcbiAgY29sb3I6IHZhcigtLXRleHQtZGFyay1wcmltYXJ5KTtcbiAgbGluZS1oZWlnaHQ6IDIzcHg7XG4gIGxldHRlci1zcGFjaW5nOiAwLjVweDtcbiAgZm9udC1zaXplOiAwLjlyZW07XG59XG5pb24tY2FyZC5teV9hZGRyZXNzZXMgLmZvcm0gaDIge1xuICBwYWRkaW5nLWJvdHRvbTogMjJweCAhaW1wb3J0YW50O1xufVxuaW9uLWNhcmQubXlfYWRkcmVzc2VzIC5mb3JtIGgyIHNwYW4ge1xuICBjb2xvcjogdmFyKC0tcHJpbWFyeSk7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGZvbnQtc2l6ZTogMS4xcmVtO1xuICBtaW4td2lkdGg6IGZpdC1jb250ZW50O1xufVxuaW9uLWNhcmQubXlfYWRkcmVzc2VzIC5mb3JtIGlvbi1saXN0IGlvbi1pdGVtIHtcbiAgYm9yZGVyLWJvdHRvbTogbm9uZSAhaW1wb3J0YW50O1xuICBwYWRkaW5nLXRvcDogMCAhaW1wb3J0YW50O1xuICBtYXJnaW4tYm90dG9tOiAwO1xufVxuaW9uLWNhcmQubXlfYWRkcmVzc2VzIC5mb3JtIGlvbi1saXN0IGlvbi1pdGVtIC5pdGVtX2lubmVyIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5pb24tY2FyZC5teV9hZGRyZXNzZXMgLmZvcm0gaW9uLWxpc3QgaW9uLWl0ZW0gLml0ZW1faW5uZXIgLnRleHRfYm94IHtcbiAgd2lkdGg6IDEwMCU7XG59XG5pb24tY2FyZC5teV9hZGRyZXNzZXMgLmZvcm0gaW9uLWxpc3QgaW9uLWl0ZW0gLml0ZW1faW5uZXIgLnRleHRfYm94IGgzIHtcbiAgbWFyZ2luOiAwO1xuICBmb250LXdlaWdodDogNjAwO1xuICBsZXR0ZXItc3BhY2luZzogMDtcbiAgZm9udC1zaXplOiAxLjJyZW07XG4gIGNvbG9yOiB2YXIoLS10ZXh0LWJsYWNrKTtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG59XG5pb24tY2FyZC5teV9hZGRyZXNzZXMgLmZvcm0gaW9uLWxpc3QgaW9uLWl0ZW0gLml0ZW1faW5uZXIgLnRleHRfYm94IGgzIGlvbi1pY29uIHtcbiAgY29sb3I6IHZhcigtLXRleHQtZGFyay1wcmltYXJ5KTtcbiAgaGVpZ2h0OiAyM3B4O1xuICBsaW5lLWhlaWdodDogbm9ybWFsO1xuICBmb250LXNpemU6IDEuMjVyZW07XG59XG5pb24tY2FyZC5teV9hZGRyZXNzZXMgLmZvcm0gaW9uLWxpc3QgaW9uLWl0ZW0gLml0ZW1faW5uZXIgLnRleHRfYm94IHAge1xuICBtYXJnaW46IDA7XG4gIGNvbG9yOiB2YXIoLS10ZXh0LWxpZ2h0KTtcbiAgbGluZS1oZWlnaHQ6IDIzcHg7XG4gIGxldHRlci1zcGFjaW5nOiAwLjVweDtcbiAgZm9udC1zaXplOiAwLjlyZW07XG4gIHdpZHRoOiBjYWxjKDEwMCUgLSAzMHB4KTtcbn1cbmlvbi1jYXJkOmxhc3QtY2hpbGQge1xuICBtYXJnaW4tYm90dG9tOiAwO1xufVxuXG5pb24tZm9vdGVyIGgyIHtcbiAgbWFyZ2luOiAwO1xuICBiYWNrZ3JvdW5kOiB2YXIoLS1wcmltYXJ5KTtcbiAgY29sb3I6IHZhcigtLXdoaXRlKTtcbiAgcGFkZGluZzogMTJweCAxM3B4O1xuICBmb250LXNpemU6IDEuMTRyZW07XG4gIGxldHRlci1zcGFjaW5nOiAwLjVweDtcbn1cbmlvbi1mb290ZXIgaDIgLmVuZCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIG1pbi13aWR0aDogZml0LWNvbnRlbnQ7XG59XG5pb24tZm9vdGVyIGgyIC5lbmQgc21hbGwge1xuICBmb250LXdlaWdodDogNDAwO1xuICBvcGFjaXR5OiAwLjc7XG4gIGZvbnQtc2l6ZTogMC44cmVtO1xuICBtYXJnaW4tcmlnaHQ6IDE2cHg7XG59XG5pb24tZm9vdGVyIGgyIC5lbmQgaW9uLWljb24ge1xuICBmb250LXNpemU6IDIuMnJlbTtcbiAgd2lkdGg6IDIwcHg7XG4gIG1pbi13aWR0aDogMjBweDtcbn1cblxuLmVtcHR5LXZpZXcge1xuICB3aWR0aDogMjAwcHg7XG4gIG1hcmdpbjogYXV0bztcbiAgaGVpZ2h0OiAyMDBweDtcbiAgdG9wOiAxMCU7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgcmlnaHQ6IDA7XG4gIGJvdHRvbTogMTAlO1xufVxuLmVtcHR5LXZpZXcgaW1nIHtcbiAgd2lkdGg6IDEwMHB4O1xuICBtYXJnaW46IGF1dG87XG59XG4uZW1wdHktdmlldyBzcGFuIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5lbXB0eS12aWV3IGJ1dHRvbiB7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG59XG4uZW1wdHktdmlldyBidXR0b24gc3BhbiB7XG4gIGRpc3BsYXk6IHVuc2V0ICFpbXBvcnRhbnQ7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/shop-hour/select-address/select-address.page.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/shop-hour/select-address/select-address.page.ts ***!
+  \*****************************************************************/
+/*! exports provided: SelectAddressPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectAddressPage", function() { return SelectAddressPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ecommerce.service */ "./src/app/services/shoup-hour-services/common/ecommerce.service.ts");
+/* harmony import */ var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ui-elements.service */ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
+/* harmony import */ var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/shoup-hour-services/network/api.service */ "./src/app/services/shoup-hour-services/network/api.service.ts");
+
+
+
+
+
+
+
+
+let SelectAddressPage = class SelectAddressPage {
+    constructor(navCtrl, translate, eComService, uiElementService, apiService) {
+        this.navCtrl = navCtrl;
+        this.translate = translate;
+        this.eComService = eComService;
+        this.uiElementService = uiElementService;
+        this.apiService = apiService;
+        this.subscriptions = new Array();
+        this.addresses = new Array();
+        this.isLoading = true;
+        this.fabAction = false;
+        this.addressIdSelected = -1;
+        this.currency_icon = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_4__["Helper"].getSetting("currency_icon");
+    }
+    ngOnInit() {
+    }
+    ngOnDestroy() {
+        for (let sub of this.subscriptions)
+            sub.unsubscribe();
+        this.uiElementService.dismissLoading();
+    }
+    ionViewDidEnter() {
+        this.loadAddresses();
+    }
+    loadAddresses() {
+        if (!this.addresses || !this.addresses.length)
+            this.uiElementService.presentLoading(this.translate.instant("loading"));
+        this.isLoading = true;
+        this.subscriptions.push(this.apiService.getAddresses().subscribe(res => {
+            this.uiElementService.dismissLoading();
+            this.addresses = res;
+            this.isLoading = false;
+        }, err => {
+            console.log("getAddresses", err);
+            this.uiElementService.dismissLoading();
+            this.isLoading = false;
+        }));
+    }
+    onAddressSelected(event) {
+        if (event.detail && event.detail.value) {
+            this.addressIdSelected = event.detail.value;
+        }
+    }
+    getSelectedAddress() {
+        let toReturn = null;
+        for (let ad of this.addresses)
+            if (ad.id == this.addressIdSelected) {
+                toReturn = ad;
+                break;
+            }
+        return toReturn;
+    }
+    navAddressNew() {
+        this.navCtrl.navigateForward(['tabs/main-home/shop-hour/add-address']);
+    }
+    navPaymentSelection() {
+        let addressSelected = this.getSelectedAddress();
+        if (addressSelected != null) {
+            this.eComService.setupOrderRequestAddress(addressSelected);
+            this.navCtrl.navigateForward(['tabs/main-home/shop-hour/payment-mode']);
+        }
+        else {
+            this.translate.get("select_address").subscribe(value => this.uiElementService.presentToast(value));
+        }
+    }
+};
+SelectAddressPage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] },
+    { type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_5__["ECommerceService"] },
+    { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"] },
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"] }
+];
+SelectAddressPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-select-address',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./select-address.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shop-hour/select-address/select-address.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./select-address.page.scss */ "./src/app/shop-hour/select-address/select-address.page.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_5__["ECommerceService"],
+        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]])
 ], SelectAddressPage);
 
 

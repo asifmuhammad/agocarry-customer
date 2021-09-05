@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MyEventsService } from 'src/app/services/shoup-hour-services/events/my-events.service';
 import { APP_CONFIG_ShopHour, ShopHourConfig } from 'src/app/shophour.config';
-import { Constants } from 'src/models/models-shop-hour/constants.models';
+import { Constants } from 'src/models/constants.models';
 
 @Component({
   selector: 'app-language',

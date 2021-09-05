@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { TitlePage } from '../title/title.page';
 import { ModalController, AlertController, NavController, Platform } from '@ionic/angular';
-import { MyAddress } from 'src/models/models-shop-hour/address.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { MyAddress } from 'src/models/address.models';
+import { Helper } from 'src/models/helper.models';
 import { Subscription } from 'rxjs';
-import { User } from 'src/models/models-shop-hour/user.models';
+import { User } from 'src/models/user.models';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';

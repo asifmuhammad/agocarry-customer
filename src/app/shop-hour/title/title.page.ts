@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { MyAddress } from 'src/models/models-shop-hour/address.models';
+import { MyAddress } from 'src/models/address.models';
 import { TranslateService } from '@ngx-translate/core';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
 

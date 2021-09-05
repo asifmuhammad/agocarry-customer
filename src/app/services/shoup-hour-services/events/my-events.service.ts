@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs'; // For rxjs 6
-import { User } from 'src/models/models-shop-hour/user.models';
+import { User } from 'src/models/user.models';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { MyAddress } from 'src/models/models-shop-hour/address.models';
+import { MyAddress } from 'src/models/address.models';
 import { Subscription } from 'rxjs';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { Helper } from 'src/models/helper.models';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
 import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';

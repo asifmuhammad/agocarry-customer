@@ -25,8 +25,15 @@ export class Helper {
     static setSearchHistory(sh: Array<string>, key: string) {
         window.localStorage.setItem((Constants.KEY_SEARCH_HISTORY + key), JSON.stringify(sh));
     }
+    static setSearchHistoryShopHour(sh: Array<string>) {
+        window.localStorage.setItem(Constants.KEY_SEARCH_HISTORY, JSON.stringify(sh));
+    }
     static getSearchHistory(key: string): Array<string> {
         let adl: Array<string> = JSON.parse(window.localStorage.getItem((Constants.KEY_SEARCH_HISTORY + key)));
+        return (adl && adl.length) ? adl : new Array<string>();
+    }
+    static getSearchHistoryShopHour(): Array<string> {
+        let adl: Array<string> = JSON.parse(window.localStorage.getItem(Constants.KEY_SEARCH_HISTORY));
         return (adl && adl.length) ? adl : new Array<string>();
     }
     static getReviewedProductIds(): Array<string> {

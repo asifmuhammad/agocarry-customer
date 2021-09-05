@@ -20,4 +20,7 @@ export class MainHomePage implements OnInit {
   navigateToShophour() {
 this.router.navigate(['tabs/main-home/shop-hour/home'])
   }
+  navigateToDoctor(){
+    this.router.navigate(['tabs/home'])
+  }
 }

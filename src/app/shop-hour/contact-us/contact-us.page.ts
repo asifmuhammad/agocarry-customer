@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SupportRequest } from 'src/models/models-shop-hour/support-request.models';
+import { SupportRequest } from 'src/models/support-request.models';
 import { Helper } from 'src/models/helper.models';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';

@@ -14,7 +14,7 @@ export class OrderPlacedPage implements OnInit {
   }
 
   navHome() {
-    this.navCtrl.navigateRoot(['./tabs']);
+    this.navCtrl.navigateRoot(['./tabs/main-home']);
   }
 
   navMyOrders() {

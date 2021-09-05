@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Coupon } from 'src/models/models-shop-hour/coupon.models';
+import { Coupon } from 'src/models/coupon.models';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';

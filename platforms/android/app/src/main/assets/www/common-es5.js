@@ -18,6 +18,12 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1169,6 +1175,512 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
+  "./src/app/services/shoup-hour-services/common/ecommerce.service.ts": function srcAppServicesShoupHourServicesCommonEcommerceServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "CartItem", function () {
+      return CartItem;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ExtraCharge", function () {
+      return ExtraCharge;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Cart", function () {
+      return Cart;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ECommerceService", function () {
+      return ECommerceService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/models/models-shop-hour/helper.models */
+    "./src/models/models-shop-hour/helper.models.ts");
+    /* harmony import */
+
+
+    var src_models_models_shop_hour_order_request_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/models/models-shop-hour/order-request.models */
+    "./src/models/models-shop-hour/order-request.models.ts");
+
+    var CartItem = /*#__PURE__*/function () {
+      function CartItem() {
+        _classCallCheck(this, CartItem);
+      }
+
+      _createClass(CartItem, [{
+        key: "setQuantity",
+        value: function setQuantity(newQuantity) {
+          this.quantity = newQuantity;
+          this.total = this.price * this.quantity;
+        }
+      }, {
+        key: "getTotal",
+        value: function getTotal(fixFloatingPoint) {
+          return fixFloatingPoint ? Number(this.total.toFixed(2)) : this.total;
+        }
+      }], [{
+        key: "fromSaved",
+        value: function fromSaved(savedCartItem) {
+          var toReturn = new CartItem();
+          toReturn.id = savedCartItem.id;
+          toReturn.title = savedCartItem.title;
+          toReturn.subtitle = savedCartItem.subtitle;
+          toReturn.image = savedCartItem.image;
+          toReturn.price = savedCartItem.price;
+          toReturn.priceToShow = savedCartItem.priceToShow;
+          toReturn.quantity = savedCartItem.quantity;
+          toReturn.total = savedCartItem.total;
+          toReturn.product = savedCartItem.product;
+          return toReturn;
+        }
+      }]);
+
+      return CartItem;
+    }();
+
+    var ExtraCharge = function ExtraCharge() {
+      _classCallCheck(this, ExtraCharge);
+    };
+
+    var Cart = /*#__PURE__*/function () {
+      function Cart() {
+        _classCallCheck(this, Cart);
+      }
+
+      _createClass(Cart, [{
+        key: "removeExtraCharge",
+        value: function removeExtraCharge(extraChargeId) {
+          var currIndex = -1;
+
+          for (var i = 0; i < this.extraCharges.length; i++) {
+            if (this.extraCharges[i].id == extraChargeId) {
+              currIndex = i;
+              break;
+            }
+          }
+
+          if (currIndex != -1) this.extraCharges.splice(currIndex, 1);
+        }
+      }, {
+        key: "addExtraCharge",
+        value: function addExtraCharge(extraCharge) {
+          this.extraCharges.push(extraCharge);
+        }
+      }, {
+        key: "getTotalCartItems",
+        value: function getTotalCartItems(fixFloatingPoint) {
+          var toReturn = 0;
+
+          var _iterator = _createForOfIteratorHelper(this.cartItems),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var ci = _step.value;
+              toReturn += ci.total;
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
+          }
+
+          return fixFloatingPoint ? Number(toReturn.toFixed(2)) : toReturn;
+        }
+      }, {
+        key: "getTotalCart",
+        value: function getTotalCart(fixFloatingPoint) {
+          var subTotal = this.getTotalCartItems(false);
+          var tax_in_percent = 0;
+
+          var _iterator2 = _createForOfIteratorHelper(this.extraCharges),
+              _step2;
+
+          try {
+            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+              var ec = _step2.value;
+
+              if (ec.id == "tax_in_percent") {
+                tax_in_percent = ec.isPercent ? subTotal * ec.price / 100 : ec.price;
+                break;
+              }
+            }
+          } catch (err) {
+            _iterator2.e(err);
+          } finally {
+            _iterator2.f();
+          }
+
+          var delivery_fee = 0;
+
+          var _iterator3 = _createForOfIteratorHelper(this.extraCharges),
+              _step3;
+
+          try {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var _ec = _step3.value;
+
+              if (_ec.id == "delivery_fee") {
+                delivery_fee = _ec.price;
+                break;
+              }
+            }
+          } catch (err) {
+            _iterator3.e(err);
+          } finally {
+            _iterator3.f();
+          }
+
+          var coupon = 0;
+
+          var _iterator4 = _createForOfIteratorHelper(this.extraCharges),
+              _step4;
+
+          try {
+            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+              var _ec2 = _step4.value;
+
+              if (_ec2.id == "coupon") {
+                coupon = _ec2.isPercent ? subTotal * _ec2.price / 100 : _ec2.price;
+                break;
+              }
+            }
+          } catch (err) {
+            _iterator4.e(err);
+          } finally {
+            _iterator4.f();
+          }
+
+          var toReturn = subTotal + tax_in_percent + delivery_fee - coupon;
+          return fixFloatingPoint ? Number(toReturn.toFixed(2)) : toReturn;
+        }
+      }], [{
+        key: "restore",
+        value: function restore() {
+          var toReturn = new Cart();
+          toReturn.cartItems = new Array();
+          toReturn.extraCharges = new Array();
+          var savedCart = Cart.getSavedCart();
+
+          if (savedCart) {
+            if (savedCart.extraCharges && savedCart.extraCharges.length) toReturn.extraCharges = savedCart.extraCharges;
+
+            if (savedCart.cartItems && savedCart.cartItems.length) {
+              var _iterator5 = _createForOfIteratorHelper(savedCart.cartItems),
+                  _step5;
+
+              try {
+                for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+                  var sCi = _step5.value;
+                  toReturn.cartItems.push(CartItem.fromSaved(sCi));
+                }
+              } catch (err) {
+                _iterator5.e(err);
+              } finally {
+                _iterator5.f();
+              }
+            }
+          }
+
+          return toReturn;
+        }
+      }, {
+        key: "getSavedCart",
+        value: function getSavedCart() {
+          return JSON.parse(window.localStorage.getItem(Cart.KEY_CART));
+        }
+      }, {
+        key: "setSavedCart",
+        value: function setSavedCart(cartToSave) {
+          window.localStorage.setItem(Cart.KEY_CART, JSON.stringify(cartToSave));
+        }
+      }]);
+
+      return Cart;
+    }();
+
+    Cart.KEY_CART = 'sh_cart';
+
+    var ECommerceService = /*#__PURE__*/function () {
+      function ECommerceService() {
+        _classCallCheck(this, ECommerceService);
+
+        this.initialize();
+      }
+
+      _createClass(ECommerceService, [{
+        key: "initialize",
+        value: function initialize() {
+          this.myCart = Cart.restore();
+          var tax_in_percent = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("tax_in_percent");
+          var delivery_fee = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("delivery_fee");
+          var currency_icon = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("currency_icon");
+          this.myCart.removeExtraCharge("delivery_fee");
+          this.myCart.removeExtraCharge("tax_in_percent");
+
+          if (tax_in_percent != null && Number(tax_in_percent) > 0) {
+            var ec = new ExtraCharge();
+            ec.extraChargeObject = tax_in_percent;
+            ec.id = "tax_in_percent";
+            ec.title = "Service Fee";
+            ec.isPercent = true;
+            ec.price = Number(tax_in_percent);
+            ec.priceToShow = ec.price + "%";
+            this.myCart.addExtraCharge(ec);
+          }
+
+          if (delivery_fee != null && Number(delivery_fee) > 0) {
+            var _ec3 = new ExtraCharge();
+
+            _ec3.extraChargeObject = delivery_fee;
+            _ec3.id = "delivery_fee";
+            _ec3.title = "Delivery Fee";
+            _ec3.isPercent = false;
+            _ec3.price = Number(delivery_fee);
+            _ec3.priceToShow = currency_icon + _ec3.price;
+            this.myCart.addExtraCharge(_ec3);
+          }
+        }
+      }, {
+        key: "clearCart",
+        value: function clearCart() {
+          Cart.setSavedCart(null);
+          this.initialize();
+          this.orderMeta = null;
+          this.orderRequest = null;
+        }
+      }, {
+        key: "getCartItems",
+        value: function getCartItems() {
+          return this.myCart.cartItems;
+        }
+      }, {
+        key: "getExtraCharges",
+        value: function getExtraCharges() {
+          return this.myCart.extraCharges;
+        }
+      }, {
+        key: "getCartItemsCount",
+        value: function getCartItemsCount() {
+          return this.myCart.cartItems.length;
+        }
+      }, {
+        key: "getCartItemsTotal",
+        value: function getCartItemsTotal(fixFloatingPoint) {
+          return this.myCart.getTotalCartItems(fixFloatingPoint);
+        }
+      }, {
+        key: "getCartTotal",
+        value: function getCartTotal(fixFloatingPoint) {
+          return this.myCart.getTotalCart(fixFloatingPoint);
+        }
+      }, {
+        key: "isExistsCartItem",
+        value: function isExistsCartItem(ci) {
+          var index = -1;
+
+          for (var i = 0; i < this.myCart.cartItems.length; i++) {
+            if (this.myCart.cartItems[i].id == ci.id) {
+              index = i;
+              break;
+            }
+          }
+
+          return index != -1;
+        }
+      }, {
+        key: "addOrIncrementCartItem",
+        value: function addOrIncrementCartItem(ci) {
+          var index = -1;
+
+          for (var i = 0; i < this.myCart.cartItems.length; i++) {
+            if (this.myCart.cartItems[i].id == ci.id) {
+              index = i;
+              break;
+            }
+          }
+
+          if (index == -1) {
+            this.myCart.cartItems.push(ci);
+          } else {
+            ci.setQuantity(this.myCart.cartItems[index].quantity + 1);
+            this.myCart.cartItems[index] = ci;
+          }
+
+          Cart.setSavedCart(this.myCart);
+          return index == -1;
+        }
+      }, {
+        key: "removeOrDecrementCartItem",
+        value: function removeOrDecrementCartItem(ci) {
+          var index = -1;
+
+          for (var i = 0; i < this.myCart.cartItems.length; i++) {
+            if (this.myCart.cartItems[i].id == ci.id) {
+              index = i;
+              break;
+            }
+          }
+
+          var removed = false;
+
+          if (index != -1) {
+            if (this.myCart.cartItems[index].quantity > 1) {
+              ci.setQuantity(this.myCart.cartItems[index].quantity - 1);
+              this.myCart.cartItems[index] = ci;
+            } else {
+              removed = true;
+              this.myCart.cartItems.splice(index, 1);
+            }
+
+            Cart.setSavedCart(this.myCart);
+          }
+
+          return removed;
+        } //custom IMPLEMENTATION below.
+
+      }, {
+        key: "removeCoupon",
+        value: function removeCoupon() {
+          this.myCart.removeExtraCharge("coupon");
+        } //custom COUPON implementation below
+
+      }, {
+        key: "applyCoupon",
+        value: function applyCoupon(coupon) {
+          this.myCart.removeExtraCharge("coupon");
+
+          if (coupon != null) {
+            var ec = new ExtraCharge();
+            ec.extraChargeObject = coupon;
+            ec.id = "coupon";
+            ec.title = coupon.title;
+            ec.isPercent = coupon.type == "percent";
+            ec.price = Number(coupon.reward);
+            ec.priceToShow = ec.price + "%";
+            this.myCart.addExtraCharge(ec);
+            this.setupOrderRequestBase();
+            this.orderRequest.coupon_code = coupon.code;
+          } else {
+            this.setupOrderRequestBase();
+            this.orderRequest.coupon_code = null;
+          }
+        } //custom PRODUCT implementation below
+
+      }, {
+        key: "getCartItemFromProduct",
+        value: function getCartItemFromProduct(product) {
+          var ci = new CartItem();
+          ci.price = product.price;
+          ci.title = product.title;
+          ci.subtitle = product.categories[0].title;
+          ci.image = product.images[0];
+          ci.product = product;
+          ci.id = String(product.id);
+          ci.setQuantity(1);
+          return ci;
+        } //custom ORDERREQUEST implementation below
+
+      }, {
+        key: "getOrderRequest",
+        value: function getOrderRequest() {
+          this.orderRequest.products = [];
+
+          var _iterator6 = _createForOfIteratorHelper(this.myCart.cartItems),
+              _step6;
+
+          try {
+            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+              var ci = _step6.value;
+              this.orderRequest.products.push({
+                id: ci.product.id,
+                quantity: ci.quantity
+              });
+            }
+          } catch (err) {
+            _iterator6.e(err);
+          } finally {
+            _iterator6.f();
+          }
+
+          if (this.orderMeta != null) this.orderRequest.meta = JSON.stringify(this.orderMeta);
+          return this.orderRequest;
+        }
+      }, {
+        key: "setupOrderRequestBase",
+        value: function setupOrderRequestBase() {
+          if (this.orderRequest == null) this.orderRequest = new src_models_models_shop_hour_order_request_models__WEBPACK_IMPORTED_MODULE_3__["OrderRequest"]();
+          if (this.orderMeta == null) this.orderMeta = {};
+        }
+      }, {
+        key: "setupOrderRequestAddress",
+        value: function setupOrderRequestAddress(address) {
+          this.setupOrderRequestBase();
+          this.orderRequest.address_id = address.id;
+        }
+      }, {
+        key: "setupOrderRequestPaymentMethod",
+        value: function setupOrderRequestPaymentMethod(paymentMethod) {
+          this.setupOrderRequestBase();
+          this.orderRequest.payment_method_id = paymentMethod.id;
+          this.orderRequest.payment_method_slug = paymentMethod.slug;
+        }
+      }, {
+        key: "setupOrderRequestMeta",
+        value: function setupOrderRequestMeta(key, value) {
+          this.setupOrderRequestBase();
+          this.orderMeta[key] = value;
+        }
+      }, {
+        key: "hasOrderRequestMetaKey",
+        value: function hasOrderRequestMetaKey(key) {
+          this.setupOrderRequestBase();
+          return this.orderMeta[key] != null;
+        }
+      }, {
+        key: "removeOrderRequestMeta",
+        value: function removeOrderRequestMeta(key) {
+          this.setupOrderRequestBase();
+          this.orderMeta[key] = null;
+        }
+      }]);
+
+      return ECommerceService;
+    }();
+
+    ECommerceService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ECommerceService);
+    /***/
+  },
+
+  /***/
   "./src/assets/scripts/html-map-marker.js": function srcAssetsScriptsHtmlMapMarkerJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
@@ -1372,6 +1884,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return Message;
     }();
+    /***/
+
+  },
+
+  /***/
+  "./src/models/models-shop-hour/order-request.models.ts": function srcModelsModelsShopHourOrderRequestModelsTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "OrderRequest", function () {
+      return OrderRequest;
+    });
+
+    var OrderRequest = function OrderRequest() {
+      _classCallCheck(this, OrderRequest);
+
+      this.products = new Array();
+    };
     /***/
 
   },

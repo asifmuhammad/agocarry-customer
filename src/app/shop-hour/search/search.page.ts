@@ -3,15 +3,15 @@ import { NavigationExtras } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { Category } from 'src/models/models-shop-hour/category.models';
-import { Constants } from 'src/models/models-shop-hour/constants.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
-import { Product } from 'src/models/models-shop-hour/product.models';
-import { BaseListResponse } from 'src/models/models-shop-hour/base-list.models';
+import { Category } from 'src/models/category.models';
+import { Constants } from 'src/models/constants.models';
+import { Product } from 'src/models/product.models';
+import { BaseListResponse } from 'src/models/base-list.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
 import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 import { APP_CONFIG_ShopHour, ShopHourConfig } from 'src/app/shophour.config';
+import { Helper } from 'src/models/helper.models';
 
 @Component({
   selector: 'app-search',
@@ -31,7 +31,7 @@ export class SearchPage implements OnInit, OnDestroy {
   constructor(@Inject(APP_CONFIG_ShopHour) public config: ShopHourConfig, private navCtrl: NavController, private translate: TranslateService,
     private uiElementService: UiElementsService, private apiService: ApiService, private eComService: ECommerceService) {
     this.translate.get("loading").subscribe(value => { this.uiElementService.presentLoading(value); this.loadCategories(); });
-    this.searchHistory = Helper.getSearchHistory();
+    this.searchHistory = Helper.getSearchHistoryShopHour();
   }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class SearchPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     for (let sub of this.subscriptions) sub.unsubscribe();
     this.uiElementService.dismissLoading();
-    Helper.setSearchHistory(this.searchHistory);
+    Helper.setSearchHistoryShopHour(this.searchHistory);
   }
 
   loadCategories() {
@@ -80,7 +80,7 @@ export class SearchPage implements OnInit, OnDestroy {
 
     if (res.data && res.data.length) if (!this.searchHistory.includes(this.lastSearchString)) this.searchHistory.unshift(this.lastSearchString);
     if (this.searchHistory.length > 3) this.searchHistory.splice(3, 1);
-    Helper.setSearchHistory(this.searchHistory);
+    Helper.setSearchHistoryShopHour(this.searchHistory);
   }
 
   productsErr(err) {

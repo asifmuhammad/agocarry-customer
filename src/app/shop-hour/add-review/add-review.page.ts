@@ -3,9 +3,9 @@ import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { Product } from 'src/models/models-shop-hour/product.models';
-import { RateRequest } from 'src/models/models-shop-hour/rate-request.models';
-import { Helper } from 'src/models/models-shop-hour/helper.models';
+import { Product } from 'src/models/product.models';
+import { RateRequest } from 'src/models/rate-request.models';
+import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
 import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
 

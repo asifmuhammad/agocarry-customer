@@ -7,7 +7,7 @@ import { Product } from 'src/models/product.models';
 import { RateRequest } from 'src/models/rate-request.models';
 import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-add-review',
@@ -21,7 +21,7 @@ export class AddReviewPage implements OnInit, OnDestroy {
   rateRequest = new RateRequest();
 
   constructor(private router: Router, private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) {
     console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
     if (this.router.getCurrentNavigation().extras.state) {
       this.product = this.router.getCurrentNavigation().extras.state.product;

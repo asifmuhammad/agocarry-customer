@@ -10,7 +10,7 @@ import { User } from 'src/models/user.models';
 import { Device } from '@ionic-native/device/ngx';
 import * as firebase from 'firebase';
 import { APP_CONFIG_ShopHour, ShopHourConfig } from '../shophour.config';
-import { ApiService } from '../services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from '../services/shoup-hour-services/network/api.service';
 import { ECommerceService } from '../services/shoup-hour-services/common/ecommerce.service';
 import { MyEventsService } from '../services/shoup-hour-services/events/my-events.service';
 
@@ -88,7 +88,7 @@ export class ShopHourPage implements OnInit {
 
   constructor(@Inject(APP_CONFIG_ShopHour) public config: ShopHourConfig, private alertCtrl: AlertController,
     private platform: Platform, private navCtrl: NavController, private device: Device,
-    private splashScreen: SplashScreen, private apiService: ApiService, private menu: MenuController,
+    private splashScreen: SplashScreen, private apiService: ApiServiceShopHour, private menu: MenuController,
     private statusBar: StatusBar, private oneSignal: OneSignal, private eComService: ECommerceService,
     private translate: TranslateService, private myEvent: MyEventsService) {
     this.initializeApp();

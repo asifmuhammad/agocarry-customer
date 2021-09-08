@@ -8,7 +8,7 @@ import { Product } from 'src/models/product.models';
 import { Helper } from 'src/models/helper.models';
 import * as firebase from 'firebase/app';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -27,7 +27,7 @@ export class MyOrdersPage implements OnInit, OnDestroy {
   private myOrdersRef: firebase.database.Reference;
 
   constructor(private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) {
     this.translate.get("loading").subscribe(value => {
       this.uiElementService.presentLoading(value);
       this.getOrders();

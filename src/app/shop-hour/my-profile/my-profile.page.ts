@@ -7,7 +7,7 @@ import { User } from 'src/models/user.models';
 import { Helper } from 'src/models/helper.models';
 import { NavigationExtras } from '@angular/router';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class MyProfilePage implements OnInit {
   userMe: User;
 
   constructor(private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService, public eComService: ECommerceService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour, public eComService: ECommerceService) {
     this.userMe = Helper.getLoggedInUser();
   }
 

@@ -9,7 +9,7 @@ import { Constants } from 'src/models/constants.models';
 import { BaseListResponse } from 'src/models/base-list.models';
 import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class ItemDetailPage implements OnInit, OnDestroy {
   cartCount: number;
 
   constructor(private route: ActivatedRoute, private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService, private eComService: ECommerceService) { }
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour, private eComService: ECommerceService) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {

@@ -17,9 +17,9 @@ import { Clipboard } from '@ionic-native/clipboard/ngx';
     FormsModule,
     IonicModule,
     TranslateModule,
-    OffersPageRoutingModule
+    OffersPageRoutingModule,Clipboard
   ],
-  providers: [Clipboard],
+  providers: [],
   declarations: [OffersPage]
 })
 export class OffersPageModule { }

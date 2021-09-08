@@ -1,4 +1,26 @@
-<ion-app [dir]="rtlSide">
-<!--<ion-app dir="rtl">-->
-    <ion-router-outlet></ion-router-outlet>
+<ion-app [dir]="shareService?.isActiveCustomer == 'Shophor' ? rtlSide : 'ltr'">
+<ion-menu *ngIf="shareService?.isActiveCustomer == 'Shophor' && showSideMenu" side="start" menuId="first" [side]="rtlSideMenu" type="overlay" contentId="main">
+    <div class="profile_box">
+        <h2 *ngIf="userMe">
+            {{"hey" | translate}},
+            <span class="first_name">{{userMe.name}}</span>
+        </h2>
+        <h2 *ngIf="!userMe">
+            <span class="first_name">{{'hey_guest' | translate}}</span>
+        </h2>
+    </div>
+    <ion-content fullscreen>
+        <ion-list lines="none">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPagesToUse">
+                <ion-item mode="ios" detail="false" (click)="onNavItemClick(p)">
+                    <div class="item_inner d-flex">
+                        <ion-icon slot="start" [class]="p.icon"></ion-icon>
+                        <h2>{{ p.title | translate}}</h2>
+                    </div>
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

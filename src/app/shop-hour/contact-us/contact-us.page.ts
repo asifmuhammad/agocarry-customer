@@ -5,7 +5,7 @@ import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -17,7 +17,7 @@ export class ContactUsPage implements OnInit, OnDestroy {
   supportRequest: SupportRequest;
 
   constructor(private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) {
     let userMe = Helper.getLoggedInUser();
     this.supportRequest = new SupportRequest(userMe.name, userMe.email);
   }

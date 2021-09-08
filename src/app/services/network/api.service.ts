@@ -30,6 +30,7 @@ import { Appointment } from 'src/models/appointment.models';
 import { Vendor } from 'src/models/vendor.models';
 import { WalletTransaction } from 'src/models/wallet-transaction.models';
 import * as moment from 'moment';
+import { APP_CONFIG_ShopHour, ShopHourConfig } from 'src/app/shophour.config';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +47,7 @@ export class ApiService {
   private uuid: string = "xxx";
   private platform: string = "android";
 
-  constructor(@Inject(APP_CONFIG) private config: AppConfig, private http: HttpClient) { }
+  constructor(@Inject(APP_CONFIG) private config: AppConfig,@Inject(APP_CONFIG_ShopHour) private configShopHour: ShopHourConfig, private http: HttpClient) { }
 
   reloadSetting() {
     this.currency_icon = Helper.getSetting("currency_icon");

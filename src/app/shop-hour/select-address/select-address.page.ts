@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Helper } from 'src/models/helper.models';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-select-address',
@@ -22,7 +22,7 @@ export class SelectAddressPage implements OnInit {
   currency_icon: string;
 
   constructor(private navCtrl: NavController, private translate: TranslateService, public eComService: ECommerceService,
-    private uiElementService: UiElementsService, private apiService: ApiService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) {
     this.currency_icon = Helper.getSetting("currency_icon");
   }
 

@@ -26,7 +26,7 @@ import { APP_CONFIG_ShopHour, ShopHourConfig } from 'src/app/shophour.config';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ApiServiceShopHour {
   private myHeaders: HttpHeaders;
 
   private currency_icon: string;

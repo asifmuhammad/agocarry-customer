@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 import { Constants } from 'src/models/constants.models';
 import { Product } from 'src/models/product.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 
 @Component({
@@ -29,7 +29,7 @@ export class ItemPage implements OnInit, OnDestroy {
   private type: string = null;
 
   constructor(private router: Router, private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService, private eComService: ECommerceService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour, private eComService: ECommerceService) {
     console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
     if (this.router.getCurrentNavigation().extras.state) {
       this.category = this.router.getCurrentNavigation().extras.state.category;

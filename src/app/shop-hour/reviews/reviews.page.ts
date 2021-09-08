@@ -8,7 +8,7 @@ import { Review } from 'src/models/review.models';
 import { BaseListResponse } from 'src/models/base-list.models';
 import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-reviews',
@@ -25,7 +25,7 @@ export class ReviewsPage implements OnInit, OnDestroy {
   reviews = new Array<Review>();
 
   constructor(private router: Router, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService) { }
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) { }
 
   ngOnInit() {
     this.rating = Rating.getDefault();

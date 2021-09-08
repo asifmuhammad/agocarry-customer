@@ -54,7 +54,20 @@ const routes: Routes = [
             import('../account/account.module').then(m => m.AccountPageModule)
         }
       ]
-    }, {
+    },
+    {
+      path: 'customer-wallet',
+      loadChildren: () => import('../main-home/customer-wallet/customer-wallet.module').then( m => m.CustomerWalletPageModule)
+    },
+    {
+      path: 'customer-history',
+      loadChildren: () => import('../main-home/customer-history/customer-history.module').then( m => m.CustomerHistoryPageModule)
+    },
+    {
+      path: 'customer-profile',
+      loadChildren: () => import('../main-home/customer-profile/customer-profile.module').then( m => m.CustomerProfilePageModule)
+    }
+    , {
       path: '',
       redirectTo: '/tabs/main-home',
       pathMatch: 'full'

@@ -11,7 +11,9 @@ const routes: Routes = [
 {
   path: 'shop-hour',
   loadChildren: () => import('../shop-hour/shop-hour.module').then( m => m.ShopHourPageModule)
-}
+},
+ 
+
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { Helper } from 'src/models/helper.models';
 import { Subscription } from 'rxjs';
+import { ShareService } from '../services/network/share.service';
 
 @Component({
   selector: 'app-tabs',
@@ -17,7 +18,7 @@ export class TabsPage implements OnInit, OnDestroy {
   private subscriptions = new Array<Subscription>();
 
   constructor(private navCtrl: NavController, private diagnostic: Diagnostic, private translate: TranslateService,
-    private myEventsService: MyEventsService, private alertCtrl: AlertController, private locationAccuracy: LocationAccuracy) { }
+    private myEventsService: MyEventsService, private alertCtrl: AlertController, private locationAccuracy: LocationAccuracy, public shareService : ShareService) { }
 
   ngOnInit() {
     this.subscriptions.push(this.myEventsService.getCustomEventObservable().subscribe(data => {

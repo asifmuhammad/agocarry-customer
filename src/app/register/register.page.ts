@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationExtras } from '@angular/router';
 import { SignUpRequest } from 'src/models/auth-signup-request.models';
 import { UiElementsService } from '../services/common/ui-elements.service';
 import { ApiService } from '../services/network/api.service';
+import { ApiServiceShopHour } from '../services/shoup-hour-services/network/api.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Helper } from 'src/models/helper.models';
 
@@ -22,7 +23,7 @@ export class RegisterPage implements OnInit {
   signUpRequest = new SignUpRequest();
 
   constructor(private navCtrl: NavController, private uiElementService: UiElementsService,
-    private apiService: ApiService, private route: ActivatedRoute,
+    private apiService: ApiService, private apiServiceShophour: ApiServiceShopHour, private route: ActivatedRoute,
     private translate: TranslateService, private alertCtrl: AlertController) { }
 
   ngOnInit() {
@@ -94,6 +95,9 @@ export class RegisterPage implements OnInit {
       this.uiElementService.presentLoading(value);
 
       this.apiService.createUser(this.signUpRequest).subscribe(res => {
+        this.apiServiceShophour.createUser(this.signUpRequest).subscribe(resShophour =>{
+          console.log("shophour user",resShophour);
+        })
         console.log(res);
         this.uiElementService.dismissLoading();
 

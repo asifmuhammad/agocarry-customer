@@ -4,7 +4,7 @@ import { Coupon } from 'src/models/coupon.models';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-offers',
@@ -17,7 +17,7 @@ export class OffersPage implements OnInit, OnDestroy {
   isLoading = true;
 
   constructor(private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService, private clipboard: Clipboard) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour, private clipboard: Clipboard) {
     this.translate.get("loading").subscribe(value => {
       this.uiElementService.presentLoading(value);
       this.getOffers();

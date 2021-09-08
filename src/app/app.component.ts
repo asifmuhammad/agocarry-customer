@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { Platform, NavController, IonRouterOutlet, ModalController } from '@ionic/angular';
+import { Platform, NavController, IonRouterOutlet, ModalController, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,6 +15,7 @@ import { Device } from '@ionic-native/device/ngx';
 import * as firebase from 'firebase';
 import { VtPopupPage } from './vt-popup/vt-popup.page';
 import { UiElementsService } from './services/common/ui-elements.service';
+import { ShareService } from './services/network/share.service';
 declare var Agora;
 
 @Component({
@@ -24,12 +25,72 @@ declare var Agora;
 })
 export class AppComponent implements OnInit {
   @ViewChild(IonRouterOutlet, { static: false }) routerOutlets: IonRouterOutlet;
-  rtlSide = "left";
+  rtlSide = "right";
+  rtlSideMenu = "start";
   userMe: User;
-
-  constructor(@Inject(APP_CONFIG) public config: AppConfig, private uiElementService: UiElementsService,
+  appPagesToUse = [];
+  showSideMenu = false;
+  private appPagesLoggedIn = [{
+    title: 'home',
+    url: 'tabs/main-home/shop-hour/home',
+    icon: 'zmdi zmdi-home'
+  }, {
+    title: 'my_account',
+    url: 'tabs/main-home/shop-hour/my-profile',
+    icon: 'zmdi zmdi-assignment-account'
+  }, {
+    title: 'my_orders',
+    url: 'tabs/main-home/shop-hour/my-orders',
+    icon: 'zmdi zmdi-shopping-cart'
+  }, {
+    title: 'offers',
+    url: 'tabs/main-home/shop-hour/offers',
+    icon: 'zmdi zmdi-label'
+  }, {
+    title: 'my_wishlist',
+    url: 'tabs/main-home/shop-hour/wishlist',
+    icon: 'zmdi zmdi-favorite'
+  }, {
+    title: 'about_us',
+    url: 'tabs/main-home/shop-hour/about-us',
+    icon: 'zmdi zmdi-assignment'
+  }, {
+    title: 'help_center',
+    url: 'tabs/main-home/shop-hour/contact-us',
+    icon: 'zmdi zmdi-comment-text'
+  }, {
+    title: 'languges',
+    url: 'tabs/main-home/shop-hour/language',
+    icon: 'zmdi zmdi-globe'
+  }, {
+    title: 'logout',
+    url: './sign-in',
+    icon: 'zmdi zmdi-open-in-new'
+  }];
+  private appPagesLoggedOut = [{
+    title: 'home',
+    url: 'tabs/main-home/shop-hour/home',
+    icon: 'zmdi zmdi-home'
+  }, {
+    title: 'my_account',
+    url: 'tabs/main-home/shop-hour/my-profile',
+    icon: 'zmdi zmdi-assignment-account'
+  }, {
+    title: 'about_us',
+    url: 'tabs/main-home/shop-hour/about-us',
+    icon: 'zmdi zmdi-assignment'
+  }, {
+    title: 'languges',
+    url: 'tabs/main-home/shop-hour/language',
+    icon: 'zmdi zmdi-globe'
+  }, {
+    title: 'login',
+    url: './sign-in',
+    icon: 'zmdi zmdi-open-in-new'
+  }];
+  constructor(@Inject(APP_CONFIG) public config: AppConfig, private uiElementService: UiElementsService, private alertCtrl:AlertController,
     private platform: Platform, private apiService: ApiService,
-    private splashScreen: SplashScreen, private modalController: ModalController,
+    private splashScreen: SplashScreen, private modalController: ModalController, public shareService: ShareService,
     private statusBar: StatusBar, private oneSignal: OneSignal, private eComService: ECommerceService,
     private translate: TranslateService, private device: Device,
     private navCtrl: NavController, private myEvent: MyEventsService) {
@@ -41,13 +102,16 @@ export class AppComponent implements OnInit {
     this.initializeApp();
     this.myEvent.getLanguageObservable().subscribe(value => {
       this.apiService.setupHeaders();
+      this.onNavItemClick(this.appPagesToUse[0]);
       this.navCtrl.navigateRoot(['./']);
       this.globalize(value);
     });
     this.myEvent.getUserMeObservable().subscribe(user => {
       this.refreshSettings();
       this.apiService.setUserMe(user);
-      this.userMe = this.apiService.getUserMe();
+      this.userMe = this.apiService.getUserMe();      
+      this.appPagesToUse = this.userMe ? this.appPagesLoggedIn : this.appPagesLoggedOut;
+      this.onNavItemClick(this.appPagesToUse[0]);
       if (this.userMe == null) this.apiService.setupHeaders(null);
       this.navCtrl.navigateRoot(['./']);
       if (this.platform.is('cordova')) {
@@ -93,6 +157,9 @@ export class AppComponent implements OnInit {
 
       this.apiService.setUserMe(Helper.getLoggedInUser());
       this.userMe = this.apiService.getUserMe();
+      
+      this.appPagesToUse = this.userMe ? this.appPagesLoggedIn : this.appPagesLoggedOut;
+      this.onNavItemClick(this.appPagesToUse[0]);
       this.navCtrl.navigateRoot(['./']);
       setTimeout(() => {
         this.splashScreen.hide();
@@ -105,7 +172,7 @@ export class AppComponent implements OnInit {
           this.routerOutlets.pop();
         } else {
           let currPathName = window.location.pathname;
-          if (currPathName && currPathName.includes("tabs")) {
+          if (currPathName && (currPathName.includes("tabs") || currPathName.includes(this.appPagesToUse[0].url))) {
             navigator['app'].exitApp();
           } else {
             this.navCtrl.navigateRoot(['./tabs/main-home']);
@@ -125,18 +192,68 @@ export class AppComponent implements OnInit {
   }
 
   setDirectionAccordingly(lang: string) {
+    this.showSideMenu = false;
     switch (lang) {
       case 'ar': {
         this.rtlSide = "rtl";
+        this.rtlSideMenu = "end";
         break;
       }
       default: {
         this.rtlSide = "ltr";
+        this.rtlSideMenu = "start";
         break;
       }
     }
+    setTimeout(() => this.showSideMenu = true, 100);
   }
+  onNavItemClick(navItem: { title: string, url: string, icon: string }) {
+    if (navItem.title == "logout") {
+      this.translate.get(["logout_title", "logout_message", "no", "yes"]).subscribe(values => {
+        this.alertCtrl.create({
+          header: values["logout_title"],
+          message: values["logout_message"],
+          buttons: [{
+            text: values["no"],
+            handler: () => { }
+          }, {
+            text: values["yes"],
+            handler: () => {
+              this.eComService.clearCart();
+              Helper.setLoggedInUserResponse(null);
+              this.myEvent.setUserMeData(null);
+              this.apiService.setupHeaders(null);
 
+              try {
+                (<any>window).FirebasePlugin.signOutUser(function () {
+                  console.log("User signed out");
+                }, function (error) {
+                  console.error("Failed to sign out user: " + error);
+                });
+              } catch (e) { console.log("fireSignout", e); }
+
+              try {
+                firebase.auth().signOut().then(function () {
+                  console.log('Signed Out');
+                }, function (error) {
+                  console.error('Sign Out Error', error);
+                });
+              } catch (e) { console.log("fireSignout", e); }
+
+              this.navCtrl.navigateRoot(['./sign-in']);
+            }
+          }]
+        }).then(alert => alert.present());
+      });
+    } else if (navItem.title == "my_account") {
+      // this.viewProfile();
+    } else {
+      let currPathName = window.location.pathname;
+      if (!currPathName || !currPathName.includes(navItem.url)) {
+        this.navCtrl.navigateRoot([navItem.url]);
+      }
+    }
+  }
   initOneSignal() {
     if (this.config.oneSignalAppId && this.config.oneSignalAppId.length && this.config.oneSignalGPSenderId && this.config.oneSignalGPSenderId.length) {
       this.oneSignal.startInit(this.config.oneSignalAppId, this.config.oneSignalGPSenderId);

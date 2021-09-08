@@ -5,7 +5,7 @@ import { Product } from 'src/models/product.models';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -18,7 +18,7 @@ export class WishlistPage implements OnInit, OnDestroy {
   isLoading = true;
 
   constructor(private router: Router, private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) {
   }
 
   ngOnInit() {

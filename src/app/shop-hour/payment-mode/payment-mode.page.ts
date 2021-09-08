@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { PaymentMethod } from 'src/models/payment-method.models';
 import { Helper } from 'src/models/helper.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class PaymentModePage implements OnInit, OnDestroy {
   currency_icon: string;
 
   constructor(private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService, public eComService: ECommerceService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour, public eComService: ECommerceService) {
     this.currency_icon = Helper.getSetting("currency_icon");
     this.translate.get("loading").subscribe(value => {
       this.uiElementService.presentLoading(value);

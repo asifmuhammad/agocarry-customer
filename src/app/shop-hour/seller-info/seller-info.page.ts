@@ -9,7 +9,7 @@ import { Product } from 'src/models/product.models';
 import { BaseListResponse } from 'src/models/base-list.models';
 import { Constants } from 'src/models/constants.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-seller-info',
@@ -28,7 +28,7 @@ export class SellerInfoPage implements OnInit, OnDestroy {
   pageImage: string;
 
   constructor(private router: Router, private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService) {
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour) {
     console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
     if (this.router.getCurrentNavigation().extras.state) {
       let category: Category = this.router.getCurrentNavigation().extras.state.category;

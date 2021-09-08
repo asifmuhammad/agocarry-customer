@@ -8,7 +8,7 @@ import { NavigationExtras } from '@angular/router';
 import { Constants } from 'src/models/constants.models';
 import { Product } from 'src/models/product.models';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 import { ECommerceService } from 'src/app/services/shoup-hour-services/common/ecommerce.service';
 import { APP_CONFIG_ShopHour, ShopHourConfig } from 'src/app/shophour.config';
 
@@ -27,7 +27,7 @@ export class HomePage implements OnInit, OnDestroy {
   cartCount: number;
 
   constructor(@Inject(APP_CONFIG_ShopHour) public config: ShopHourConfig, private navCtrl: NavController, private translate: TranslateService,
-    private uiElementService: UiElementsService, private apiService: ApiService, private eComService: ECommerceService) { }
+    private uiElementService: UiElementsService, private apiService: ApiServiceShopHour, private eComService: ECommerceService) { }
 
   ngOnInit() {
     this.translate.get("loading").subscribe(value => { this.uiElementService.presentToast(value); this.loadBanners(); this.loadCategories(); });

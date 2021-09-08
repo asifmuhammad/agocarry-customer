@@ -12,7 +12,7 @@ import { Diagnostic } from '@ionic-native/diagnostic/ngx';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { GoogleMapsService } from 'src/app/services/shoup-hour-services/network/google-maps.service';
 import { UiElementsService } from 'src/app/services/shoup-hour-services/common/ui-elements.service';
-import { ApiService } from 'src/app/services/shoup-hour-services/network/api.service';
+import { ApiServiceShopHour } from 'src/app/services/shoup-hour-services/network/api.service';
 
 @Component({
   selector: 'app-add-address',
@@ -34,7 +34,7 @@ export class AddAddressPage implements OnInit {
   location: MyAddress;
 
   constructor(private geolocation: Geolocation, private zone: NgZone, private translate: TranslateService, private modalController: ModalController, private router: Router,
-    private diagnostic: Diagnostic, private alertCtrl: AlertController, private navCtrl: NavController, private apiService: ApiService, private paltform: Platform,
+    private diagnostic: Diagnostic, private alertCtrl: AlertController, private navCtrl: NavController, private apiService: ApiServiceShopHour, private paltform: Platform,
     private maps: GoogleMapsService, private uiElementService: UiElementsService, private locationAccuracy: LocationAccuracy) { }
 
   ngOnInit() {

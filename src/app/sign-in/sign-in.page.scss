@@ -20,7 +20,8 @@ ion-header ion-toolbar {
         left: 0;
         width: 100%;
         height: calc(100% - 168px);
-        background: var(--bg-secondary);
+        // background: var(--bg-secondary);
+        background: var(--white);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -63,6 +64,7 @@ ion-header ion-toolbar {
 
     .banner_images {
         position: relative;
+        bottom: 90px;
 
         img {
             display: block;
@@ -132,5 +134,12 @@ ion-header ion-toolbar {
             color: #000 !important;
             font-weight: 500;
         }
+       
+       
     }
+
+}
+.border{
+    border: 1px solid gray;
+   
 }

@@ -2,7 +2,7 @@
 
 	<ion-tab-bar slot="bottom" *ngIf="shareService?.isActiveCustomer == 'Home'">
 		<ion-tab-button tab="main-home">		
-			<ion-icon name="home-outline"></ion-icon>
+			<ion-icon  name="home-outline"></ion-icon>
 			<ion-label>{{'Home' | translate}}</ion-label>
 		</ion-tab-button>
 
@@ -11,17 +11,16 @@
 			<ion-label>{{'Wallet' | translate}}</ion-label>
 		</ion-tab-button>
 
-		<ion-tab-button tab="customer-history">
+		<ion-tab-button tab="History">
 			<ion-icon name="file-tray-full-outline"></ion-icon>
 			<ion-label>{{'History' | translate}}</ion-label>
 		</ion-tab-button>
 
 		<ion-tab-button tab="customer-profile">
-			<div class="img_box">
-				<img src="assets/images/ic_more.png" class="before">
-				<img src="assets/images/ic_moreact.png" class="after">
-			</div>
-			<ion-label>{{'Profile' | translate}}</ion-label>
+
+				<ion-icon name="person-outline"></ion-icon>
+				<ion-label>{{'Profile' | translate}}</ion-label>
+			
 		</ion-tab-button>
 	</ion-tab-bar>
 	<ion-tab-bar slot="bottom" *ngIf="shareService?.isActiveCustomer == 'Doctor'">

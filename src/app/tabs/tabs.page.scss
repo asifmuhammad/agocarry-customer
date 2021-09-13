@@ -35,6 +35,7 @@ ion-tabs {
 			}
 
 			&.tab-selected {
+				color: var(--primary);
 				ion-label {
 					color: var(--primary);
 				}
@@ -58,3 +59,4 @@ ion-tabs {
 		}
 	}
 }
+	

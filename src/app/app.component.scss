@@ -71,11 +71,11 @@ li {
 }
 
 ion-menu {
-    --background: url(../assets/images/img_menu.png) 0 0/100% 100% no-repeat;
+    --background: var(--primary);
     --width: calc(100% - 50px);
 
     ion-content {
-        --background: rgba(0, 0, 0, 0) !important;
+        --background: var(--primary);
 
     }
 

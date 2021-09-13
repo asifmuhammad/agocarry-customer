@@ -225,9 +225,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/models/models-shop-hour/address.models */
-    "./src/models/models-shop-hour/address.models.ts");
+    var src_models_address_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/models/address.models */
+    "./src/models/address.models.ts");
     /* harmony import */
 
 
@@ -253,7 +253,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(TitlePage, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          if (!this.address) this.address = new src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"](); // if (!this.address.title || !this.address.title.length) this.address.title = "home";
+          if (!this.address) this.address = new src_models_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"](); // if (!this.address.title || !this.address.title.length) this.address.title = "home";
         }
       }, {
         key: "onAddressTypeChange",
@@ -299,7 +299,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }];
     };
 
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"])], TitlePage.prototype, "address", void 0);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_models_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"])], TitlePage.prototype, "address", void 0);
     TitlePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-title',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -310,25 +310,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       "./src/app/shop-hour/title/title.page.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]])], TitlePage);
     /***/
-  },
-
-  /***/
-  "./src/models/models-shop-hour/address.models.ts": function srcModelsModelsShopHourAddressModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "MyAddress", function () {
-      return MyAddress;
-    });
-
-    var MyAddress = function MyAddress() {
-      _classCallCheck(this, MyAddress);
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=default~add-address-add-address-module~title-title-module-es5.js.map

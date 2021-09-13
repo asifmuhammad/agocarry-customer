@@ -692,8 +692,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     OffersPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"], _offers_routing_module__WEBPACK_IMPORTED_MODULE_6__["OffersPageRoutingModule"]],
-      providers: [_ionic_native_clipboard_ngx__WEBPACK_IMPORTED_MODULE_8__["Clipboard"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"], _offers_routing_module__WEBPACK_IMPORTED_MODULE_6__["OffersPageRoutingModule"], _ionic_native_clipboard_ngx__WEBPACK_IMPORTED_MODULE_8__["Clipboard"]],
+      providers: [],
       declarations: [_offers_page__WEBPACK_IMPORTED_MODULE_7__["OffersPage"]]
     })], OffersPageModule);
     /***/
@@ -847,7 +847,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiServiceShopHour"]
       }, {
         type: Clipboard
       }];
@@ -861,7 +861,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./offers.page.scss */
       "./src/app/shop-hour/offers/offers.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"], Clipboard])], OffersPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiServiceShopHour"], Clipboard])], OffersPage);
     /***/
   }
 }]);

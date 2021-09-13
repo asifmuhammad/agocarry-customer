@@ -360,15 +360,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_rating_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/models/models-shop-hour/rating.models */
-    "./src/models/models-shop-hour/rating.models.ts");
+    var src_models_rating_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/models/rating.models */
+    "./src/models/rating.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
     /* harmony import */
 
 
@@ -400,7 +400,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this3 = this;
 
-          this.rating = src_models_models_shop_hour_rating_models__WEBPACK_IMPORTED_MODULE_4__["Rating"].getDefault();
+          this.rating = src_models_rating_models__WEBPACK_IMPORTED_MODULE_4__["Rating"].getDefault();
           console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
 
           if (this.router.getCurrentNavigation().extras.state) {
@@ -453,7 +453,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           } else {
             this.infiniteScrollEvent = event;
             this.subscriptions.push(this.apiService.getURL(this.nextUrl).subscribe(function (res) {
-              var locale = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLocale();
+              var locale = src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLocale();
 
               var _iterator2 = _createForOfIteratorHelper(res.data),
                   _step2;
@@ -461,7 +461,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               try {
                 for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
                   var review = _step2.value;
-                  review.created_at = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].formatTimestampDate(review.created_at, locale);
+                  review.created_at = src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].formatTimestampDate(review.created_at, locale);
                 }
               } catch (err) {
                 _iterator2.e(err);
@@ -505,7 +505,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]
       }];
     };
 
@@ -517,12 +517,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./reviews.page.scss */
       "./src/app/shop-hour/reviews/reviews.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]])], ReviewsPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]])], ReviewsPage);
     /***/
   },
 
   /***/
-  "./src/models/models-shop-hour/rating.models.ts": function srcModelsModelsShopHourRatingModelsTs(module, __webpack_exports__, __webpack_require__) {
+  "./src/models/rating.models.ts": function srcModelsRatingModelsTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -537,7 +537,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _rating_summary_models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! ./rating-summary.models */
-    "./src/models/models-shop-hour/rating-summary.models.ts");
+    "./src/models/rating-summary.models.ts");
 
     var Rating = /*#__PURE__*/function () {
       function Rating() {

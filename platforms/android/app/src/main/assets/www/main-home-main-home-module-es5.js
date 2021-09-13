@@ -13,7 +13,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\n<ion-content [fullscreen]=\"true\">\r\n  <ion-item class=\"item-cls\" lines=\"none\">\r\n    <img  height=\"50\" src=\"../../assets/images/Agocarry logo.png\">\r\n    <ion-button color=\"light\" fill=\"outline\"  class=\"ion-button\" slot=\"end\">\r\n      <ion-icon class=\"ion-search\" name=\"search-outline\"></ion-icon>\r\n    </ion-button>\r\n</ion-item>\r\n<br/>\r\n<ion-item lines=\"none\">\r\n  <ion-label class=\"text\">Hi, Robert Fox\r\n    <span class=\"amount\">$1255</span>\r\n    <br/><ion-note slot=\"start\" class=\"availaible\">Your avalaible balance</ion-note> \r\n  </ion-label>\r\n</ion-item>\r\n<br/>\r\n<ion-item class=\"discount\" lines=\"none\" >\r\n  <ion-label class=\"text\">Promo & Discount\r\n    <span class=\"seemore\">  See More</span> \r\n    </ion-label>\r\n</ion-item>\r\n\r\n<ion-item lines=\"none\">\r\n  <ion-slides scrollX=\"true\" style=\"width: 100%\" [options]=\"slideOpts\">\r\n    <ng-container\r\n      \r\n    >\r\n      <ion-slide>\r\n          \r\n        <img class=\"img2\" src=\"../../assets/images/banner1.jpg\" />\r\n      </ion-slide>\r\n\r\n      <ion-slide>\r\n        \r\n            \r\n        <img class=\"img2\" src=\"../../assets/images/banner2.jpg\" />\r\n\r\n      </ion-slide>\r\n    </ng-container>\r\n  </ion-slides>\r\n  <br />\r\n</ion-item>\r\n<ion-item lines=\"none\"><ion-label class=\"text\"> Our Services </ion-label></ion-item>\r\n<ion-grid>\r\n  <ion-row>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button\" >\r\n        <img class=\"img2\" src=\"../../assets/images/fast-delivery 1.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"t-lable\"> Delivery</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-delivery\"   >\r\n        <img class=\"img2\" src=\"../../assets/images/ride.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"text-lable\"> Ride</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-food\" >\r\n        <img class=\"img2\" src=\"../../assets/images/fast-food 1.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"text-lable\"> Food</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-pharmacy\" >\r\n        <img class=\"img2\" src=\"../../assets/images/pharmacy.png\" />\r\n      </ion-button>\r\n      <ion-label > Pharmacy</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\" (click)=\"navigateToShophour()\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-shopping\" >\r\n        <img class=\"img2\" src=\"../../assets/images/shopping.png\" />\r\n      </ion-button>\r\n      <ion-label > Shopping</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-more\" >\r\n        <img class=\"img2\" src=\"../../assets/images/more.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"text-lable\"> More</ion-label>\r\n    </ion-col>\r\n    \r\n  </ion-row>\r\n</ion-grid>\r\n\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n";
+    __webpack_exports__["default"] = "\r\n<ion-content [fullscreen]=\"true\">\r\n  <ion-item class=\"item-cls\" lines=\"none\">\r\n    <img  height=\"50\" src=\"../../assets/images/Agocarry logo.png\">\r\n    <ion-button color=\"light\" fill=\"outline\"  class=\"ion-button\" slot=\"end\">\r\n      <ion-icon class=\"ion-search\" name=\"search-outline\"></ion-icon>\r\n    </ion-button>\r\n</ion-item>\r\n<br/>\r\n<ion-item lines=\"none\">\r\n  <ion-label class=\"text\">Hi, Robert Fox\r\n    <span class=\"amount\">$1255</span>\r\n    <br/><ion-note slot=\"start\" class=\"availaible\">Your avalaible balance</ion-note> \r\n  </ion-label>\r\n</ion-item>\r\n<br/>\r\n<ion-item class=\"discount\" lines=\"none\" >\r\n  <ion-label class=\"text\">Promo & Discount\r\n    <span class=\"seemore\">  See More</span> \r\n    </ion-label>\r\n</ion-item>\r\n\r\n<ion-item lines=\"none\">\r\n  <ion-slides scrollX=\"true\" style=\"width: 100%\" [options]=\"slideOpts\">\r\n    <ng-container\r\n      \r\n    >\r\n      <ion-slide>\r\n          \r\n        <img class=\"img2\" src=\"../../assets/images/banner1.jpg\" />\r\n      </ion-slide>\r\n\r\n      <ion-slide>\r\n        \r\n            \r\n        <img class=\"img2\" src=\"../../assets/images/banner2.jpg\" />\r\n\r\n      </ion-slide>\r\n    </ng-container>\r\n  </ion-slides>\r\n  <br />\r\n</ion-item>\r\n<ion-item lines=\"none\"><ion-label class=\"text\"> Our Services </ion-label></ion-item>\r\n<ion-grid>\r\n  <ion-row>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button\" >\r\n        <img class=\"img2\" src=\"../../assets/images/fast-delivery 1.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"t-lable\"> Delivery</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-delivery\"   >\r\n        <img class=\"img2\" src=\"../../assets/images/ride.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"text-lable\"> Ride</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-food\" >\r\n        <img class=\"img2\" src=\"../../assets/images/fast-food 1.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"text-lable\"> Food</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\" (click)=\"navigateToDoctor()\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-pharmacy\" >\r\n        <img class=\"img2\" src=\"../../assets/images/pharmacy.png\" />\r\n      </ion-button>\r\n      <ion-label > Pharmacy</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\" (click)=\"navigateToShophour()\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-shopping\" >\r\n        <img class=\"img2\" src=\"../../assets/images/shopping.png\" />\r\n      </ion-button>\r\n      <ion-label > Shopping</ion-label>\r\n    </ion-col>\r\n    <ion-col size=\"3\">\r\n      <ion-button color=\"secondary\"   class=\"ion-button-more\" >\r\n        <img class=\"img2\" src=\"../../assets/images/more.png\" />\r\n      </ion-button>\r\n      <ion-label class=\"text-lable\"> More</ion-label>\r\n    </ion-col>\r\n    \r\n  </ion-row>\r\n</ion-grid>\r\n\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n";
     /***/
   },
 
@@ -61,7 +61,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | shop-hour-shop-hour-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("shop-hour-shop-hour-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("shop-hour-shop-hour-module")]).then(__webpack_require__.bind(null,
         /*! ../shop-hour/shop-hour.module */
         "./src/app/shop-hour/shop-hour.module.ts")).then(function (m) {
           return m.ShopHourPageModule;
@@ -186,12 +186,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _services_network_share_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../services/network/share.service */
+    "./src/app/services/network/share.service.ts");
 
     var MainHomePage = /*#__PURE__*/function () {
-      function MainHomePage(router) {
+      function MainHomePage(router, shareService) {
         _classCallCheck(this, MainHomePage);
 
         this.router = router;
+        this.shareService = shareService;
         this.slideOpts = {
           initialSlide: 0,
           speed: 400,
@@ -203,9 +210,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngOnInit",
         value: function ngOnInit() {}
       }, {
+        key: "ionViewWillEnter",
+        value: function ionViewWillEnter() {
+          this.setCustomerVal('Home');
+        }
+      }, {
         key: "navigateToShophour",
         value: function navigateToShophour() {
+          this.setCustomerVal('Shophor');
           this.router.navigate(['tabs/main-home/shop-hour/home']);
+        }
+      }, {
+        key: "navigateToDoctor",
+        value: function navigateToDoctor() {
+          this.setCustomerVal('Doctor');
+          this.router.navigate(['tabs/home']);
+        }
+      }, {
+        key: "setCustomerVal",
+        value: function setCustomerVal(val) {
+          this.shareService.setCustomer(val);
         }
       }]);
 
@@ -215,6 +239,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     MainHomePage.ctorParameters = function () {
       return [{
         type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _services_network_share_service__WEBPACK_IMPORTED_MODULE_3__["ShareService"]
       }];
     };
 
@@ -226,7 +252,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./main-home.page.scss */
       "./src/app/main-home/main-home.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], MainHomePage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_network_share_service__WEBPACK_IMPORTED_MODULE_3__["ShareService"]])], MainHomePage);
     /***/
   }
 }]);

@@ -1346,15 +1346,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/models/models-shop-hour/address.models */
-    "./src/models/models-shop-hour/address.models.ts");
+    var src_models_address_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/models/address.models */
+    "./src/models/address.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
     /* harmony import */
 
 
@@ -1460,7 +1460,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ionViewDidEnter() {
           var _this14 = this;
 
-          this.userMe = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLoggedInUser();
+          this.userMe = src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLoggedInUser();
 
           if (!this.initialized) {
             var mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement, this.location).then(function () {
@@ -1524,7 +1524,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.query = place.description;
           this.places = [];
-          var myLocation = new src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
+          var myLocation = new src_models_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
           myLocation.id = -1;
 
           if (this.location) {
@@ -1590,7 +1590,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "selectAddress",
         value: function selectAddress(address) {
-          src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].setAddressSelected(address);
+          src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].setAddressSelected(address);
           this.close();
         }
       }, {
@@ -1640,7 +1640,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           geocoder.geocode(request, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-              var myLocation = new src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
+              var myLocation = new src_models_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
               myLocation.id = -1;
 
               if (_this19.location) {
@@ -1777,7 +1777,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiServiceShopHour"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"]
       }, {
@@ -1803,7 +1803,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-address.page.scss */
       "./src/app/shop-hour/add-address/add-address.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__["Geolocation"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_9__["Diagnostic"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], src_app_services_shoup_hour_services_network_google_maps_service__WEBPACK_IMPORTED_MODULE_11__["GoogleMapsService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_12__["UiElementsService"], _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_10__["LocationAccuracy"]])], AddAddressPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__["Geolocation"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_9__["Diagnostic"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiServiceShopHour"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], src_app_services_shoup_hour_services_network_google_maps_service__WEBPACK_IMPORTED_MODULE_11__["GoogleMapsService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_12__["UiElementsService"], _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_10__["LocationAccuracy"]])], AddAddressPage);
     /***/
   }
 }]);

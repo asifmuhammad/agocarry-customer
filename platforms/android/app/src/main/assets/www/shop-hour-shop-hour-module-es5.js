@@ -13,7 +13,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app [dir]=\"rtlSide\">\n\t<ion-split-pane contentId=\"main-content\">\n\t\t<ion-menu *ngIf=\"showSideMenu\" [side]=\"rtlSideMenu\" contentId=\"main-content\" type=\"overlay\">\n\t\t\t<div class=\"profile_box\">\n\t\t\t\t<h2 *ngIf=\"userMe\">\n\t\t\t\t\t{{\"hey\" | translate}},\n\t\t\t\t\t<span class=\"first_name\">{{userMe.name}}</span>\n\t\t\t\t\t<!-- <span class=\"last_name\">Smith</span> -->\n\t\t\t\t</h2>\n\t\t\t\t<h2 *ngIf=\"!userMe\">\n\t\t\t\t\t<span class=\"first_name\">{{'hey_guest' | translate}}</span>\n\t\t\t\t\t<!-- <span class=\"last_name\" [innerHTML]=\"'alert_login_msg' | translate\"></span> -->\n\t\t\t\t</h2>\n\t\t\t</div>\n\t\t\t<ion-content fullscreen>\n\t\t\t\t<ion-list lines=\"none\">\n\t\t\t\t\t<ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPagesToUse\">\n\t\t\t\t\t\t<ion-item mode=\"ios\" detail=\"false\" (click)=\"onNavItemClick(p)\">\n\t\t\t\t\t\t\t<div class=\"item_inner d-flex\">\n\t\t\t\t\t\t\t\t<ion-icon slot=\"start\" [class]=\"p.icon\"></ion-icon>\n\t\t\t\t\t\t\t\t<h2>{{ p.title | translate}}</h2>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ion-item>\n\t\t\t\t\t</ion-menu-toggle>\n\t\t\t\t</ion-list>\n\t\t\t</ion-content>\n\t\t</ion-menu>\n\t\t<ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\t</ion-split-pane>\n</ion-app>";
+    __webpack_exports__["default"] = "<!-- <ion-app [dir]=\"rtlSide\">\n\t<ion-split-pane contentId=\"main-content\">\n\t\t<ion-menu *ngIf=\"showSideMenu\" [side]=\"rtlSideMenu\" contentId=\"main-content\" type=\"overlay\">\n\t\t\t<div class=\"profile_box\">\n\t\t\t\t<h2 *ngIf=\"userMe\">\n\t\t\t\t\t{{\"hey\" | translate}},\n\t\t\t\t\t<span class=\"first_name\">{{userMe.name}}</span>\n\t\t\t\t</h2>\n\t\t\t\t<h2 *ngIf=\"!userMe\">\n\t\t\t\t\t<span class=\"first_name\">{{'hey_guest' | translate}}</span>\n\t\t\t\t</h2>\n\t\t\t</div>\n\t\t\t<ion-content fullscreen>\n\t\t\t\t<ion-list lines=\"none\">\n\t\t\t\t\t<ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPagesToUse\">\n\t\t\t\t\t\t<ion-item mode=\"ios\" detail=\"false\" (click)=\"onNavItemClick(p)\">\n\t\t\t\t\t\t\t<div class=\"item_inner d-flex\">\n\t\t\t\t\t\t\t\t<ion-icon slot=\"start\" [class]=\"p.icon\"></ion-icon>\n\t\t\t\t\t\t\t\t<h2>{{ p.title | translate}}</h2>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ion-item>\n\t\t\t\t\t</ion-menu-toggle>\n\t\t\t\t</ion-list>\n\t\t\t</ion-content>\n\t\t</ion-menu>\n\t\t<ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\t</ion-split-pane>\n</ion-app> -->";
     /***/
   },
 
@@ -126,7 +126,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | home-home-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/shop-hour/home/home.module.ts")).then(function (m) {
           return m.HomePageModule;
@@ -157,9 +157,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'item-detail',
       loadChildren: function loadChildren() {
-        return __webpack_require__.e(
+        return Promise.all(
         /*! import() | item-detail-item-detail-module */
-        "item-detail-item-detail-module").then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e("item-detail-item-detail-module")]).then(__webpack_require__.bind(null,
         /*! ./item-detail/item-detail.module */
         "./src/app/shop-hour/item-detail/item-detail.module.ts")).then(function (m) {
           return m.ItemDetailPageModule;
@@ -203,7 +203,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | select-address-select-address-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("select-address-select-address-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("select-address-select-address-module")]).then(__webpack_require__.bind(null,
         /*! ./select-address/select-address.module */
         "./src/app/shop-hour/select-address/select-address.module.ts")).then(function (m) {
           return m.SelectAddressPageModule;
@@ -236,7 +236,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | my-profile-my-profile-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("my-profile-my-profile-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("my-profile-my-profile-module")]).then(__webpack_require__.bind(null,
         /*! ./my-profile/my-profile.module */
         "./src/app/shop-hour/my-profile/my-profile.module.ts")).then(function (m) {
           return m.MyProfilePageModule;
@@ -247,7 +247,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | offers-offers-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("offers-offers-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("offers-offers-module")]).then(__webpack_require__.bind(null,
         /*! ./offers/offers.module */
         "./src/app/shop-hour/offers/offers.module.ts")).then(function (m) {
           return m.OffersPageModule;
@@ -258,7 +258,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | add-address-add-address-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("default~add-address-add-address-module~tabs-tabs-module"), __webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("common"), __webpack_require__.e("add-address-add-address-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("default~add-address-add-address-module~tabs-tabs-module"), __webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("common"), __webpack_require__.e("add-address-add-address-module")]).then(__webpack_require__.bind(null,
         /*! ./add-address/add-address.module */
         "./src/app/shop-hour/add-address/add-address.module.ts")).then(function (m) {
           return m.AddAddressPageModule;
@@ -289,9 +289,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'add-review',
       loadChildren: function loadChildren() {
-        return __webpack_require__.e(
+        return Promise.all(
         /*! import() | add-review-add-review-module */
-        "add-review-add-review-module").then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e("add-review-add-review-module")]).then(__webpack_require__.bind(null,
         /*! ./add-review/add-review.module */
         "./src/app/shop-hour/add-review/add-review.module.ts")).then(function (m) {
           return m.AddReviewPageModule;
@@ -324,7 +324,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() | contact-us-contact-us-module */
-        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("contact-us-contact-us-module")]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("contact-us-contact-us-module")]).then(__webpack_require__.bind(null,
         /*! ./contact-us/contact-us.module */
         "./src/app/shop-hour/contact-us/contact-us.module.ts")).then(function (m) {
           return m.ContactUsPageModule;
@@ -944,7 +944,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"]
       }, {
-        type: _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiService"]
+        type: _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiServiceShopHour"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"]
       }, {
@@ -971,7 +971,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./shop-hour.page.scss */
       "./src/app/shop-hour/shop-hour.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_shophour_config__WEBPACK_IMPORTED_MODULE_11__["APP_CONFIG_ShopHour"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_9__["Device"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_8__["OneSignal"], _services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_13__["ECommerceService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], _services_shoup_hour_services_events_my_events_service__WEBPACK_IMPORTED_MODULE_14__["MyEventsService"]])], ShopHourPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_shophour_config__WEBPACK_IMPORTED_MODULE_11__["APP_CONFIG_ShopHour"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_9__["Device"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiServiceShopHour"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_8__["OneSignal"], _services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_13__["ECommerceService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], _services_shoup_hour_services_events_my_events_service__WEBPACK_IMPORTED_MODULE_14__["MyEventsService"]])], ShopHourPage);
     /***/
   }
 }]);

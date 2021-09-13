@@ -210,12 +210,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_models_models_shop_hour_category_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/models-shop-hour/category.models */ "./src/models/models-shop-hour/category.models.ts");
+/* harmony import */ var src_models_category_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/category.models */ "./src/models/category.models.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-/* harmony import */ var src_models_models_shop_hour_product_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/models/models-shop-hour/product.models */ "./src/models/models-shop-hour/product.models.ts");
-/* harmony import */ var src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/models/models-shop-hour/constants.models */ "./src/models/models-shop-hour/constants.models.ts");
-/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_models_product_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/models/product.models */ "./src/models/product.models.ts");
+/* harmony import */ var src_models_constants_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/models/constants.models */ "./src/models/constants.models.ts");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ui-elements.service */ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/shoup-hour-services/network/api.service */ "./src/app/services/shoup-hour-services/network/api.service.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ecommerce.service */ "./src/app/services/shoup-hour-services/common/ecommerce.service.ts");
@@ -241,8 +241,8 @@ let ItemDetailPage = class ItemDetailPage {
         this.eComService = eComService;
         this.subscriptions = new Array();
         this.similarProducts = new Array();
-        this.product = new src_models_models_shop_hour_product_models__WEBPACK_IMPORTED_MODULE_6__["Product"]();
-        this.category = new src_models_models_shop_hour_category_models__WEBPACK_IMPORTED_MODULE_3__["Category"]();
+        this.product = new src_models_product_models__WEBPACK_IMPORTED_MODULE_6__["Product"]();
+        this.category = new src_models_category_models__WEBPACK_IMPORTED_MODULE_3__["Category"]();
     }
     ngOnInit() {
         this.route.queryParams.subscribe(params => {
@@ -275,7 +275,7 @@ let ItemDetailPage = class ItemDetailPage {
             this.subscriptions.push(this.apiService.getProductsWithVendorId(this.product.vendor_products[0].vendor_id, 1).subscribe(res => this.similarsRes(res), err => this.similarsErr(err)));
         }
         else {
-            this.subscriptions.push(this.apiService.getProductsWithCategoryId(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_7__["Constants"].SCOPE_ECOMMERCE, this.category.id, null, 1).subscribe(res => this.similarsRes(res), err => this.similarsErr(err)));
+            this.subscriptions.push(this.apiService.getProductsWithCategoryId(src_models_constants_models__WEBPACK_IMPORTED_MODULE_7__["Constants"].SCOPE_ECOMMERCE, this.category.id, null, 1).subscribe(res => this.similarsRes(res), err => this.similarsErr(err)));
         }
     }
     similarsRes(prosRes) {
@@ -307,7 +307,7 @@ let ItemDetailPage = class ItemDetailPage {
         this.cart();
     }
     toggleFavorite() {
-        if (src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_8__["Helper"].getLoggedInUser() != null) {
+        if (src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__["Helper"].getLoggedInUser() != null) {
             this.translate.get("just_moment").subscribe(value => {
                 this.uiElementService.presentLoading(value);
                 this.subscriptions.push(this.apiService.toggleProductFavorite(this.product.id).subscribe(res => {
@@ -348,7 +348,7 @@ ItemDetailPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
     { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"] },
     { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__["UiElementsService"] },
-    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiService"] },
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiServiceShopHour"] },
     { type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__["ECommerceService"] }
 ];
 ItemDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -358,41 +358,9 @@ ItemDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./item-detail.page.scss */ "./src/app/shop-hour/item-detail/item-detail.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"],
-        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__["ECommerceService"]])
+        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiServiceShopHour"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__["ECommerceService"]])
 ], ItemDetailPage);
 
-
-
-/***/ }),
-
-/***/ "./src/models/models-shop-hour/category.models.ts":
-/*!********************************************************!*\
-  !*** ./src/models/models-shop-hour/category.models.ts ***!
-  \********************************************************/
-/*! exports provided: Category */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Category", function() { return Category; });
-class Category {
-}
-
-
-/***/ }),
-
-/***/ "./src/models/models-shop-hour/product.models.ts":
-/*!*******************************************************!*\
-  !*** ./src/models/models-shop-hour/product.models.ts ***!
-  \*******************************************************/
-/*! exports provided: Product */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Product", function() { return Product; });
-class Product {
-}
 
 
 /***/ })

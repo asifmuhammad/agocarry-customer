@@ -212,8 +212,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-/* harmony import */ var src_models_models_shop_hour_rate_request_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/models/models-shop-hour/rate-request.models */ "./src/models/models-shop-hour/rate-request.models.ts");
-/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_models_rate_request_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/models/rate-request.models */ "./src/models/rate-request.models.ts");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ui-elements.service */ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/shoup-hour-services/network/api.service */ "./src/app/services/shoup-hour-services/network/api.service.ts");
 
@@ -233,7 +233,7 @@ let AddReviewPage = class AddReviewPage {
         this.uiElementService = uiElementService;
         this.apiService = apiService;
         this.subscriptions = new Array();
-        this.rateRequest = new src_models_models_shop_hour_rate_request_models__WEBPACK_IMPORTED_MODULE_5__["RateRequest"]();
+        this.rateRequest = new src_models_rate_request_models__WEBPACK_IMPORTED_MODULE_5__["RateRequest"]();
         console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
         if (this.router.getCurrentNavigation().extras.state) {
             this.product = this.router.getCurrentNavigation().extras.state.product;
@@ -260,7 +260,7 @@ let AddReviewPage = class AddReviewPage {
                 this.uiElementService.presentToast(value);
                 this.subscriptions.push(this.apiService.postReviewProduct(this.product.id, this.rateRequest).subscribe(res => {
                     console.log("postReviewProduct", res);
-                    src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_6__["Helper"].addReviewedProductId(String(this.order_id + String(this.product.id)));
+                    src_models_helper_models__WEBPACK_IMPORTED_MODULE_6__["Helper"].addReviewedProductId(String(this.order_id + String(this.product.id)));
                     this.uiElementService.dismissLoading();
                     this.translate.get("review_done").subscribe(value => this.uiElementService.presentToast(value));
                     this.navCtrl.navigateRoot(['tabs/main-home/shop-hour/home']);
@@ -287,7 +287,7 @@ AddReviewPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
     { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"] },
     { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"] },
-    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"] }
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"] }
 ];
 AddReviewPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -296,25 +296,9 @@ AddReviewPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-review.page.scss */ "./src/app/shop-hour/add-review/add-review.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
-        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"]])
+        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"]])
 ], AddReviewPage);
 
-
-
-/***/ }),
-
-/***/ "./src/models/models-shop-hour/rate-request.models.ts":
-/*!************************************************************!*\
-  !*** ./src/models/models-shop-hour/rate-request.models.ts ***!
-  \************************************************************/
-/*! exports provided: RateRequest */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RateRequest", function() { return RateRequest; });
-class RateRequest {
-}
 
 
 /***/ })

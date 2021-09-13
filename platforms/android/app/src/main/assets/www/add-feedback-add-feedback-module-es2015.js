@@ -174,7 +174,7 @@ let AddFeedbackPage = class AddFeedbackPage {
                     // Helper.addReviewedProductId(String(this.order_id + String(this.product.id)));
                     this.uiElementService.dismissLoading();
                     this.translate.get("review_done").subscribe(value => this.uiElementService.presentToast(value));
-                    this.navCtrl.navigateRoot(['./tabs']);
+                    this.navCtrl.navigateRoot(['./tabs/main-home']);
                 }, err => {
                     this.uiElementService.dismissLoading();
                     console.log("postReviewProduct", err);
@@ -210,22 +210,6 @@ AddFeedbackPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"]])
 ], AddFeedbackPage);
 
-
-
-/***/ }),
-
-/***/ "./src/models/rate-request.models.ts":
-/*!*******************************************!*\
-  !*** ./src/models/rate-request.models.ts ***!
-  \*******************************************/
-/*! exports provided: RateRequest */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RateRequest", function() { return RateRequest; });
-class RateRequest {
-}
 
 
 /***/ })

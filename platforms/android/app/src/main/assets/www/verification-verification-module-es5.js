@@ -235,7 +235,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./src/models/constants.models.ts");
 
     var VerificationPage = /*#__PURE__*/function () {
-      function VerificationPage(route, uiElementService, myEvent, platform, apiService, translate) {
+      function VerificationPage(route, uiElementService, myEvent, platform, apiService, translate, navCtrl) {
         _classCallCheck(this, VerificationPage);
 
         this.route = route;
@@ -244,6 +244,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.platform = platform;
         this.apiService = apiService;
         this.translate = translate;
+        this.navCtrl = navCtrl;
         this.captchanotvarified = true;
         this.buttonDisabled = true;
         this.captchaVerified = false;
@@ -294,6 +295,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               window.localStorage.removeItem(src_models_constants_models__WEBPACK_IMPORTED_MODULE_10__["Constants"].KEY_ADDRESS);
 
               _this2.myEvent.setAddressData(null);
+
+              _this2.navCtrl.navigateForward(['tabs/main-home']);
             }, function (err) {
               console.log(err);
 
@@ -567,6 +570,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"]
       }, {
         type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]
+      }, {
+        type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]
       }];
     };
 
@@ -578,7 +583,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./verification.page.scss */
       "./src/app/verification/verification.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_5__["MyEventsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]])], VerificationPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_5__["MyEventsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]])], VerificationPage);
     /***/
   }
 }]);

@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/models-shop-hour/address.models */ "./src/models/models-shop-hour/address.models.ts");
+/* harmony import */ var src_models_address_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/address.models */ "./src/models/address.models.ts");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 /* harmony import */ var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ui-elements.service */ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
 
@@ -145,7 +145,7 @@ let TitlePage = class TitlePage {
     }
     ngOnInit() {
         if (!this.address)
-            this.address = new src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"]();
+            this.address = new src_models_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"]();
         // if (!this.address.title || !this.address.title.length) this.address.title = "home";
     }
     onAddressTypeChange(event) {
@@ -175,7 +175,7 @@ TitlePage.ctorParameters = () => [
 ];
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", src_models_address_models__WEBPACK_IMPORTED_MODULE_3__["MyAddress"])
 ], TitlePage.prototype, "address", void 0);
 TitlePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -186,22 +186,6 @@ TitlePage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]])
 ], TitlePage);
 
-
-
-/***/ }),
-
-/***/ "./src/models/models-shop-hour/address.models.ts":
-/*!*******************************************************!*\
-  !*** ./src/models/models-shop-hour/address.models.ts ***!
-  \*******************************************************/
-/*! exports provided: MyAddress */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyAddress", function() { return MyAddress; });
-class MyAddress {
-}
 
 
 /***/ })

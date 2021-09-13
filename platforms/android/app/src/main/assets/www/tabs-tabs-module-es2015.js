@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\r\n\r\n\t<ion-tab-bar slot=\"bottom\">\r\n\t\t<ion-tab-button tab=\"main-home\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicine.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicineact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'medicine' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"doctors\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsf.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'doctors' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"hospitals\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitals.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitalsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'hospitals' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"my_appointments\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointments.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointmentsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'appts' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"more\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_more.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_moreact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'more' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\t</ion-tab-bar>\r\n\r\n</ion-tabs>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-tabs>\r\n\r\n\t<ion-tab-bar slot=\"bottom\" *ngIf=\"shareService?.isActiveCustomer == 'Home'\">\r\n\t\t<ion-tab-button tab=\"main-home\">\t\t\r\n\t\t\t<ion-icon name=\"home-outline\"></ion-icon>\r\n\t\t\t<ion-label>{{'Home' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"customer-wallet\">\r\n\t\t<ion-icon name=\"wallet-outline\"></ion-icon>\r\n\t\t\t<ion-label>{{'Wallet' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"customer-history\">\r\n\t\t\t<ion-icon name=\"file-tray-full-outline\"></ion-icon>\r\n\t\t\t<ion-label>{{'History' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"customer-profile\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_more.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_moreact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'Profile' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\t</ion-tab-bar>\r\n\t<ion-tab-bar slot=\"bottom\" *ngIf=\"shareService?.isActiveCustomer == 'Doctor'\">\r\n\t\t<ion-tab-button tab=\"main-home\">\t\t\r\n\t\t\t<ion-icon name=\"home-outline\"></ion-icon>\r\n\t\t\t<ion-label>{{'Home' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\t\t<ion-tab-button tab=\"home\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicine.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_medicineact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'medicine' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"doctors\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsf.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_doctorsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'doctors' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"hospitals\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitals.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_hospitalsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'hospitals' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"my_appointments\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointments.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_appointmentsact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'appts' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\r\n\t\t<ion-tab-button tab=\"more\">\r\n\t\t\t<div class=\"img_box\">\r\n\t\t\t\t<img src=\"assets/images/ic_more.png\" class=\"before\">\r\n\t\t\t\t<img src=\"assets/images/ic_moreact.png\" class=\"after\">\r\n\t\t\t</div>\r\n\t\t\t<ion-label>{{'more' | translate}}</ion-label>\r\n\t\t</ion-tab-button>\r\n\t</ion-tab-bar>\r\n</ion-tabs>");
 
 /***/ }),
 
@@ -40,7 +40,7 @@ const routes = [
                 children: [
                     {
                         path: 'home',
-                        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ../home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
+                        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ../home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
                     }, {
                         path: 'main-home',
                         loadChildren: () => __webpack_require__.e(/*! import() | main-home-main-home-module */ "main-home-main-home-module").then(__webpack_require__.bind(null, /*! ../main-home/main-home.module */ "./src/app/main-home/main-home.module.ts")).then(m => m.MainHomePageModule)
@@ -78,7 +78,20 @@ const routes = [
                         loadChildren: () => __webpack_require__.e(/*! import() | account-account-module */ "account-account-module").then(__webpack_require__.bind(null, /*! ../account/account.module */ "./src/app/account/account.module.ts")).then(m => m.AccountPageModule)
                     }
                 ]
-            }, {
+            },
+            {
+                path: 'customer-wallet',
+                loadChildren: () => __webpack_require__.e(/*! import() | main-home-customer-wallet-customer-wallet-module */ "main-home-customer-wallet-customer-wallet-module").then(__webpack_require__.bind(null, /*! ../main-home/customer-wallet/customer-wallet.module */ "./src/app/main-home/customer-wallet/customer-wallet.module.ts")).then(m => m.CustomerWalletPageModule)
+            },
+            {
+                path: 'customer-history',
+                loadChildren: () => __webpack_require__.e(/*! import() | main-home-customer-history-customer-history-module */ "main-home-customer-history-customer-history-module").then(__webpack_require__.bind(null, /*! ../main-home/customer-history/customer-history.module */ "./src/app/main-home/customer-history/customer-history.module.ts")).then(m => m.CustomerHistoryPageModule)
+            },
+            {
+                path: 'customer-profile',
+                loadChildren: () => __webpack_require__.e(/*! import() | main-home-customer-profile-customer-profile-module */ "main-home-customer-profile-customer-profile-module").then(__webpack_require__.bind(null, /*! ../main-home/customer-profile/customer-profile.module */ "./src/app/main-home/customer-profile/customer-profile.module.ts")).then(m => m.CustomerProfilePageModule)
+            },
+            {
                 path: '',
                 redirectTo: '/tabs/main-home',
                 pathMatch: 'full'
@@ -184,6 +197,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/location-accuracy/ngx */ "./node_modules/@ionic-native/location-accuracy/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/diagnostic/ngx */ "./node_modules/@ionic-native/diagnostic/__ivy_ngcc__/ngx/index.js");
 /* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
+/* harmony import */ var _services_network_share_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/network/share.service */ "./src/app/services/network/share.service.ts");
+
 
 
 
@@ -193,13 +208,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let TabsPage = class TabsPage {
-    constructor(navCtrl, diagnostic, translate, myEventsService, alertCtrl, locationAccuracy) {
+    constructor(navCtrl, diagnostic, translate, myEventsService, alertCtrl, locationAccuracy, shareService) {
         this.navCtrl = navCtrl;
         this.diagnostic = diagnostic;
         this.translate = translate;
         this.myEventsService = myEventsService;
         this.alertCtrl = alertCtrl;
         this.locationAccuracy = locationAccuracy;
+        this.shareService = shareService;
         this.subscriptions = new Array();
     }
     ngOnInit() {
@@ -270,7 +286,8 @@ TabsPage.ctorParameters = () => [
     { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"] },
     { type: _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_3__["MyEventsService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
-    { type: _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_5__["LocationAccuracy"] }
+    { type: _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_5__["LocationAccuracy"] },
+    { type: _services_network_share_service__WEBPACK_IMPORTED_MODULE_8__["ShareService"] }
 ];
 TabsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -279,7 +296,7 @@ TabsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./tabs.page.scss */ "./src/app/tabs/tabs.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_6__["Diagnostic"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
-        _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_3__["MyEventsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_5__["LocationAccuracy"]])
+        _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_3__["MyEventsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"], _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_5__["LocationAccuracy"], _services_network_share_service__WEBPACK_IMPORTED_MODULE_8__["ShareService"]])
 ], TabsPage);
 
 

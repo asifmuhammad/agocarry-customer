@@ -142,13 +142,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VerificationPage = class VerificationPage {
-    constructor(route, uiElementService, myEvent, platform, apiService, translate) {
+    constructor(route, uiElementService, myEvent, platform, apiService, translate, navCtrl) {
         this.route = route;
         this.uiElementService = uiElementService;
         this.myEvent = myEvent;
         this.platform = platform;
         this.apiService = apiService;
         this.translate = translate;
+        this.navCtrl = navCtrl;
         this.captchanotvarified = true;
         this.buttonDisabled = true;
         this.captchaVerified = false;
@@ -177,6 +178,7 @@ let VerificationPage = class VerificationPage {
                 this.myEvent.setUserMeData(res.user);
                 window.localStorage.removeItem(src_models_constants_models__WEBPACK_IMPORTED_MODULE_10__["Constants"].KEY_ADDRESS);
                 this.myEvent.setAddressData(null);
+                this.navCtrl.navigateForward(['tabs/main-home']);
             }, err => {
                 console.log(err);
                 this.uiElementService.dismissLoading();
@@ -377,7 +379,8 @@ VerificationPage.ctorParameters = () => [
     { type: _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_5__["MyEventsService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
     { type: _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"] },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"] }
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] }
 ];
 VerificationPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -386,7 +389,7 @@ VerificationPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./verification.page.scss */ "./src/app/verification/verification.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], _services_events_my_events_service__WEBPACK_IMPORTED_MODULE_5__["MyEventsService"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]])
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]])
 ], VerificationPage);
 
 

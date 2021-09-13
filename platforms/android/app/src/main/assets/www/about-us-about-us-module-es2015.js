@@ -120,7 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutUsPage", function() { return AboutUsPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 
 
 
@@ -129,7 +129,7 @@ let AboutUsPage = class AboutUsPage {
     ngOnInit() {
     }
     ionViewDidEnter() {
-        this.about_us = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("about_us");
+        this.about_us = src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("about_us");
     }
 };
 AboutUsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([

@@ -190,9 +190,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/models/models-shop-hour/constants.models */
-    "./src/models/models-shop-hour/constants.models.ts");
+    var src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/models/constants.models */
+    "./src/models/constants.models.ts");
 
     var LanguagePage = /*#__PURE__*/function () {
       function LanguagePage(config, myEvent) {
@@ -202,7 +202,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.myEvent = myEvent;
         this.languages = this.config.availableLanguages;
         this.defaultLanguageCode = config.availableLanguages[0].code;
-        var defaultLang = window.localStorage.getItem(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE);
+        var defaultLang = window.localStorage.getItem(src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE);
         if (defaultLang) this.defaultLanguageCode = defaultLang;
       }
 
@@ -218,7 +218,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "languageConfirm",
         value: function languageConfirm() {
           this.myEvent.setLanguageData(this.defaultLanguageCode);
-          window.localStorage.setItem(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE, this.defaultLanguageCode);
+          window.localStorage.setItem(src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE, this.defaultLanguageCode);
         }
       }]);
 

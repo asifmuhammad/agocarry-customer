@@ -354,9 +354,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
     /* harmony import */
 
 
@@ -404,7 +404,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.apiService = apiService;
         this.subscriptions = new Array();
         this.fabAction = false;
-        this.currency_icon = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getSetting("currency_icon");
+        this.currency_icon = src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getSetting("currency_icon");
         this.eComService.removeCoupon();
       }
 
@@ -435,7 +435,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function verifyCoupon() {
           var _this3 = this;
 
-          if (src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
+          if (src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
             if (this.couponCode && this.couponCode.length) {
               this.translate.get(["verifying", "invalid_coupon"]).subscribe(function (values) {
                 _this3.uiElementService.presentLoading(values["verifying"]);
@@ -485,7 +485,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "navAddressSelection",
         value: function navAddressSelection() {
-          if (src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
+          if (src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
             this.navCtrl.navigateForward(['tabs/main-home/shop-hour/select-address']);
           } else {
             this.alertLogin();
@@ -518,7 +518,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"]
       }];
     };
 
@@ -530,7 +530,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./cart.page.scss */
       "./src/app/shop-hour/cart/cart.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_6__["ECommerceService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"]])], CartPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_6__["ECommerceService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"]])], CartPage);
     /***/
   }
 }]);

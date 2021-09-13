@@ -289,7 +289,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   return _this.uiElementService.presentToast(value);
                 });
 
-                _this.navCtrl.navigateRoot(['./tabs']);
+                _this.navCtrl.navigateRoot(['./tabs/main-home']);
               }, function (err) {
                 _this.uiElementService.dismissLoading();
 
@@ -344,25 +344,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       "./src/app/add-feedback/add-feedback.page.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_4__["UiElementsService"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"]])], AddFeedbackPage);
     /***/
-  },
-
-  /***/
-  "./src/models/rate-request.models.ts": function srcModelsRateRequestModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "RateRequest", function () {
-      return RateRequest;
-    });
-
-    var RateRequest = function RateRequest() {
-      _classCallCheck(this, RateRequest);
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=add-feedback-add-feedback-module-es5.js.map

@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_services_shoup_hour_services_events_my_events_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/shoup-hour-services/events/my-events.service */ "./src/app/services/shoup-hour-services/events/my-events.service.ts");
 /* harmony import */ var src_app_shophour_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shophour.config */ "./src/app/shophour.config.ts");
-/* harmony import */ var src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/models-shop-hour/constants.models */ "./src/models/models-shop-hour/constants.models.ts");
+/* harmony import */ var src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/constants.models */ "./src/models/constants.models.ts");
 
 
 
@@ -134,7 +134,7 @@ let LanguagePage = class LanguagePage {
         this.myEvent = myEvent;
         this.languages = this.config.availableLanguages;
         this.defaultLanguageCode = config.availableLanguages[0].code;
-        let defaultLang = window.localStorage.getItem(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE);
+        let defaultLang = window.localStorage.getItem(src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE);
         if (defaultLang)
             this.defaultLanguageCode = defaultLang;
     }
@@ -145,7 +145,7 @@ let LanguagePage = class LanguagePage {
     }
     languageConfirm() {
         this.myEvent.setLanguageData(this.defaultLanguageCode);
-        window.localStorage.setItem(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE, this.defaultLanguageCode);
+        window.localStorage.setItem(src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].KEY_DEFAULT_LANGUAGE, this.defaultLanguageCode);
     }
 };
 LanguagePage.ctorParameters = () => [

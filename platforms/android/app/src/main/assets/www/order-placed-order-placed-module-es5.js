@@ -195,7 +195,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "navHome",
         value: function navHome() {
-          this.navCtrl.navigateRoot(['./tabs']);
+          this.navCtrl.navigateRoot(['./tabs/main-home']);
         }
       }, {
         key: "navMyOrders",

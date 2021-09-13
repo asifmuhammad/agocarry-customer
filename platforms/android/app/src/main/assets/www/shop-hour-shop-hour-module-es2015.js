@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app [dir]=\"rtlSide\">\n\t<ion-split-pane contentId=\"main-content\">\n\t\t<ion-menu *ngIf=\"showSideMenu\" [side]=\"rtlSideMenu\" contentId=\"main-content\" type=\"overlay\">\n\t\t\t<div class=\"profile_box\">\n\t\t\t\t<h2 *ngIf=\"userMe\">\n\t\t\t\t\t{{\"hey\" | translate}},\n\t\t\t\t\t<span class=\"first_name\">{{userMe.name}}</span>\n\t\t\t\t\t<!-- <span class=\"last_name\">Smith</span> -->\n\t\t\t\t</h2>\n\t\t\t\t<h2 *ngIf=\"!userMe\">\n\t\t\t\t\t<span class=\"first_name\">{{'hey_guest' | translate}}</span>\n\t\t\t\t\t<!-- <span class=\"last_name\" [innerHTML]=\"'alert_login_msg' | translate\"></span> -->\n\t\t\t\t</h2>\n\t\t\t</div>\n\t\t\t<ion-content fullscreen>\n\t\t\t\t<ion-list lines=\"none\">\n\t\t\t\t\t<ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPagesToUse\">\n\t\t\t\t\t\t<ion-item mode=\"ios\" detail=\"false\" (click)=\"onNavItemClick(p)\">\n\t\t\t\t\t\t\t<div class=\"item_inner d-flex\">\n\t\t\t\t\t\t\t\t<ion-icon slot=\"start\" [class]=\"p.icon\"></ion-icon>\n\t\t\t\t\t\t\t\t<h2>{{ p.title | translate}}</h2>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ion-item>\n\t\t\t\t\t</ion-menu-toggle>\n\t\t\t\t</ion-list>\n\t\t\t</ion-content>\n\t\t</ion-menu>\n\t\t<ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\t</ion-split-pane>\n</ion-app>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <ion-app [dir]=\"rtlSide\">\n\t<ion-split-pane contentId=\"main-content\">\n\t\t<ion-menu *ngIf=\"showSideMenu\" [side]=\"rtlSideMenu\" contentId=\"main-content\" type=\"overlay\">\n\t\t\t<div class=\"profile_box\">\n\t\t\t\t<h2 *ngIf=\"userMe\">\n\t\t\t\t\t{{\"hey\" | translate}},\n\t\t\t\t\t<span class=\"first_name\">{{userMe.name}}</span>\n\t\t\t\t</h2>\n\t\t\t\t<h2 *ngIf=\"!userMe\">\n\t\t\t\t\t<span class=\"first_name\">{{'hey_guest' | translate}}</span>\n\t\t\t\t</h2>\n\t\t\t</div>\n\t\t\t<ion-content fullscreen>\n\t\t\t\t<ion-list lines=\"none\">\n\t\t\t\t\t<ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPagesToUse\">\n\t\t\t\t\t\t<ion-item mode=\"ios\" detail=\"false\" (click)=\"onNavItemClick(p)\">\n\t\t\t\t\t\t\t<div class=\"item_inner d-flex\">\n\t\t\t\t\t\t\t\t<ion-icon slot=\"start\" [class]=\"p.icon\"></ion-icon>\n\t\t\t\t\t\t\t\t<h2>{{ p.title | translate}}</h2>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ion-item>\n\t\t\t\t\t</ion-menu-toggle>\n\t\t\t\t</ion-list>\n\t\t\t</ion-content>\n\t\t</ion-menu>\n\t\t<ion-router-outlet id=\"main-content\"></ion-router-outlet>\n\t</ion-split-pane>\n</ion-app> -->");
 
 /***/ }),
 
@@ -82,7 +82,7 @@ const routes = [
     },
     {
         path: 'home',
-        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/shop-hour/home/home.module.ts")).then(m => m.HomePageModule)
+        loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/shop-hour/home/home.module.ts")).then(m => m.HomePageModule)
     }, {
         path: 'search',
         loadChildren: () => __webpack_require__.e(/*! import() | search-search-module */ "search-search-module").then(__webpack_require__.bind(null, /*! ./search/search.module */ "./src/app/shop-hour/search/search.module.ts")).then(m => m.SearchPageModule)
@@ -91,7 +91,7 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | item-item-module */ "item-item-module").then(__webpack_require__.bind(null, /*! ./item/item.module */ "./src/app/shop-hour/item/item.module.ts")).then(m => m.ItemPageModule)
     }, {
         path: 'item-detail',
-        loadChildren: () => __webpack_require__.e(/*! import() | item-detail-item-detail-module */ "item-detail-item-detail-module").then(__webpack_require__.bind(null, /*! ./item-detail/item-detail.module */ "./src/app/shop-hour/item-detail/item-detail.module.ts")).then(m => m.ItemDetailPageModule)
+        loadChildren: () => Promise.all(/*! import() | item-detail-item-detail-module */[__webpack_require__.e("common"), __webpack_require__.e("item-detail-item-detail-module")]).then(__webpack_require__.bind(null, /*! ./item-detail/item-detail.module */ "./src/app/shop-hour/item-detail/item-detail.module.ts")).then(m => m.ItemDetailPageModule)
     }, {
         path: 'reviews',
         loadChildren: () => __webpack_require__.e(/*! import() | reviews-reviews-module */ "reviews-reviews-module").then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/shop-hour/reviews/reviews.module.ts")).then(m => m.ReviewsPageModule)
@@ -103,7 +103,7 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | cart-cart-module */ "cart-cart-module").then(__webpack_require__.bind(null, /*! ./cart/cart.module */ "./src/app/shop-hour/cart/cart.module.ts")).then(m => m.CartPageModule)
     }, {
         path: 'select-address',
-        loadChildren: () => Promise.all(/*! import() | select-address-select-address-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("select-address-select-address-module")]).then(__webpack_require__.bind(null, /*! ./select-address/select-address.module */ "./src/app/shop-hour/select-address/select-address.module.ts")).then(m => m.SelectAddressPageModule)
+        loadChildren: () => Promise.all(/*! import() | select-address-select-address-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("select-address-select-address-module")]).then(__webpack_require__.bind(null, /*! ./select-address/select-address.module */ "./src/app/shop-hour/select-address/select-address.module.ts")).then(m => m.SelectAddressPageModule)
     }, {
         path: 'payment-mode',
         loadChildren: () => __webpack_require__.e(/*! import() | payment-mode-payment-mode-module */ "payment-mode-payment-mode-module").then(__webpack_require__.bind(null, /*! ./payment-mode/payment-mode.module */ "./src/app/shop-hour/payment-mode/payment-mode.module.ts")).then(m => m.PaymentModePageModule)
@@ -112,13 +112,13 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | order-confirm-order-confirm-module */ "order-confirm-order-confirm-module").then(__webpack_require__.bind(null, /*! ./order-confirm/order-confirm.module */ "./src/app/shop-hour/order-confirm/order-confirm.module.ts")).then(m => m.OrderConfirmPageModule)
     }, {
         path: 'my-profile',
-        loadChildren: () => Promise.all(/*! import() | my-profile-my-profile-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("common"), __webpack_require__.e("my-profile-my-profile-module")]).then(__webpack_require__.bind(null, /*! ./my-profile/my-profile.module */ "./src/app/shop-hour/my-profile/my-profile.module.ts")).then(m => m.MyProfilePageModule)
+        loadChildren: () => Promise.all(/*! import() | my-profile-my-profile-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("common"), __webpack_require__.e("my-profile-my-profile-module")]).then(__webpack_require__.bind(null, /*! ./my-profile/my-profile.module */ "./src/app/shop-hour/my-profile/my-profile.module.ts")).then(m => m.MyProfilePageModule)
     }, {
         path: 'offers',
-        loadChildren: () => Promise.all(/*! import() | offers-offers-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("offers-offers-module")]).then(__webpack_require__.bind(null, /*! ./offers/offers.module */ "./src/app/shop-hour/offers/offers.module.ts")).then(m => m.OffersPageModule)
+        loadChildren: () => Promise.all(/*! import() | offers-offers-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("offers-offers-module")]).then(__webpack_require__.bind(null, /*! ./offers/offers.module */ "./src/app/shop-hour/offers/offers.module.ts")).then(m => m.OffersPageModule)
     }, {
         path: 'add-address',
-        loadChildren: () => Promise.all(/*! import() | add-address-add-address-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("default~add-address-add-address-module~tabs-tabs-module"), __webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("common"), __webpack_require__.e("add-address-add-address-module")]).then(__webpack_require__.bind(null, /*! ./add-address/add-address.module */ "./src/app/shop-hour/add-address/add-address.module.ts")).then(m => m.AddAddressPageModule)
+        loadChildren: () => Promise.all(/*! import() | add-address-add-address-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("default~add-address-add-address-module~tabs-tabs-module"), __webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("common"), __webpack_require__.e("add-address-add-address-module")]).then(__webpack_require__.bind(null, /*! ./add-address/add-address.module */ "./src/app/shop-hour/add-address/add-address.module.ts")).then(m => m.AddAddressPageModule)
     }, {
         path: 'title',
         loadChildren: () => Promise.all(/*! import() | title-title-module */[__webpack_require__.e("default~add-address-add-address-module~title-title-module"), __webpack_require__.e("title-title-module")]).then(__webpack_require__.bind(null, /*! ./title/title.module */ "./src/app/shop-hour/title/title.module.ts")).then(m => m.TitlePageModule)
@@ -127,7 +127,7 @@ const routes = [
         loadChildren: () => Promise.all(/*! import() | my-orders-my-orders-module */[__webpack_require__.e("common"), __webpack_require__.e("my-orders-my-orders-module")]).then(__webpack_require__.bind(null, /*! ./my-orders/my-orders.module */ "./src/app/shop-hour/my-orders/my-orders.module.ts")).then(m => m.MyOrdersPageModule)
     }, {
         path: 'add-review',
-        loadChildren: () => __webpack_require__.e(/*! import() | add-review-add-review-module */ "add-review-add-review-module").then(__webpack_require__.bind(null, /*! ./add-review/add-review.module */ "./src/app/shop-hour/add-review/add-review.module.ts")).then(m => m.AddReviewPageModule)
+        loadChildren: () => Promise.all(/*! import() | add-review-add-review-module */[__webpack_require__.e("common"), __webpack_require__.e("add-review-add-review-module")]).then(__webpack_require__.bind(null, /*! ./add-review/add-review.module */ "./src/app/shop-hour/add-review/add-review.module.ts")).then(m => m.AddReviewPageModule)
     }, {
         path: 'wishlist',
         loadChildren: () => __webpack_require__.e(/*! import() | wishlist-wishlist-module */ "wishlist-wishlist-module").then(__webpack_require__.bind(null, /*! ./wishlist/wishlist.module */ "./src/app/shop-hour/wishlist/wishlist.module.ts")).then(m => m.WishlistPageModule)
@@ -136,7 +136,7 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | about-us-about-us-module */ "about-us-about-us-module").then(__webpack_require__.bind(null, /*! ./about-us/about-us.module */ "./src/app/shop-hour/about-us/about-us.module.ts")).then(m => m.AboutUsPageModule)
     }, {
         path: 'contact-us',
-        loadChildren: () => Promise.all(/*! import() | contact-us-contact-us-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~1f12d469"), __webpack_require__.e("contact-us-contact-us-module")]).then(__webpack_require__.bind(null, /*! ./contact-us/contact-us.module */ "./src/app/shop-hour/contact-us/contact-us.module.ts")).then(m => m.ContactUsPageModule)
+        loadChildren: () => Promise.all(/*! import() | contact-us-contact-us-module */[__webpack_require__.e("default~add-address-add-address-module~contact-us-contact-us-module~home-home-module~my-profile-my-p~df159abf"), __webpack_require__.e("contact-us-contact-us-module")]).then(__webpack_require__.bind(null, /*! ./contact-us/contact-us.module */ "./src/app/shop-hour/contact-us/contact-us.module.ts")).then(m => m.ContactUsPageModule)
     }, {
         path: 'language',
         loadChildren: () => __webpack_require__.e(/*! import() | language-language-module */ "language-language-module").then(__webpack_require__.bind(null, /*! ./language/language.module */ "./src/app/shop-hour/language/language.module.ts")).then(m => m.LanguagePageModule)
@@ -548,7 +548,7 @@ ShopHourPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
     { type: _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_9__["Device"] },
     { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
-    { type: _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiService"] },
+    { type: _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiServiceShopHour"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
     { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
     { type: _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_8__["OneSignal"] },
@@ -569,7 +569,7 @@ ShopHourPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_shophour_config__WEBPACK_IMPORTED_MODULE_11__["APP_CONFIG_ShopHour"])),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_native_device_ngx__WEBPACK_IMPORTED_MODULE_9__["Device"],
-        _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
+        _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"], _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_12__["ApiServiceShopHour"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
         _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_8__["OneSignal"], _services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_13__["ECommerceService"],
         _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], _services_shoup_hour_services_events_my_events_service__WEBPACK_IMPORTED_MODULE_14__["MyEventsService"]])
 ], ShopHourPage);

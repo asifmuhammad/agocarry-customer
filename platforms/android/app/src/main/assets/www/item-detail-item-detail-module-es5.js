@@ -354,9 +354,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_category_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/models/models-shop-hour/category.models */
-    "./src/models/models-shop-hour/category.models.ts");
+    var src_models_category_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/models/category.models */
+    "./src/models/category.models.ts");
     /* harmony import */
 
 
@@ -372,21 +372,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_product_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/models/models-shop-hour/product.models */
-    "./src/models/models-shop-hour/product.models.ts");
+    var src_models_product_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/models/product.models */
+    "./src/models/product.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/models/models-shop-hour/constants.models */
-    "./src/models/models-shop-hour/constants.models.ts");
+    var src_models_constants_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/models/constants.models */
+    "./src/models/constants.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
     /* harmony import */
 
 
@@ -418,8 +418,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.eComService = eComService;
         this.subscriptions = new Array();
         this.similarProducts = new Array();
-        this.product = new src_models_models_shop_hour_product_models__WEBPACK_IMPORTED_MODULE_6__["Product"]();
-        this.category = new src_models_models_shop_hour_category_models__WEBPACK_IMPORTED_MODULE_3__["Category"]();
+        this.product = new src_models_product_models__WEBPACK_IMPORTED_MODULE_6__["Product"]();
+        this.category = new src_models_category_models__WEBPACK_IMPORTED_MODULE_3__["Category"]();
       }
 
       _createClass(ItemDetailPage, [{
@@ -486,7 +486,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               return _this4.similarsErr(err);
             }));
           } else {
-            this.subscriptions.push(this.apiService.getProductsWithCategoryId(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_7__["Constants"].SCOPE_ECOMMERCE, this.category.id, null, 1).subscribe(function (res) {
+            this.subscriptions.push(this.apiService.getProductsWithCategoryId(src_models_constants_models__WEBPACK_IMPORTED_MODULE_7__["Constants"].SCOPE_ECOMMERCE, this.category.id, null, 1).subscribe(function (res) {
               return _this4.similarsRes(res);
             }, function (err) {
               return _this4.similarsErr(err);
@@ -534,7 +534,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function toggleFavorite() {
           var _this6 = this;
 
-          if (src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_8__["Helper"].getLoggedInUser() != null) {
+          if (src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__["Helper"].getLoggedInUser() != null) {
             this.translate.get("just_moment").subscribe(function (value) {
               _this6.uiElementService.presentLoading(value);
 
@@ -613,7 +613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiServiceShopHour"]
       }, {
         type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__["ECommerceService"]
       }];
@@ -627,46 +627,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./item-detail.page.scss */
       "./src/app/shop-hour/item-detail/item-detail.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__["ECommerceService"]])], ItemDetailPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_9__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_10__["ApiServiceShopHour"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_11__["ECommerceService"]])], ItemDetailPage);
     /***/
-  },
-
-  /***/
-  "./src/models/models-shop-hour/category.models.ts": function srcModelsModelsShopHourCategoryModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "Category", function () {
-      return Category;
-    });
-
-    var Category = function Category() {
-      _classCallCheck(this, Category);
-    };
-    /***/
-
-  },
-
-  /***/
-  "./src/models/models-shop-hour/product.models.ts": function srcModelsModelsShopHourProductModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "Product", function () {
-      return Product;
-    });
-
-    var Product = function Product() {
-      _classCallCheck(this, Product);
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=item-detail-item-detail-module-es5.js.map

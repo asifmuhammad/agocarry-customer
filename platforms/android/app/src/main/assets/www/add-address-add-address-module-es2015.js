@@ -886,8 +886,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _title_title_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../title/title.page */ "./src/app/shop-hour/title/title.page.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/models-shop-hour/address.models */ "./src/models/models-shop-hour/address.models.ts");
-/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_models_address_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/address.models */ "./src/models/address.models.ts");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/__ivy_ngcc__/ngx/index.js");
@@ -942,7 +942,7 @@ let AddAddressPage = class AddAddressPage {
         this.uiElementService.dismissLoading();
     }
     ionViewDidEnter() {
-        this.userMe = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLoggedInUser();
+        this.userMe = src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLoggedInUser();
         if (!this.initialized) {
             let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement, this.location).then(() => {
                 this.autocompleteService = new google.maps.places.AutocompleteService();
@@ -982,7 +982,7 @@ let AddAddressPage = class AddAddressPage {
     selectPlace(place) {
         this.query = place.description;
         this.places = [];
-        let myLocation = new src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
+        let myLocation = new src_models_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
         myLocation.id = -1;
         if (this.location) {
             myLocation.id = this.location.id;
@@ -1027,7 +1027,7 @@ let AddAddressPage = class AddAddressPage {
         }
     }
     selectAddress(address) {
-        src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].setAddressSelected(address);
+        src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].setAddressSelected(address);
         this.close();
     }
     close() {
@@ -1061,7 +1061,7 @@ let AddAddressPage = class AddAddressPage {
         let request = { location: pos };
         geocoder.geocode(request, (results, status) => {
             if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-                let myLocation = new src_models_models_shop_hour_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
+                let myLocation = new src_models_address_models__WEBPACK_IMPORTED_MODULE_4__["MyAddress"]();
                 myLocation.id = -1;
                 if (this.location) {
                     myLocation.id = this.location.id;
@@ -1149,7 +1149,7 @@ AddAddressPage.ctorParameters = () => [
     { type: _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_9__["Diagnostic"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
-    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiService"] },
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiServiceShopHour"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"] },
     { type: src_app_services_shoup_hour_services_network_google_maps_service__WEBPACK_IMPORTED_MODULE_11__["GoogleMapsService"] },
     { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_12__["UiElementsService"] },
@@ -1170,7 +1170,7 @@ AddAddressPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-address.page.scss */ "./src/app/shop-hour/add-address/add-address.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_8__["Geolocation"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
-        _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_9__["Diagnostic"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
+        _ionic_native_diagnostic_ngx__WEBPACK_IMPORTED_MODULE_9__["Diagnostic"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_13__["ApiServiceShopHour"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
         src_app_services_shoup_hour_services_network_google_maps_service__WEBPACK_IMPORTED_MODULE_11__["GoogleMapsService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_12__["UiElementsService"], _ionic_native_location_accuracy_ngx__WEBPACK_IMPORTED_MODULE_10__["LocationAccuracy"]])
 ], AddAddressPage);
 

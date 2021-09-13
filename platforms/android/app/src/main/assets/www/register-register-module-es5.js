@@ -214,23 +214,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../services/shoup-hour-services/network/api.service */
+    "./src/app/services/shoup-hour-services/network/api.service.ts");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @ngx-translate/core */
     "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
     /* harmony import */
 
 
-    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! src/models/helper.models */
     "./src/models/helper.models.ts");
 
     var RegisterPage = /*#__PURE__*/function () {
-      function RegisterPage(navCtrl, uiElementService, apiService, route, translate, alertCtrl) {
+      function RegisterPage(navCtrl, uiElementService, apiService, apiServiceShophour, route, translate, alertCtrl) {
         _classCallCheck(this, RegisterPage);
 
         this.navCtrl = navCtrl;
         this.uiElementService = uiElementService;
         this.apiService = apiService;
+        this.apiServiceShophour = apiServiceShophour;
         this.route = route;
         this.translate = translate;
         this.alertCtrl = alertCtrl;
@@ -326,7 +333,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this4 = this;
 
           this.translate.get(['alert_phone', 'no', 'yes']).subscribe(function (text) {
-            _this4.phoneNumberFull = "+" + _this4.countryCode + src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__["Helper"].formatPhone(_this4.phoneNumber);
+            _this4.phoneNumberFull = "+" + _this4.countryCode + src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__["Helper"].formatPhone(_this4.phoneNumber);
 
             _this4.alertCtrl.create({
               header: _this4.phoneNumberFull,
@@ -360,6 +367,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this5.uiElementService.presentLoading(value);
 
             _this5.apiService.createUser(_this5.signUpRequest).subscribe(function (res) {
+              _this5.apiServiceShophour.createUser(_this5.signUpRequest).subscribe(function (resShophour) {
+                console.log("shophour user", resShophour);
+              });
+
               console.log(res);
 
               _this5.uiElementService.dismissLoading();
@@ -414,9 +425,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"]
       }, {
+        type: _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]
+      }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
       }, {
-        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]
       }];
@@ -430,7 +443,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./register.page.scss */
       "./src/app/register/register.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])], RegisterPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])], RegisterPage);
     /***/
   },
 

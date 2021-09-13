@@ -642,9 +642,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_models_models_shop_hour_support_request_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/models/models-shop-hour/support-request.models */
-    "./src/models/models-shop-hour/support-request.models.ts");
+    var src_models_support_request_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/models/support-request.models */
+    "./src/models/support-request.models.ts");
     /* harmony import */
 
 
@@ -686,7 +686,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.apiService = apiService;
         this.subscriptions = new Array();
         var userMe = src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser();
-        this.supportRequest = new src_models_models_shop_hour_support_request_models__WEBPACK_IMPORTED_MODULE_2__["SupportRequest"](userMe.name, userMe.email);
+        this.supportRequest = new src_models_support_request_models__WEBPACK_IMPORTED_MODULE_2__["SupportRequest"](userMe.name, userMe.email);
       }
 
       _createClass(ContactUsPage, [{
@@ -753,7 +753,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]
       }];
     };
 
@@ -765,31 +765,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./contact-us.page.scss */
       "./src/app/shop-hour/contact-us/contact-us.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]])], ContactUsPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]])], ContactUsPage);
     /***/
-  },
-
-  /***/
-  "./src/models/models-shop-hour/support-request.models.ts": function srcModelsModelsShopHourSupportRequestModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "SupportRequest", function () {
-      return SupportRequest;
-    });
-
-    var SupportRequest = function SupportRequest(name, email) {
-      _classCallCheck(this, SupportRequest);
-
-      this.name = name;
-      this.email = email;
-      this.message = "";
-    };
-    /***/
-
   },
 
   /***/

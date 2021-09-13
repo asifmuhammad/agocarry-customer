@@ -178,9 +178,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
 
     var AboutUsPage = /*#__PURE__*/function () {
       function AboutUsPage() {
@@ -193,7 +193,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ionViewDidEnter",
         value: function ionViewDidEnter() {
-          this.about_us = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("about_us");
+          this.about_us = src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("about_us");
         }
       }]);
 

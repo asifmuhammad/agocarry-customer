@@ -366,15 +366,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_rate_request_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/models/models-shop-hour/rate-request.models */
-    "./src/models/models-shop-hour/rate-request.models.ts");
+    var src_models_rate_request_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/models/rate-request.models */
+    "./src/models/rate-request.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
     /* harmony import */
 
 
@@ -398,7 +398,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.uiElementService = uiElementService;
         this.apiService = apiService;
         this.subscriptions = new Array();
-        this.rateRequest = new src_models_models_shop_hour_rate_request_models__WEBPACK_IMPORTED_MODULE_5__["RateRequest"]();
+        this.rateRequest = new src_models_rate_request_models__WEBPACK_IMPORTED_MODULE_5__["RateRequest"]();
         console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
 
         if (this.router.getCurrentNavigation().extras.state) {
@@ -450,7 +450,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this3.subscriptions.push(_this3.apiService.postReviewProduct(_this3.product.id, _this3.rateRequest).subscribe(function (res) {
                 console.log("postReviewProduct", res);
-                src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_6__["Helper"].addReviewedProductId(String(_this3.order_id + String(_this3.product.id)));
+                src_models_helper_models__WEBPACK_IMPORTED_MODULE_6__["Helper"].addReviewedProductId(String(_this3.order_id + String(_this3.product.id)));
 
                 _this3.uiElementService.dismissLoading();
 
@@ -499,7 +499,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"]
       }];
     };
 
@@ -511,27 +511,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./add-review.page.scss */
       "./src/app/shop-hour/add-review/add-review.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"]])], AddReviewPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"]])], AddReviewPage);
     /***/
-  },
-
-  /***/
-  "./src/models/models-shop-hour/rate-request.models.ts": function srcModelsModelsShopHourRateRequestModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "RateRequest", function () {
-      return RateRequest;
-    });
-
-    var RateRequest = function RateRequest() {
-      _classCallCheck(this, RateRequest);
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=add-review-add-review-module-es5.js.map

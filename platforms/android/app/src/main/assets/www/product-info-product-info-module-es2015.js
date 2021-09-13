@@ -314,22 +314,6 @@ ProductInfoPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 
 
-/***/ }),
-
-/***/ "./src/models/category.models.ts":
-/*!***************************************!*\
-  !*** ./src/models/category.models.ts ***!
-  \***************************************/
-/*! exports provided: Category */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Category", function() { return Category; });
-class Category {
-}
-
-
 /***/ })
 
 }]);

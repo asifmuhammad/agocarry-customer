@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular'
+import { NavController, Platform } from '@ionic/angular'
 import { ActivatedRoute } from '@angular/router';
 import { UiElementsService } from '../services/common/ui-elements.service';
 import { MyEventsService } from '../services/events/my-events.service';
@@ -36,7 +36,7 @@ export class VerificationPage implements OnInit {
   otp = "";
 
   constructor(private route: ActivatedRoute, private uiElementService: UiElementsService, private myEvent: MyEventsService,
-    private platform: Platform, private apiService: ApiService, private translate: TranslateService) { }
+    private platform: Platform, private apiService: ApiService, private translate: TranslateService, private navCtrl:NavController) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => this.phoneNumberFull = params["phoneNumberFull"]);
@@ -58,6 +58,7 @@ export class VerificationPage implements OnInit {
         this.myEvent.setUserMeData(res.user);
         window.localStorage.removeItem(Constants.KEY_ADDRESS);
         this.myEvent.setAddressData(null);
+        this.navCtrl.navigateForward(['tabs/main-home']);    
       }, err => {
         console.log(err);
         this.uiElementService.dismissLoading();

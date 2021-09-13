@@ -211,8 +211,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-/* harmony import */ var src_models_models_shop_hour_rating_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/models-shop-hour/rating.models */ "./src/models/models-shop-hour/rating.models.ts");
-/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_models_rating_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/rating.models */ "./src/models/rating.models.ts");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/shoup-hour-services/common/ui-elements.service */ "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
 /* harmony import */ var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/shoup-hour-services/network/api.service */ "./src/app/services/shoup-hour-services/network/api.service.ts");
 
@@ -234,7 +234,7 @@ let ReviewsPage = class ReviewsPage {
         this.reviews = new Array();
     }
     ngOnInit() {
-        this.rating = src_models_models_shop_hour_rating_models__WEBPACK_IMPORTED_MODULE_4__["Rating"].getDefault();
+        this.rating = src_models_rating_models__WEBPACK_IMPORTED_MODULE_4__["Rating"].getDefault();
         console.log("getCurrentNavigation", this.router.getCurrentNavigation().extras.state);
         if (this.router.getCurrentNavigation().extras.state) {
             this.product = this.router.getCurrentNavigation().extras.state.product;
@@ -257,9 +257,9 @@ let ReviewsPage = class ReviewsPage {
         else {
             this.infiniteScrollEvent = event;
             this.subscriptions.push(this.apiService.getURL(this.nextUrl).subscribe(res => {
-                let locale = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLocale();
+                let locale = src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getLocale();
                 for (let review of res.data)
-                    review.created_at = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].formatTimestampDate(review.created_at, locale);
+                    review.created_at = src_models_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].formatTimestampDate(review.created_at, locale);
                 this.reviewsRes(res);
             }, err => this.reviewsErr(err)));
         }
@@ -284,7 +284,7 @@ ReviewsPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] },
     { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"] },
-    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"] }
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"] }
 ];
 ReviewsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -293,24 +293,24 @@ ReviewsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./reviews.page.scss */ "./src/app/shop-hour/reviews/reviews.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
-        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]])
+        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]])
 ], ReviewsPage);
 
 
 
 /***/ }),
 
-/***/ "./src/models/models-shop-hour/rating.models.ts":
-/*!******************************************************!*\
-  !*** ./src/models/models-shop-hour/rating.models.ts ***!
-  \******************************************************/
+/***/ "./src/models/rating.models.ts":
+/*!*************************************!*\
+  !*** ./src/models/rating.models.ts ***!
+  \*************************************/
 /*! exports provided: Rating */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rating", function() { return Rating; });
-/* harmony import */ var _rating_summary_models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rating-summary.models */ "./src/models/models-shop-hour/rating-summary.models.ts");
+/* harmony import */ var _rating_summary_models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rating-summary.models */ "./src/models/rating-summary.models.ts");
 
 class Rating {
     static getDefault() {

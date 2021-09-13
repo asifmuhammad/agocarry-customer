@@ -397,7 +397,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactUsPage", function() { return ContactUsPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_models_models_shop_hour_support_request_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/models/models-shop-hour/support-request.models */ "./src/models/models-shop-hour/support-request.models.ts");
+/* harmony import */ var src_models_support_request_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/models/support-request.models */ "./src/models/support-request.models.ts");
 /* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
@@ -419,7 +419,7 @@ let ContactUsPage = class ContactUsPage {
         this.apiService = apiService;
         this.subscriptions = new Array();
         let userMe = src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser();
-        this.supportRequest = new src_models_models_shop_hour_support_request_models__WEBPACK_IMPORTED_MODULE_2__["SupportRequest"](userMe.name, userMe.email);
+        this.supportRequest = new src_models_support_request_models__WEBPACK_IMPORTED_MODULE_2__["SupportRequest"](userMe.name, userMe.email);
     }
     ngOnInit() { }
     ngOnDestroy() {
@@ -451,7 +451,7 @@ ContactUsPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"] },
     { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"] },
     { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"] },
-    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"] }
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"] }
 ];
 ContactUsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -460,30 +460,9 @@ ContactUsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./contact-us.page.scss */ "./src/app/shop-hour/contact-us/contact-us.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"],
-        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]])
+        src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"]])
 ], ContactUsPage);
 
-
-
-/***/ }),
-
-/***/ "./src/models/models-shop-hour/support-request.models.ts":
-/*!***************************************************************!*\
-  !*** ./src/models/models-shop-hour/support-request.models.ts ***!
-  \***************************************************************/
-/*! exports provided: SupportRequest */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportRequest", function() { return SupportRequest; });
-class SupportRequest {
-    constructor(name, email) {
-        this.name = name;
-        this.email = email;
-        this.message = "";
-    }
-}
 
 
 /***/ }),

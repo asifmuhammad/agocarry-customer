@@ -125,8 +125,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_models_auth_signup_request_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/models/auth-signup-request.models */ "./src/models/auth-signup-request.models.ts");
 /* harmony import */ var _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/common/ui-elements.service */ "./src/app/services/common/ui-elements.service.ts");
 /* harmony import */ var _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/network/api.service */ "./src/app/services/network/api.service.ts");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
+/* harmony import */ var _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/shoup-hour-services/network/api.service */ "./src/app/services/shoup-hour-services/network/api.service.ts");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
+
 
 
 
@@ -137,10 +139,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let RegisterPage = class RegisterPage {
-    constructor(navCtrl, uiElementService, apiService, route, translate, alertCtrl) {
+    constructor(navCtrl, uiElementService, apiService, apiServiceShophour, route, translate, alertCtrl) {
         this.navCtrl = navCtrl;
         this.uiElementService = uiElementService;
         this.apiService = apiService;
+        this.apiServiceShophour = apiServiceShophour;
         this.route = route;
         this.translate = translate;
         this.alertCtrl = alertCtrl;
@@ -194,7 +197,7 @@ let RegisterPage = class RegisterPage {
     }
     alertPhone() {
         this.translate.get(['alert_phone', 'no', 'yes']).subscribe(text => {
-            this.phoneNumberFull = "+" + this.countryCode + src_models_helper_models__WEBPACK_IMPORTED_MODULE_8__["Helper"].formatPhone(this.phoneNumber);
+            this.phoneNumberFull = "+" + this.countryCode + src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__["Helper"].formatPhone(this.phoneNumber);
             this.alertCtrl.create({
                 header: this.phoneNumberFull,
                 message: text['alert_phone'],
@@ -219,6 +222,9 @@ let RegisterPage = class RegisterPage {
         this.translate.get('signing_up').subscribe(value => {
             this.uiElementService.presentLoading(value);
             this.apiService.createUser(this.signUpRequest).subscribe(res => {
+                this.apiServiceShophour.createUser(this.signUpRequest).subscribe(resShophour => {
+                    console.log("shophour user", resShophour);
+                });
                 console.log(res);
                 this.uiElementService.dismissLoading();
                 let navigationExtras = { queryParams: { phoneNumberFull: res.user.mobile_number } };
@@ -253,8 +259,9 @@ RegisterPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
     { type: _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"] },
     { type: _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"] },
+    { type: _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"] },
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
 ];
 RegisterPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -264,8 +271,8 @@ RegisterPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./register.page.scss */ "./src/app/register/register.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"],
-        _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
-        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
+        _services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiService"], _services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiServiceShopHour"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+        _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
 ], RegisterPage);
 
 

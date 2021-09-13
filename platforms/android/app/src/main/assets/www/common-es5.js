@@ -1218,15 +1218,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_order_request_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/models/models-shop-hour/order-request.models */
-    "./src/models/models-shop-hour/order-request.models.ts");
+    var src_models_order_request_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/models/order-request.models */
+    "./src/models/order-request.models.ts");
 
     var CartItem = /*#__PURE__*/function () {
       function CartItem() {
@@ -1438,9 +1438,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         key: "initialize",
         value: function initialize() {
           this.myCart = Cart.restore();
-          var tax_in_percent = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("tax_in_percent");
-          var delivery_fee = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("delivery_fee");
-          var currency_icon = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("currency_icon");
+          var tax_in_percent = src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("tax_in_percent");
+          var delivery_fee = src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("delivery_fee");
+          var currency_icon = src_models_helper_models__WEBPACK_IMPORTED_MODULE_2__["Helper"].getSetting("currency_icon");
           this.myCart.removeExtraCharge("delivery_fee");
           this.myCart.removeExtraCharge("tax_in_percent");
 
@@ -1635,7 +1635,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, {
         key: "setupOrderRequestBase",
         value: function setupOrderRequestBase() {
-          if (this.orderRequest == null) this.orderRequest = new src_models_models_shop_hour_order_request_models__WEBPACK_IMPORTED_MODULE_3__["OrderRequest"]();
+          if (this.orderRequest == null) this.orderRequest = new src_models_order_request_models__WEBPACK_IMPORTED_MODULE_3__["OrderRequest"]();
           if (this.orderMeta == null) this.orderMeta = {};
         }
       }, {
@@ -1794,6 +1794,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
+  "./src/models/category.models.ts": function srcModelsCategoryModelsTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Category", function () {
+      return Category;
+    });
+
+    var Category = function Category() {
+      _classCallCheck(this, Category);
+    };
+    /***/
+
+  },
+
+  /***/
   "./src/models/chat.models.ts": function srcModelsChatModelsTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
@@ -1889,27 +1908,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
 
   /***/
-  "./src/models/models-shop-hour/order-request.models.ts": function srcModelsModelsShopHourOrderRequestModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "OrderRequest", function () {
-      return OrderRequest;
-    });
-
-    var OrderRequest = function OrderRequest() {
-      _classCallCheck(this, OrderRequest);
-
-      this.products = new Array();
-    };
-    /***/
-
-  },
-
-  /***/
   "./src/models/product.models.ts": function srcModelsProductModelsTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
@@ -1923,6 +1921,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     var Product = function Product() {
       _classCallCheck(this, Product);
+    };
+    /***/
+
+  },
+
+  /***/
+  "./src/models/rate-request.models.ts": function srcModelsRateRequestModelsTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RateRequest", function () {
+      return RateRequest;
+    });
+
+    var RateRequest = function RateRequest() {
+      _classCallCheck(this, RateRequest);
     };
     /***/
 

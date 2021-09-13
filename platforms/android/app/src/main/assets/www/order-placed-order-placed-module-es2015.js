@@ -131,7 +131,7 @@ let OrderPlacedPage = class OrderPlacedPage {
     ngOnInit() {
     }
     navHome() {
-        this.navCtrl.navigateRoot(['./tabs']);
+        this.navCtrl.navigateRoot(['./tabs/main-home']);
     }
     navMyOrders() {
         this.navHome();

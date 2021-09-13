@@ -210,7 +210,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/models-shop-hour/helper.models */ "./src/models/models-shop-hour/helper.models.ts");
+/* harmony import */ var src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/models/helper.models */ "./src/models/helper.models.ts");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
@@ -236,7 +236,7 @@ let CartPage = class CartPage {
         this.apiService = apiService;
         this.subscriptions = new Array();
         this.fabAction = false;
-        this.currency_icon = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getSetting("currency_icon");
+        this.currency_icon = src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getSetting("currency_icon");
         this.eComService.removeCoupon();
     }
     ngOnInit() {
@@ -247,7 +247,7 @@ let CartPage = class CartPage {
         this.uiElementService.dismissLoading();
     }
     verifyCoupon() {
-        if (src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
+        if (src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
             if (this.couponCode && this.couponCode.length) {
                 this.translate.get(["verifying", "invalid_coupon"]).subscribe(values => {
                     this.uiElementService.presentLoading(values["verifying"]);
@@ -285,7 +285,7 @@ let CartPage = class CartPage {
         this.fabAction = !this.fabAction;
     }
     navAddressSelection() {
-        if (src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
+        if (src_models_helper_models__WEBPACK_IMPORTED_MODULE_3__["Helper"].getLoggedInUser() != null) {
             this.navCtrl.navigateForward(['tabs/main-home/shop-hour/select-address']);
         }
         else {
@@ -303,7 +303,7 @@ CartPage.ctorParameters = () => [
     { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"] },
     { type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_6__["ECommerceService"] },
     { type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"] },
-    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"] }
+    { type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"] }
 ];
 CartPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -312,7 +312,7 @@ CartPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./cart.page.scss */ "./src/app/shop-hour/cart/cart.page.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
-        src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_6__["ECommerceService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiService"]])
+        src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_6__["ECommerceService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_7__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_8__["ApiServiceShopHour"]])
 ], CartPage);
 
 

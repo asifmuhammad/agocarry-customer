@@ -360,39 +360,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/models/models-shop-hour/constants.models */
-    "./src/models/models-shop-hour/constants.models.ts");
+    var src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/models/constants.models */
+    "./src/models/constants.models.ts");
     /* harmony import */
 
 
-    var src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/models/models-shop-hour/helper.models */
-    "./src/models/models-shop-hour/helper.models.ts");
-    /* harmony import */
-
-
-    var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/services/shoup-hour-services/common/ui-elements.service */
     "./src/app/services/shoup-hour-services/common/ui-elements.service.ts");
     /* harmony import */
 
 
-    var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/services/shoup-hour-services/network/api.service */
     "./src/app/services/shoup-hour-services/network/api.service.ts");
     /* harmony import */
 
 
-    var src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/services/shoup-hour-services/common/ecommerce.service */
     "./src/app/services/shoup-hour-services/common/ecommerce.service.ts");
     /* harmony import */
 
 
-    var src_app_shophour_config__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_shophour_config__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/shophour.config */
     "./src/app/shophour.config.ts");
+    /* harmony import */
+
+
+    var src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/models/helper.models */
+    "./src/models/helper.models.ts");
 
     var SearchPage = /*#__PURE__*/function () {
       function SearchPage(config, navCtrl, translate, uiElementService, apiService, eComService) {
@@ -416,7 +416,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _this3.loadCategories();
         });
-        this.searchHistory = src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].getSearchHistory();
+        this.searchHistory = src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__["Helper"].getSearchHistoryShopHour();
       }
 
       _createClass(SearchPage, [{
@@ -440,14 +440,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.uiElementService.dismissLoading();
-          src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].setSearchHistory(this.searchHistory);
+          src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__["Helper"].setSearchHistoryShopHour(this.searchHistory);
         }
       }, {
         key: "loadCategories",
         value: function loadCategories() {
           var _this4 = this;
 
-          this.subscriptions.push(this.apiService.getCategoriesParents(src_models_models_shop_hour_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].SCOPE_ECOMMERCE).subscribe(function (res) {
+          this.subscriptions.push(this.apiService.getCategoriesParents(src_models_constants_models__WEBPACK_IMPORTED_MODULE_4__["Constants"].SCOPE_ECOMMERCE).subscribe(function (res) {
             _this4.categories = res;
 
             _this4.uiElementService.dismissLoading();
@@ -491,7 +491,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.uiElementService.dismissLoading();
           if (res.data && res.data.length) if (!this.searchHistory.includes(this.lastSearchString)) this.searchHistory.unshift(this.lastSearchString);
           if (this.searchHistory.length > 3) this.searchHistory.splice(3, 1);
-          src_models_models_shop_hour_helper_models__WEBPACK_IMPORTED_MODULE_5__["Helper"].setSearchHistory(this.searchHistory);
+          src_models_helper_models__WEBPACK_IMPORTED_MODULE_9__["Helper"].setSearchHistoryShopHour(this.searchHistory);
         }
       }, {
         key: "productsErr",
@@ -564,18 +564,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: undefined,
         decorators: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-          args: [src_app_shophour_config__WEBPACK_IMPORTED_MODULE_9__["APP_CONFIG_ShopHour"]]
+          args: [src_app_shophour_config__WEBPACK_IMPORTED_MODULE_8__["APP_CONFIG_ShopHour"]]
         }]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"]
       }, {
         type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]
       }, {
-        type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"]
+        type: src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"]
       }, {
-        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"]
+        type: src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiServiceShopHour"]
       }, {
-        type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_8__["ECommerceService"]
+        type: src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__["ECommerceService"]
       }];
     };
 
@@ -587,7 +587,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./search.page.scss */
       "./src/app/shop-hour/search/search.page.scss"))["default"]]
-    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(src_app_shophour_config__WEBPACK_IMPORTED_MODULE_9__["APP_CONFIG_ShopHour"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_8__["ECommerceService"]])], SearchPage);
+    }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(src_app_shophour_config__WEBPACK_IMPORTED_MODULE_8__["APP_CONFIG_ShopHour"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], src_app_services_shoup_hour_services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_5__["UiElementsService"], src_app_services_shoup_hour_services_network_api_service__WEBPACK_IMPORTED_MODULE_6__["ApiServiceShopHour"], src_app_services_shoup_hour_services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_7__["ECommerceService"]])], SearchPage);
     /***/
   }
 }]);

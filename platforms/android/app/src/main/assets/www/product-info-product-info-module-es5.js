@@ -499,25 +499,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       "./src/app/product-info/product-info.page.scss"))["default"]]
     }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["NavController"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"], _ionic_native_photo_viewer_ngx__WEBPACK_IMPORTED_MODULE_12__["PhotoViewer"], _services_common_ui_elements_service__WEBPACK_IMPORTED_MODULE_6__["UiElementsService"], _services_network_api_service__WEBPACK_IMPORTED_MODULE_7__["ApiService"], _services_common_ecommerce_service__WEBPACK_IMPORTED_MODULE_8__["ECommerceService"]])], ProductInfoPage);
     /***/
-  },
-
-  /***/
-  "./src/models/category.models.ts": function srcModelsCategoryModelsTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "Category", function () {
-      return Category;
-    });
-
-    var Category = function Category() {
-      _classCallCheck(this, Category);
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=product-info-product-info-module-es5.js.map
